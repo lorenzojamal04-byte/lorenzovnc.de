@@ -100,7 +100,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);bord
 .exp-period{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--warm-grey);margin-bottom:1.5rem;}
 .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
 .exp-bullets li{font-size:.88rem;color:#A09890;line-height:1.6;padding-left:1.2rem;position:relative;}
-.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--kodak);font-size:.75rem;}
+.exp-bullets li::before{content:'◆';position:absolute;left:0;color:var(--terracotta);font-size:.45rem;top:.35em;}
 
 /* TESTIMONIALS */
 .testimonials-section{background:var(--cream);padding:6rem 5rem;}
@@ -231,7 +231,7 @@ footer span{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1
   .exp-grid{grid-template-columns:1fr;gap:.5rem;}.comp-grid{grid-template-columns:repeat(2,1fr);}
   .testimonials-grid{grid-template-columns:1fr;}
   .exp-card{background:#f5f5f5;border-top-color:#C4522A!important;}
-  .exp-org{color:#C4522A;}.exp-role,.exp-period,.exp-bullets li{color:#333;}.exp-bullets li::before{color:#C4522A;}
+  .exp-org{color:#C4522A;}.exp-role,.exp-period,.exp-bullets li{color:#333;}.exp-bullets li::before{color:#C4522A;font-size:.45rem;}
   .competencies-section{background:#f0f0f0;}.comp-card{background:white;border:1px solid #ddd;}
   .comp-name{color:#C4522A;}.comp-desc,.comp-icon{color:#555;}
   .experience-section{background:white;}.section-heading{color:black!important;font-size:1.8rem;}
@@ -443,20 +443,7 @@ footer span{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1
   <div class="contact-inner">
     <div>
       <h2 class="contact-heading reveal" data-key="con_heading">Let&rsquo;s Build<br>Something <em>Remarkable</em></h2>
-      <div class="contact-details-list reveal">
-        <div class="contact-detail-item">
-          <span class="contact-detail-label" data-key="con_email_label">Email</span>
-          <a href="/cdn-cgi/l/email-protection#45292a37202b3f2a2f242824297571052228242c296b262a28" class="contact-detail-value"><span class="__cf_email__" data-cfemail="d0bcbfa2b5beaabfbab1bdb1bce0e490b7bdb1b9bcfeb3bfbd">[email&#160;protected]</span></a>
-        </div>
-        <div class="contact-detail-item">
-          <span class="contact-detail-label" data-key="con_phone_label">Phone</span>
-          <a href="tel:+4917645608913" class="contact-detail-value">+49 176 45608913</a>
-        </div>
-        <div class="contact-detail-item">
-          <span class="contact-detail-label" data-key="con_loc_label">Location</span>
-          <span class="contact-detail-value" data-key="con_loc_val">Geisenheim, Rheingau &middot; Germany</span>
-        </div>
-      </div>
+
       <div class="contact-cta-row reveal">
         <button onclick="openPDF()" class="btn-cv" data-key="con_cta_cv">&#8595; Download CV</button>
         <a href="tracker.html" class="btn-secondary" data-key="con_cta_tracker">&#9632; App Tracker</a>
@@ -475,7 +462,7 @@ footer span{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1
         </div>
         <div class="form-group">
           <label class="form-label" data-key="form_subject_label">Subject</label>
-          <input type="text" name="subject" class="form-input" placeholder="Inquiry &mdash; Rheingau Musik Festival">
+          <input type="text" name="subject" class="form-input" placeholder="Inquiry">
         </div>
         <div class="form-group">
           <label class="form-label" data-key="form_msg_label">Message</label>
