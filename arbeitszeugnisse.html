@@ -173,7 +173,8 @@ nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;al
 
 <script>
 var PIN = 'l48uM,k17Z,_f-_,L1';
-var unlocked = sessionStorage.getItem('az_unlocked') === '1';
+var RECRUITER_PIN = 'Rheingau2025';
+var unlocked = sessionStorage.getItem('lvnc_unlocked') === '1' || sessionStorage.getItem('az_unlocked') === '1';
 var currentDoc = null;
 
 var DOCS = {
@@ -192,7 +193,7 @@ document.getElementById('pin-input').addEventListener('keydown', function(e){
 
 function checkPin(){
   var val = document.getElementById('pin-input').value;
-  if(val === PIN){
+  if(val === PIN || val === RECRUITER_PIN){
     sessionStorage.setItem('az_unlocked','1');
     document.getElementById('pin-screen').style.display='none';
     document.getElementById('main-content').classList.add('show');

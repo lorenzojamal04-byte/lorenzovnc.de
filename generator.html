@@ -169,6 +169,11 @@ main{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-tem
 var genLang = 'en';
 var genMode = 'ai';
 
+// Session check
+if(sessionStorage.getItem('lvnc_unlocked') !== '1'){
+  window.location.href = 'index.html';
+}
+
 function setMode(m){
   genMode = m;
   document.getElementById('tab-ai').classList.toggle('active', m==='ai');

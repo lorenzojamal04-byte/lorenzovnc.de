@@ -161,6 +161,9 @@ main{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem;}
 </main>
 
 <script>
+// Session check
+(function(){ if(sessionStorage.getItem('lvnc_unlocked') !== '1') window.location.href='index.html'; })();
+
 var QUESTIONS = [
   // GENERAL / MOTIVATION
   {id:1, cat:"Motivation", en:"Why do you want to work in event management?", de:"Warum m\u00f6chten Sie im Veranstaltungsmanagement arbeiten?", answer:"I\u2019ve been drawn to events since my time as a trumpet player \u2014 I understand both sides of the stage. What excites me is that events are where culture becomes tangible. You can plan perfectly and still need to adapt in the moment. That combination of precision and live improvisation is exactly where I work best. My time at Kunsthalle Darmstadt and Konfuzius-Institut confirmed this \u2014 I left both roles more energised than I arrived."},

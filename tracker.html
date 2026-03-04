@@ -226,9 +226,9 @@ var sortKey = "date";
 var sortDir = -1;
 var expandedRows = {};
 
-// PIN CHECK
+// PIN CHECK — accepts shared backend session OR direct PIN entry
 (function(){
-  if(sessionStorage.getItem("tracker_unlocked") === "1"){
+  if(sessionStorage.getItem("lvnc_unlocked") === "1" || sessionStorage.getItem("tracker_unlocked") === "1"){
     document.getElementById("pin-screen").style.display = "none";
     document.getElementById("main-content").classList.add("show");
   }
@@ -240,7 +240,7 @@ var expandedRows = {};
 function checkPin(){
   var val = document.getElementById("pin-input").value;
   if(val === PIN){
-    sessionStorage.setItem("tracker_unlocked","1");
+    sessionStorage.setItem("lvnc_unlocked","1");
     document.getElementById("pin-screen").style.display = "none";
     document.getElementById("main-content").classList.add("show");
     render(); updateStats();

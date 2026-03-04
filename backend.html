@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backend | LvNC</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;--warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+/* CUSTOM CURSOR */
+*, a, button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cline x1='10' y1='0' x2='10' y2='20' stroke='%23F5C800' stroke-width='1.5'/%3E%3Cline x1='0' y1='10' x2='20' y2='10' stroke='%23F5C800' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23F5C800'/%3E%3C/svg%3E") 10 10, crosshair !important;}
+
+body{background:var(--black);color:var(--cream);font-family:"Playfair Display",serif;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px;}
+
+nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;letter-spacing:.15em;color:var(--kodak);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.nav-badge{font-family:"Space Mono",monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;background:var(--terracotta);color:white;padding:.2rem .7rem;}
+.nav-back{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:.4rem .9rem;transition:all .2s;}
+.nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
+
+main{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem;}
+
+/* HEADER */
+.dash-header{margin-bottom:4rem;display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;}
+.dash-eyebrow{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem;}
+.dash-eyebrow::before{content:"";display:inline-block;width:30px;height:2px;background:var(--terracotta);}
+.dash-heading{font-family:"Abril Fatface",serif;font-size:clamp(3rem,6vw,5rem);line-height:.92;color:var(--cream);}
+.dash-heading span{color:var(--kodak);}
+.dash-time{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.15em;color:#333;text-align:right;}
+.dash-date{font-family:"Bebas Neue",sans-serif;font-size:1.8rem;letter-spacing:.1em;color:#222;line-height:1;}
+
+/* STATS STRIP */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:4rem;}
+.stat-tile{background:#111;padding:1.5rem;border-top:3px solid #222;}
+.stat-tile.highlight{border-top-color:var(--kodak);}
+.stat-n{font-family:"Abril Fatface",serif;font-size:2.5rem;color:var(--kodak);line-height:1;}
+.stat-tile:not(.highlight) .stat-n{color:#333;}
+.stat-l{font-family:"Space Mono",monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-grey);margin-top:.3rem;}
+.stat-sub{font-family:"Space Mono",monospace;font-size:.5rem;color:#333;margin-top:.2rem;}
+
+/* TOOL GRID */
+.tools-label{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--warm-grey);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;}
+.tools-label::after{content:"";flex:1;height:1px;background:#1a1a1a;}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:4rem;}
+.tool-tile{background:#111;padding:2.5rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;border-top:4px solid #222;transition:border-color .25s,background .25s;position:relative;overflow:hidden;}
+.tool-tile::before{content:"";position:absolute;inset:0;background:var(--kodak);opacity:0;transition:opacity .25s;}
+.tool-tile:hover{border-top-color:var(--kodak);background:#161410;}
+.tool-tile:hover .tool-arrow{color:var(--kodak);transform:translateX(6px);}
+.tool-tile:hover .tool-num{color:var(--kodak);}
+.tool-tile.accent{border-top-color:var(--terracotta);}
+.tool-tile.accent:hover{border-top-color:var(--terracotta);background:#160a08;}
+.tool-tile.accent:hover .tool-arrow{color:var(--terracotta);}
+.tool-tile.accent:hover .tool-num{color:var(--terracotta);}
+.tool-top{position:relative;z-index:1;}
+.tool-num{font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.25em;color:#333;margin-bottom:1rem;transition:color .25s;}
+.tool-name{font-family:"Bebas Neue",sans-serif;font-size:2rem;letter-spacing:.08em;color:var(--cream);line-height:1;margin-bottom:.6rem;}
+.tool-desc{font-family:"Space Mono",monospace;font-size:.62rem;line-height:1.7;color:#555;letter-spacing:.05em;}
+.tool-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1;margin-top:1.5rem;}
+.tool-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
+.tool-tag{font-family:"Space Mono",monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid #222;padding:.15rem .5rem;color:#444;}
+.tool-arrow{font-size:1.2rem;color:#2a2a2a;transition:color .25s,transform .25s;}
+
+/* QUICK ACTIONS */
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:4rem;}
+.quick-tile{background:#111;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #1a1a1a;transition:border-color .2s;display:flex;align-items:center;gap:1rem;}
+.quick-tile:hover{border-color:var(--kodak);}
+.quick-icon{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;color:#2a2a2a;flex-shrink:0;transition:color .2s;width:40px;text-align:center;}
+.quick-tile:hover .quick-icon{color:var(--kodak);}
+.quick-name{font-family:"Space Mono",monospace;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-grey);}
+.quick-sub{font-family:"Space Mono",monospace;font-size:.52rem;color:#444;margin-top:.2rem;}
+
+/* FOOTER STRIP */
+.dash-footer{border-top:1px solid #1a1a1a;padding-top:2rem;display:flex;justify-content:space-between;align-items:center;}
+.dash-footer-l{font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.12em;color:#333;}
+.btn-logout{font-family:"Space Mono",monospace;font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.4rem .9rem;border:1.5px solid #222;background:transparent;color:#333;transition:all .2s;}
+.btn-logout:hover{border-color:var(--terracotta);color:var(--terracotta);}
+
+@media(max-width:800px){
+  .tools-grid{grid-template-columns:1fr;}
+  .stats-strip{grid-template-columns:repeat(2,1fr);}
+  .quick-grid{grid-template-columns:1fr 1fr;}
+  .dash-header{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LvNC</a>
+  <div class="nav-right">
+    <span class="nav-badge">&#9632; Private Backend</span>
+    <a href="index.html" class="nav-back">&larr; Portfolio</a>
+  </div>
+</nav>
+
+<main>
+  <div class="dash-header">
+    <div>
+      <div class="dash-eyebrow">Private Dashboard</div>
+      <h1 class="dash-heading">Your<br><span>Workspace</span></h1>
+    </div>
+    <div>
+      <div class="dash-date" id="dash-date"></div>
+      <div class="dash-time" id="dash-time"></div>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip" id="stats-strip">
+    <div class="stat-tile highlight"><div class="stat-n" id="stat-total">0</div><div class="stat-l">Applications</div><div class="stat-sub">tracked total</div></div>
+    <div class="stat-tile"><div class="stat-n" id="stat-interview">0</div><div class="stat-l">Interviews</div><div class="stat-sub">in progress</div></div>
+    <div class="stat-tile"><div class="stat-n" id="stat-due">0</div><div class="stat-l">Follow-ups Due</div><div class="stat-sub">need attention</div></div>
+    <div class="stat-tile"><div class="stat-n" id="stat-offer">0</div><div class="stat-l">Offers</div><div class="stat-sub">received</div></div>
+  </div>
+
+  <!-- MAIN TOOLS -->
+  <div class="tools-label">Tools</div>
+  <div class="tools-grid">
+    <a href="generator.html" class="tool-tile">
+      <div class="tool-top">
+        <div class="tool-num">01 &mdash; AI-POWERED</div>
+        <div class="tool-name">Cover Letter<br>Generator</div>
+        <div class="tool-desc">Claude AI writes fully tailored cover letters from job descriptions. Paste the posting, get a unique letter. Templates also available in EN &amp; DE.</div>
+      </div>
+      <div class="tool-bottom">
+        <div class="tool-tags"><span class="tool-tag">Claude AI</span><span class="tool-tag">EN / DE</span><span class="tool-tag">6 Tones</span></div>
+        <span class="tool-arrow">&rarr;</span>
+      </div>
+    </a>
+    <a href="tracker.html" class="tool-tile">
+      <div class="tool-top">
+        <div class="tool-num">02 &mdash; TRACKING</div>
+        <div class="tool-name">Application<br>Tracker</div>
+        <div class="tool-desc">Table and Kanban views. Log every application, track status changes, add timeline notes per application, export to CSV.</div>
+      </div>
+      <div class="tool-bottom">
+        <div class="tool-tags"><span class="tool-tag">Table</span><span class="tool-tag">Kanban</span><span class="tool-tag">CSV Export</span></div>
+        <span class="tool-arrow">&rarr;</span>
+      </div>
+    </a>
+    <a href="interview.html" class="tool-tile">
+      <div class="tool-top">
+        <div class="tool-num">03 &mdash; PREPARATION</div>
+        <div class="tool-name">Interview<br>Prep</div>
+        <div class="tool-desc">20 questions across 6 categories in English and German. Flashcard mode, personal answer notes, mastery tracking. Built for event management roles.</div>
+      </div>
+      <div class="tool-bottom">
+        <div class="tool-tags"><span class="tool-tag">20 Questions</span><span class="tool-tag">EN / DE</span><span class="tool-tag">Flashcards</span></div>
+        <span class="tool-arrow">&rarr;</span>
+      </div>
+    </a>
+    <a href="arbeitszeugnisse.html" class="tool-tile accent">
+      <div class="tool-top">
+        <div class="tool-num">04 &mdash; REFERENCES</div>
+        <div class="tool-name">Arbeits&shy;zeugnisse</div>
+        <div class="tool-desc">Official reference documents from Kunsthalle Darmstadt and Konfuzius-Institut Frankfurt. Share the recruiter access link directly with hiring managers.</div>
+      </div>
+      <div class="tool-bottom">
+        <div class="tool-tags"><span class="tool-tag">2 Documents</span><span class="tool-tag">PDF Preview</span><span class="tool-tag">Recruiter PIN</span></div>
+        <span class="tool-arrow">&rarr;</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="tools-label">Quick Access</div>
+  <div class="quick-grid">
+    <a href="index.html" class="quick-tile">
+      <div class="quick-icon">&#9632;</div>
+      <div><div class="quick-name">Portfolio</div><div class="quick-sub">lorenzovnc.de</div></div>
+    </a>
+    <a href="index.html#contact" class="quick-tile">
+      <div class="quick-icon">&#9993;</div>
+      <div><div class="quick-name">Contact Form</div><div class="quick-sub">Check for new messages</div></div>
+    </a>
+    <a href="index.html" onclick="event.preventDefault();window.open('Lorenzo_vonNeumannCosel_CV_2026.pdf')" class="quick-tile">
+      <div class="quick-icon">&#8595;</div>
+      <div><div class="quick-name">Download CV</div><div class="quick-sub">Lorenzo_vonNeumannCosel_CV_2026.pdf</div></div>
+    </a>
+  </div>
+
+  <div class="dash-footer">
+    <span class="dash-footer-l">Session active &middot; lorenzovnc.de backend &middot; Private</span>
+    <button class="btn-logout" onclick="logout()">End Session &rarr;</button>
+  </div>
+</main>
+
+<script>
+// Check session
+if(sessionStorage.getItem("lvnc_unlocked") !== "1"){
+  window.location.href = "index.html";
+}
+
+// Date & time
+function updateClock(){
+  var now = new Date();
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  document.getElementById("dash-date").textContent = days[now.getDay()].toUpperCase() + " " + now.getDate() + " " + months[now.getMonth()];
+  var h = now.getHours(), m = now.getMinutes();
+  document.getElementById("dash-time").textContent = (h<10?"0"+h:h) + ":" + (m<10?"0"+m:m);
+}
+updateClock();
+setInterval(updateClock, 10000);
+
+// Load tracker stats
+(function(){
+  try {
+    var apps = JSON.parse(localStorage.getItem("lvnc_apps") || "[]");
+    var counts = {Applied:0,Interview:0,Offer:0,Rejected:0,Waiting:0};
+    var due = 0;
+    var today = new Date(); today.setHours(0,0,0,0);
+    apps.forEach(function(a){
+      if(counts[a.status] !== undefined) counts[a.status]++;
+      if(a.followup && new Date(a.followup) <= today) due++;
+    });
+    document.getElementById("stat-total").textContent = apps.length;
+    document.getElementById("stat-interview").textContent = counts.Interview;
+    document.getElementById("stat-due").textContent = due;
+    document.getElementById("stat-offer").textContent = counts.Offer;
+    if(due > 0) document.getElementById("stat-due").style.color = "#C4522A";
+  } catch(e){}
+})();
+
+function logout(){
+  sessionStorage.removeItem("lvnc_unlocked");
+  window.location.href = "index.html";
+}
+</script>
+</body>
+</html>
