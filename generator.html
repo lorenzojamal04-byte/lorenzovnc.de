@@ -5,50 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cover Letter Generator | Lorenzo von Neumann-Cosel</title>
 <meta name="robots" content="noindex, nofollow">
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{--kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;--warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;}
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--black);color:var(--cream);font-family:'Playfair Display',serif;min-height:100vh;}
-  nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
-  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.15em;color:var(--kodak);text-decoration:none;}
-  .nav-back{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:0.4rem 0.9rem;transition:all 0.2s;}
-  .nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
-  .nav-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
-  .private-badge{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--terracotta);color:white;padding:0.2rem 0.6rem;}
+:root{--kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;--warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--cream);font-family:'Playfair Display',serif;min-height:100vh;}
+nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.15em;color:var(--kodak);text-decoration:none;}
+.nav-back{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:0.4rem 0.9rem;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
+.nav-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
+.private-badge{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--terracotta);color:white;padding:0.2rem 0.6rem;}
+main{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start;}
 
-  main{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;}
+/* MODE TABS */
+.mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:1.5rem;}
+.mode-tab{padding:0.7rem;text-align:center;font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;background:#1a1a1a;color:#555;border:none;transition:all 0.2s;}
+.mode-tab.active{background:var(--kodak);color:var(--black);font-weight:700;}
+.mode-tab:hover:not(.active){color:var(--warm-grey);}
 
-  /* INPUT PANEL */
-  .input-panel{background:#111;border:1px solid #2a2a2a;padding:2rem;}
-  .panel-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--kodak);margin-bottom:1.5rem;}
-  .form-group{margin-bottom:1.2rem;}
-  .form-label{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);display:block;margin-bottom:0.5rem;}
-  .form-input,.form-select,.form-textarea{width:100%;background:#0D0D0D;border:1px solid #333;color:var(--cream);font-family:'Space Mono',monospace;font-size:0.78rem;padding:0.65rem 0.9rem;outline:none;transition:border-color 0.2s;}
-  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--kodak);}
-  .form-textarea{resize:vertical;min-height:80px;}
-  .form-select option{background:#0D0D0D;}
-  .lang-group{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:1.5rem;}
-  .lang-opt{padding:0.65rem;text-align:center;font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;background:#1a1a1a;color:#666;border:none;transition:all 0.2s;}
-  .lang-opt.active{background:var(--kodak);color:var(--black);font-weight:700;}
-  .btn-gen{width:100%;background:var(--kodak);color:var(--black);font-family:'Space Mono',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.9rem;border:none;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;}
-  .btn-gen:hover{background:var(--kodak-deep);}
+.input-panel{background:#111;border:1px solid #2a2a2a;padding:2rem;}
+.panel-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--kodak);margin-bottom:1.5rem;}
+.form-group{margin-bottom:1.2rem;}
+.form-label{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);display:block;margin-bottom:0.5rem;}
+.form-input,.form-select,.form-textarea{width:100%;background:#0D0D0D;border:1px solid #333;color:var(--cream);font-family:'Space Mono',monospace;font-size:0.78rem;padding:0.65rem 0.9rem;outline:none;transition:border-color 0.2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--kodak);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-select option{background:#0D0D0D;}
+.lang-group{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:1.5rem;}
+.lang-opt{padding:0.65rem;text-align:center;font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;background:#1a1a1a;color:#666;border:none;transition:all 0.2s;}
+.lang-opt.active{background:var(--kodak);color:var(--black);font-weight:700;}
+.btn-gen{width:100%;background:var(--kodak);color:var(--black);font-family:'Space Mono',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.9rem;border:none;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;}
+.btn-gen:hover{background:var(--kodak-deep);}
+.btn-gen:disabled{background:#333;color:#666;cursor:not-allowed;}
+.ai-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.15em;background:var(--terracotta);color:white;padding:0.15rem 0.5rem;margin-left:0.5rem;vertical-align:middle;}
+.ai-note{font-family:'Space Mono',monospace;font-size:0.55rem;color:#444;line-height:1.6;margin-top:0.8rem;padding:0.8rem;border:1px solid #222;background:#0a0a0a;}
 
-  /* OUTPUT PANEL */
-  .output-panel{position:sticky;top:78px;}
-  .output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
-  .output-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
-  .output-actions{display:flex;gap:0.6rem;}
-  .btn-copy,.btn-dl{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;}
-  .btn-copy:hover{border-color:var(--kodak);color:var(--kodak);}
-  .btn-dl:hover{border-color:var(--terracotta);color:var(--terracotta);}
-  .letter-box{background:#0D0D0D;border:1px solid #2a2a2a;padding:2.5rem;min-height:500px;font-family:'Playfair Display',serif;font-size:0.95rem;line-height:1.9;color:#C8C2B4;white-space:pre-wrap;outline:none;}
-  .letter-box[contenteditable="true"]{border-color:#333;}
-  .letter-box:focus{border-color:var(--kodak);}
-  .placeholder-state{font-family:'Space Mono',monospace;font-size:0.7rem;color:#333;text-align:center;padding:4rem 2rem;letter-spacing:0.1em;}
-  .char-count{font-family:'Space Mono',monospace;font-size:0.55rem;color:#444;margin-top:0.6rem;text-align:right;}
+/* OUTPUT */
+.output-panel{position:sticky;top:78px;}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.output-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
+.output-actions{display:flex;gap:0.6rem;}
+.btn-copy,.btn-dl{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;}
+.btn-copy:hover{border-color:var(--kodak);color:var(--kodak);}
+.btn-dl:hover{border-color:var(--terracotta);color:var(--terracotta);}
+.letter-box{background:#0D0D0D;border:1px solid #2a2a2a;padding:2.5rem;min-height:520px;font-family:'Playfair Display',serif;font-size:0.95rem;line-height:1.9;color:#C8C2B4;white-space:pre-wrap;outline:none;position:relative;}
+.letter-box[contenteditable="true"]:focus{border-color:var(--kodak);}
+.placeholder-state{font-family:'Space Mono',monospace;font-size:0.7rem;color:#333;text-align:center;padding:4rem 2rem;letter-spacing:0.1em;}
+.char-count{font-family:'Space Mono',monospace;font-size:0.55rem;color:#444;margin-top:0.6rem;text-align:right;}
 
-  @media(max-width:900px){main{grid-template-columns:1fr;}.output-panel{position:static;}}
+/* LOADING */
+.loading-overlay{display:none;position:absolute;inset:0;background:rgba(13,13,13,0.92);align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.loading-overlay.show{display:flex;}
+.loading-dots{display:flex;gap:0.5rem;}
+.loading-dots span{width:8px;height:8px;background:var(--kodak);animation:pulse 1.2s ease-in-out infinite;}
+.loading-dots span:nth-child(2){animation-delay:0.2s;}
+.loading-dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes pulse{0%,80%,100%{opacity:0.2;transform:scale(0.8);}40%{opacity:1;transform:scale(1);}}
+.loading-text{font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;color:var(--kodak);text-transform:uppercase;}
+
+@media(max-width:900px){main{grid-template-columns:1fr;}.output-panel{position:static;}}
 </style>
 </head>
 <body>
@@ -62,11 +78,16 @@
 </nav>
 
 <main>
-  <!-- INPUT -->
   <div class="input-panel">
     <p class="panel-title">Application Details</p>
 
-    <div style="margin-bottom:1.2rem;">
+    <!-- MODE TABS -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="tab-ai" onclick="setMode('ai')">AI-Powered <span class="ai-badge">Claude</span></button>
+      <button class="mode-tab" id="tab-template" onclick="setMode('template')">Templates</button>
+    </div>
+
+    <div class="form-group">
       <p class="form-label">Language</p>
       <div class="lang-group">
         <button class="lang-opt active" id="opt-en" onclick="setGenLang('en')">English</button>
@@ -87,26 +108,42 @@
       <input type="text" class="form-input" id="g-manager" placeholder="Frau Hoffmann">
     </div>
     <div class="form-group">
-      <label class="form-label">City / Location of Company</label>
-      <input type="text" class="form-input" id="g-city" placeholder="Geisenheim">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Key Requirements / Notes</label>
-      <textarea class="form-textarea" id="g-notes" placeholder="Focus on festival logistics, mention international artist experience, bilingual required..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Tone</label>
-      <select class="form-select" id="g-tone">
-        <option value="formal">Formal & Traditional</option>
-        <option value="warm" selected>Professional & Warm</option>
-        <option value="creative">Creative & Bold</option>
-      </select>
+      <label class="form-label">Job Description / Key Requirements</label>
+      <textarea class="form-textarea" id="g-jd" placeholder="Paste the job posting here for a fully tailored AI letter. The more detail you provide, the better the output..."></textarea>
     </div>
 
-    <button class="btn-gen" onclick="generateLetter()">Generate Cover Letter &rarr;</button>
+    <!-- AI MODE EXTRAS -->
+    <div id="ai-extras">
+      <div class="form-group">
+        <label class="form-label">Tone</label>
+        <select class="form-select" id="g-tone-ai">
+          <option value="formal">Formal &amp; Traditional</option>
+          <option value="warm" selected>Professional &amp; Warm</option>
+          <option value="creative">Creative &amp; Bold</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Anything specific to emphasise?</label>
+        <textarea class="form-textarea" id="g-extra" placeholder="e.g. Emphasise my festival logistics experience, mention I am available from September..." style="min-height:60px;"></textarea>
+      </div>
+      <button class="btn-gen" id="btn-generate" onclick="generateAI()">Generate with Claude AI &rarr;</button>
+      <p class="ai-note">Claude AI writes a fully unique letter tailored to this specific job. It uses your real experience, the job description you paste, and your emphasis notes. Each letter is original &mdash; not a template.</p>
+    </div>
+
+    <!-- TEMPLATE MODE EXTRAS -->
+    <div id="template-extras" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">Tone</label>
+        <select class="form-select" id="g-tone">
+          <option value="formal">Formal &amp; Traditional</option>
+          <option value="warm" selected>Professional &amp; Warm</option>
+          <option value="creative">Creative &amp; Bold</option>
+        </select>
+      </div>
+      <button class="btn-gen" onclick="generateTemplate()">Generate from Template &rarr;</button>
+    </div>
   </div>
 
-  <!-- OUTPUT -->
   <div class="output-panel">
     <div class="output-header">
       <span class="output-title">Generated Letter</span>
@@ -115,8 +152,14 @@
         <button class="btn-dl" onclick="downloadLetter()">Download .txt</button>
       </div>
     </div>
-    <div class="letter-box" id="letter-output" contenteditable="true">
-      <span class="placeholder-state">Fill in the details on the left and click Generate.</span>
+    <div style="position:relative;">
+      <div class="letter-box" id="letter-output" contenteditable="true">
+        <span class="placeholder-state">Fill in the details on the left and click Generate.</span>
+      </div>
+      <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-dots"><span></span><span></span><span></span></div>
+        <div class="loading-text">Claude is writing your letter...</div>
+      </div>
     </div>
     <div class="char-count" id="char-count"></div>
   </div>
@@ -124,113 +167,135 @@
 
 <script>
 var genLang = 'en';
-function setGenLang(l) {
-  genLang=l;
-  document.getElementById('opt-en').classList.toggle('active',l==='en');
-  document.getElementById('opt-de').classList.toggle('active',l==='de');
+var genMode = 'ai';
+
+function setMode(m){
+  genMode = m;
+  document.getElementById('tab-ai').classList.toggle('active', m==='ai');
+  document.getElementById('tab-template').classList.toggle('active', m==='template');
+  document.getElementById('ai-extras').style.display = m==='ai'?'':'none';
+  document.getElementById('template-extras').style.display = m==='template'?'':'none';
+}
+
+function setGenLang(l){
+  genLang = l;
+  document.getElementById('opt-en').classList.toggle('active', l==='en');
+  document.getElementById('opt-de').classList.toggle('active', l==='de');
+}
+
+async function generateAI(){
+  var company = document.getElementById('g-company').value.trim();
+  var position = document.getElementById('g-position').value.trim();
+  if(!company||!position){ alert('Please fill in Company and Position.'); return; }
+  var manager = document.getElementById('g-manager').value.trim();
+  var jd = document.getElementById('g-jd').value.trim();
+  var tone = document.getElementById('g-tone-ai').value;
+  var extra = document.getElementById('g-extra').value.trim();
+  var lang = genLang === 'de' ? 'German' : 'English';
+
+  var toneDesc = {formal:'formal and traditional', warm:'professional and warm', creative:'creative and bold'}[tone];
+
+  var systemPrompt = 'You are writing a cover letter on behalf of Lorenzo von Neumann-Cosel. Write ONLY the letter text — no commentary, no explanations, no preamble. Use the exact details provided about his background.\n\nLORENZO'S BACKGROUND:\n- Event coordination professional, 1.5+ years experience\n- Kunsthalle Darmstadt (July 2024 - Aug 2025): Membership & Events Coordinator. Planned and executed 15+ exclusive member events (exhibition openings, galas, cultural gatherings) for a 500+ member base. Consistently achieved 85%+ attendance. Primary guest contact. Collaborated with curators and artists. Maintained CRM systems.\n- Konfuzius-Institut Frankfurt (Jan 2025 - Aug 2025): Cultural & Event Coordinator (BFD). Supported 30+ cultural events. Key role in multi-day Theater Festival July 2025: artist liaison, scheduling, backstage operations, audience experience. Managed vendor communications. Represented institute at bilingual receptions.\n- Attended IMEX Frankfurt 2025\n- Bilingual: German (native) and English (fluent), lived in UK and USA\n- Based in Geisenheim, Rheingau\n- Classical and jazz trumpet player — understands events from performer and producer perspective\n- Deep network in Rheingau cultural institutions, wineries, premium hospitality\n\nREFERENCES:\n- Dr. Leon Krempel (Director, Kunsthalle Darmstadt): praised teamwork, flexibility, resilience, service orientation, professional guest conduct\n- Christina Werum-Wang (Managing Director, Konfuzius-Institut): praised independence, reliability, structured professional manner, valuable ideas\n\nCONTACT: lorenzojamal04@gmail.com | +49 176 45608913';
+
+  var userPrompt = 'Write a cover letter in '+lang+' with a '+toneDesc+' tone.\n'+
+    'Company: '+company+'\n'+
+    'Position: '+position+'\n'+
+    (manager ? 'Hiring Manager: '+manager+'\n' : '')+
+    (jd ? 'Job Description / Requirements:\n'+jd+'\n' : '')+
+    (extra ? 'Additional emphasis / notes: '+extra+'\n' : '')+
+    '\nWrite a complete, ready-to-send cover letter. Tailor it specifically to this company and role using the job description provided. End with Lorenzo's name, city, email and phone. Do not add any commentary outside the letter itself.';
+
+  document.getElementById('loading-overlay').classList.add('show');
+  document.getElementById('btn-generate').disabled = true;
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userPrompt }]
+      })
+    });
+    var data = await response.json();
+    var letter = data.content && data.content[0] && data.content[0].text ? data.content[0].text : 'Error: Could not generate letter. Please try again.';
+    var box = document.getElementById('letter-output');
+    box.textContent = letter;
+    document.getElementById('char-count').textContent = letter.length + ' characters';
+  } catch(err) {
+    document.getElementById('letter-output').textContent = 'Error connecting to AI. Please check your connection and try again.';
+  }
+
+  document.getElementById('loading-overlay').classList.remove('show');
+  document.getElementById('btn-generate').disabled = false;
 }
 
 var templates = {
-  en: {
-    formal: function(d) {
-      var greeting = d.manager ? 'Dear '+d.manager+',' : 'Dear Hiring Committee,';
-      return greeting+'\n\n'+
-'I am writing to express my strong interest in the position of '+d.position+' at '+d.company+'. With over 1.5 years of hands-on event coordination experience in leading cultural institutions, I am confident I can make a meaningful contribution to your team.\n\n'+
-'In my role as Membership & Events Coordinator at Kunsthalle Darmstadt, I planned and executed more than 15 exclusive member events — including exhibition openings, galas, and cultural gatherings — consistently achieving attendance rates above 85%. I served as the primary point of contact for a membership base of over 500 individuals, maintaining the highest standards of guest relations and operational precision.\n\n'+
-'At Konfuzius-Institut Frankfurt, where I served as Cultural & Event Coordinator, I supported the planning and execution of over 30 events, including a multi-day international Theater Festival in July 2025. In this capacity I managed artist liaison, schedule coordination, backstage operations, and audience experience design — developing a comprehensive understanding of festival production from concept to curtain call.\n\n'+
-(d.notes ? 'With regard to your specific requirements ('+d.notes+'), I am particularly well-positioned given my bilingual (German/English) background and my deep familiarity with the cultural landscape of the Rheingau region.\n\n' : '')+
-'I would welcome the opportunity to discuss how my experience aligns with the goals of '+d.company+'. I am available at your convenience and look forward to hearing from you.\n\nYours sincerely,\nLorenzo von Neumann-Cosel\nGeisenheim, Rheingau\nlorenzojamal04@gmail.com | +49 176 45608913';
+  en:{
+    formal:function(d){
+      var g=d.manager?'Dear '+d.manager+',':'Dear Hiring Committee,';
+      return g+'\n\nI am writing to express my strong interest in the position of '+d.position+' at '+d.company+'. With over 1.5 years of hands-on event coordination experience in leading cultural institutions, I am confident I can make a meaningful contribution to your team.\n\nIn my role as Membership & Events Coordinator at Kunsthalle Darmstadt, I planned and executed more than 15 exclusive member events — including exhibition openings, galas, and cultural gatherings — consistently achieving attendance rates above 85%.\n\nAt Konfuzius-Institut Frankfurt, I supported the planning of over 30 events, including a multi-day international Theater Festival in July 2025, managing artist liaison, backstage operations, and audience experience.\n\n'+(d.notes?'With regard to your specific requirements ("+d.notes+"), I am particularly well-positioned given my bilingual background and familiarity with the regional cultural landscape.\n\n':'')+'I would welcome the opportunity to discuss how my experience aligns with the goals of '+d.company+'.\n\nYours sincerely,\nLorenzo von Neumann-Cosel\nGeisenheim, Rheingau\nlorenzojamal04@gmail.com | +49 176 45608913';
     },
-    warm: function(d) {
-      var greeting = d.manager ? 'Dear '+d.manager+',' : 'Dear Team at '+d.company+',';
-      return greeting+'\n\n'+
-'When I came across the opening for '+d.position+' at '+d.company+', it immediately felt like the right fit — not just for my background, but for where I want to take my career.\n\n'+
-'Over the past 1.5 years I have built my foundation in cultural event coordination at two very different but equally demanding institutions. At Kunsthalle Darmstadt, I led more than 15 exclusive member events — from intimate exhibition previews to full gala evenings — for a membership of over 500, achieving consistently high attendance and building genuine relationships with guests, artists, and curatorial staff alike.\n\n'+
-'At Konfuzius-Institut Frankfurt, I expanded into public-facing festival production, playing a key role in the July 2025 Theater Festival: coordinating international artists, managing backstage logistics, and ensuring the kind of seamless audience experience that makes an event truly memorable.\n\n'+
-(d.notes ? 'Your focus on '+d.notes+' resonates strongly with my experience. I thrive in exactly this environment.\n\n' : '')+
-'I am bilingual in German and English, rooted in the Rheingau, and genuinely passionate about the kind of work '+d.company+' does. I would love the chance to bring that energy to your team.\n\nWith warm regards,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
+    warm:function(d){
+      var g=d.manager?'Dear '+d.manager+',':'Dear Team at '+d.company+',';
+      return g+'\n\nWhen I came across the opening for '+d.position+' at '+d.company+', it immediately felt like the right fit.\n\nOver the past 1.5 years I have built my foundation in cultural event coordination at two demanding institutions. At Kunsthalle Darmstadt, I led 15+ exclusive member events for 500+ members with 85%+ attendance. At Konfuzius-Institut Frankfurt, I played a key role in the July 2025 Theater Festival — coordinating international artists, managing backstage logistics, and ensuring a seamless audience experience.\n\n'+(d.notes?'Your focus on '+d.notes+' resonates strongly with my experience.\n\n':'')+'I am bilingual in German and English, rooted in the Rheingau, and genuinely passionate about the kind of work '+d.company+' does.\n\nWith warm regards,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
     },
-    creative: function(d) {
-      var greeting = d.manager ? 'Dear '+d.manager+',' : 'To the team at '+d.company+',';
-      return greeting+'\n\n'+
-'Great events don\u2019t happen by accident. They happen because someone holds every detail together while the audience experiences something they\u2019ll remember for years. That\u2019s the work I do.\n\n'+
-'I\u2019m Lorenzo von Neumann-Cosel, an event coordination professional with 1.5+ years of experience across the cultural sector in Germany. At Kunsthalle Darmstadt, I turned member galas and exhibition openings into genuinely memorable occasions \u2014 fifteen-plus events, 85%+ attendance, zero disasters. At Konfuzius-Institut Frankfurt, I stepped into the deep end of international festival production, liaising with artists, managing the chaos of a multi-day Theater Festival, and coming out the other side with a much sharper understanding of what makes live cultural experiences work.\n\n'+
-'The role of '+d.position+' at '+d.company+' is exactly where I want to apply that experience next.\n\n'+
-(d.notes ? 'I\u2019ve noted your interest in '+d.notes+' \u2014 this is where I\u2019m most confident I can add real value, quickly.\n\n' : '')+
-'I\u2019m bilingual, based in the Rheingau, and ready to get to work. Let\u2019s talk.\n\nBest,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
+    creative:function(d){
+      var g=d.manager?'Dear '+d.manager+',':'To the team at '+d.company+',';
+      return g+'\n\nGreat events don\u2019t happen by accident. They happen because someone holds every detail together while the audience experiences something unforgettable. That\u2019s the work I do.\n\nI\u2019m Lorenzo von Neumann-Cosel — 1.5+ years in cultural event coordination. Kunsthalle Darmstadt: 15+ events, 85%+ attendance. Konfuzius-Institut Frankfurt: international Theater Festival, artist liaison, backstage chaos managed.\n\nThe role of '+d.position+' at '+d.company+' is exactly where I want to apply that experience next.\n\n'+(d.notes?'Your interest in '+d.notes+' is where I can add real value, quickly.\n\n':'')+'Bilingual, Rheingau-based, ready to go. Let\u2019s talk.\n\nBest,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
     }
   },
-  de: {
-    formal: function(d) {
-      var greeting = d.manager ? 'Sehr geehrte(r) '+d.manager+',' : 'Sehr geehrte Damen und Herren,';
-      return greeting+'\n\n'+
-'mit gro\u00dfem Interesse bewerbe ich mich um die Position als '+d.position+' bei '+d.company+'. Als Veranstaltungskoordinator mit mehr als eineinhalb Jahren Berufserfahrung in renommierten Kulturinstitutionen bringe ich fundierte Kenntnisse in der Konzeption, Planung und Durchf\u00fchrung anspruchsvoller Veranstaltungsformate mit.\n\n'+
-'Bei der Kunsthalle Darmstadt verantwortete ich als Koordinator f\u00fcr Mitgliedschaft und Veranstaltungen die Planung und Durchf\u00fchrung von \u00fcber 15 exklusiven Mitgliederveranstaltungen \u2014 darunter Ausstellungser\u00f6ffnungen, Galadinner und kulturelle Begegnungsformate \u2014 f\u00fcr eine Mitgliederbasis von mehr als 500 Personen. Die kontinuierlich erreichten Teilnahmequoten von 85% und mehr spiegeln meinen Anspruch an professionelle G\u00e4stebetreuung und reibungslose Veranstaltungsabwicklung wider.\n\n'+
-'Im Rahmen meines Bundesfreiwilligendienstes am Konfuzius-Institut Frankfurt unterst\u00fctzte ich die Planung und Umsetzung von \u00fcber 30 Kulturveranstaltungen und \u00fcbernahm eine Schl\u00fcsselrolle bei der Organisation des mehrt\u00e4gigen Theaterfestivals im Juli 2025: von der K\u00fcnstlerbetreuung und Terminkoordination bis hin zur B\u00fchnenlogistik und Publikumserfahrung.\n\n'+
-(d.notes ? 'Ihre Anforderungen hinsichtlich '+d.notes+' entsprechen genau meinem Profil. Als zweisprachig aufgewachsener und im Rheingau verwurzelter Koordinator bringe ich sowohl die sprachliche als auch die regionale Kompetenz mit, die diese Aufgabe erfordert.\n\n' : '')+
-'\u00dcber die M\u00f6glichkeit, meine Bewerbung in einem pers\u00f6nlichen Gespr\u00e4ch n\u00e4her vorstellen zu d\u00fcrfen, w\u00fcrde ich mich sehr freuen.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nGeisenheim, Rheingau\nlorenzojamal04@gmail.com | +49 176 45608913';
+  de:{
+    formal:function(d){
+      var g=d.manager?'Sehr geehrte(r) '+d.manager+',':'Sehr geehrte Damen und Herren,';
+      return g+'\n\nMit gro\u00dfem Interesse bewerbe ich mich um die Position als '+d.position+' bei '+d.company+'. Als Veranstaltungskoordinator mit mehr als eineinhalb Jahren Berufserfahrung in renommierten Kulturinstitutionen bringe ich fundierte Kenntnisse in der Konzeption, Planung und Durchf\u00fchrung anspruchsvoller Veranstaltungsformate mit.\n\nBei der Kunsthalle Darmstadt verantwortete ich die Planung und Durchf\u00fchrung von \u00fcber 15 exklusiven Mitgliederveranstaltungen f\u00fcr eine Mitgliederbasis von mehr als 500 Personen, mit kontinuierlichen Teilnahmequoten von \u00fcber 85%.\n\nIm Rahmen meines BFD am Konfuzius-Institut Frankfurt \u00fcbernahm ich eine Schl\u00fcsselrolle beim mehrt\u00e4gigen Theaterfestival im Juli 2025.\n\n'+(d.notes?'Ihre Anforderungen hinsichtlich '+d.notes+' entsprechen genau meinem Profil.\n\n':'')+'\u00dcber die M\u00f6glichkeit eines pers\u00f6nlichen Gespr\u00e4chs freue ich mich sehr.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nGeisenheim, Rheingau\nlorenzojamal04@gmail.com | +49 176 45608913';
     },
-    warm: function(d) {
-      var greeting = d.manager ? 'Sehr geehrte(r) '+d.manager+',' : 'Sehr geehrte Damen und Herren,';
-      return greeting+'\n\n'+
-'Die ausgeschriebene Stelle als '+d.position+' bei '+d.company+' hat mich sofort angesprochen \u2014 nicht nur aufgrund meiner Qualifikationen, sondern weil sie genau dem Bereich entspricht, in dem ich meine Karriere weiterentwickeln m\u00f6chte.\n\n'+
-'In den vergangenen eineinhalb Jahren habe ich bei zwei sehr unterschiedlichen, aber gleicherma\u00dfen anspruchsvollen Kulturinstitutionen wertvolle Erfahrungen gesammelt. Bei der Kunsthalle Darmstadt plante und realisierte ich mehr als 15 exklusive Mitgliederveranstaltungen \u2014 von intimen Vorbesichtigungen bis hin zu gro\u00dfen Galadinnern \u2014 und baute dabei echte Beziehungen zu G\u00e4sten, K\u00fcnstlern und kuratorischen Teams auf.\n\n'+
-'Am Konfuzius-Institut Frankfurt vertiefte ich meine Kenntnisse in der Festivalproduktion: Als Teil des Organisationsteams des Theaterfestivals im Juli 2025 koordinierte ich internationale K\u00fcnstler, leitete die Backstagelogistik und sorgte f\u00fcr ein Publikumserlebnis, das im Ged\u00e4chtnis bleibt.\n\n'+
-(d.notes ? 'Ihr Schwerpunkt auf '+d.notes+' deckt sich genau mit meinen St\u00e4rken. In diesem Bereich f\u00fchle ich mich besonders sicher.\n\n' : '')+
-'Als zweisprachiger Koordinator mit tiefer Verwurzelung im Rheingau und echter Leidenschaft f\u00fcr Kulturarbeit freue ich mich darauf, meine Energie in Ihr Team einzubringen.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
+    warm:function(d){
+      var g=d.manager?'Sehr geehrte(r) '+d.manager+',':'Sehr geehrte Damen und Herren,';
+      return g+'\n\nDie ausgeschriebene Stelle als '+d.position+' bei '+d.company+' hat mich sofort angesprochen.\n\nBei der Kunsthalle Darmstadt plante ich \u00fcber 15 exklusive Mitgliederveranstaltungen. Am Konfuzius-Institut Frankfurt \u00fcbernahm ich eine Schl\u00fcsselrolle beim Theaterfestival Juli 2025.\n\n'+(d.notes?'Ihr Schwerpunkt auf '+d.notes+' deckt sich genau mit meinen St\u00e4rken.\n\n':'')+'Als zweisprachiger Koordinator freue ich mich darauf, meine Energie in Ihr Team einzubringen.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
     },
-    creative: function(d) {
-      var greeting = d.manager ? 'Sehr geehrte(r) '+d.manager+',' : 'Sehr geehrte Damen und Herren,';
-      return greeting+'\n\n'+
-'Gro\u00dfartige Veranstaltungen entstehen nicht von selbst. Sie entstehen, weil jemand jeden Detail im Griff hat \u2014 w\u00e4hrend das Publikum ein Erlebnis hat, das es nicht vergisst. Genau das ist meine Arbeit.\n\n'+
-'Ich bin Lorenzo von Neumann-Cosel, Veranstaltungskoordinator mit \u00fcber 1,5 Jahren Erfahrung im deutschen Kulturbetrieb. Bei der Kunsthalle Darmstadt habe ich Galas und Ausstellungser\u00f6ffnungen in echte Erinnerungen verwandelt \u2014 \u00fcber f\u00fcnfzehn Veranstaltungen, 85% Teilnahmequote, keine Pannen. Am Konfuzius-Institut Frankfurt bin ich ins internationale Festivalgesch\u00e4ft eingetaucht: K\u00fcnstlerbetreuung, mehrt\u00e4giger Festivalbetrieb, Logistik unter Druck \u2014 und am Ende ein Publikum, das begeistert war.\n\n'+
-'Die Position als '+d.position+' bei '+d.company+' ist genau das, wof\u00fcr ich diese Erfahrungen gesammelt habe.\n\n'+
-(d.notes ? 'Ihr Fokus auf '+d.notes+' trifft genau mein Profil \u2014 hier kann ich schnell und nachhaltig Mehrwert schaffen.\n\n' : '')+
-'Zweisprachig, im Rheingau verwurzelt, und bereit loszulegen. Lassen Sie uns sprechen.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
+    creative:function(d){
+      var g=d.manager?'Sehr geehrte(r) '+d.manager+',':'Sehr geehrte Damen und Herren,';
+      return g+'\n\nGro\u00dfartige Veranstaltungen entstehen nicht von selbst.\n\nIch bin Lorenzo von Neumann-Cosel — \u00fcber 15 Events, 85%+ Teilnahmequote, Theaterfestival mit internationalen K\u00fcnstlern. Die Position als '+d.position+' bei '+d.company+' ist genau das, wof\u00fcr ich diese Erfahrungen gesammelt habe.\n\n'+(d.notes?'Ihr Fokus auf '+d.notes+' trifft genau mein Profil.\n\n':'')+'Zweisprachig, Rheingau, bereit loszulegen.\n\nMit freundlichen Gr\u00fc\u00dfen,\nLorenzo von Neumann-Cosel\nlorenzojamal04@gmail.com | +49 176 45608913';
     }
   }
 };
 
-function generateLetter() {
+function generateTemplate(){
   var company = document.getElementById('g-company').value.trim();
   var position = document.getElementById('g-position').value.trim();
-  if (!company||!position){alert('Please fill in Company and Position.');return;}
-  var d = {
-    company:company, position:position,
-    manager:document.getElementById('g-manager').value.trim(),
-    city:document.getElementById('g-city').value.trim(),
-    notes:document.getElementById('g-notes').value.trim(),
-    tone:document.getElementById('g-tone').value
-  };
-  var tone = d.tone;
-  var fn = templates[genLang][tone];
-  var letter = fn(d);
+  if(!company||!position){ alert('Please fill in Company and Position.'); return; }
+  var d = { company:company, position:position, manager:document.getElementById('g-manager').value.trim(), notes:document.getElementById('g-jd').value.trim() };
+  var tone = document.getElementById('g-tone').value;
+  var letter = templates[genLang][tone](d);
   var box = document.getElementById('letter-output');
   box.textContent = letter;
-  document.getElementById('char-count').textContent = letter.length+' characters';
+  document.getElementById('char-count').textContent = letter.length + ' characters';
 }
 
-function copyLetter() {
-  var box = document.getElementById('letter-output');
-  var text = box.textContent;
-  if (!text||text.trim()==='') return;
+function copyLetter(){
+  var text = document.getElementById('letter-output').textContent;
+  if(!text||text.trim()==='') return;
   navigator.clipboard.writeText(text).then(function(){
     var btn = document.querySelector('.btn-copy');
     btn.textContent='Copied!'; setTimeout(function(){btn.textContent='Copy';},2000);
-  }).catch(function(){ alert('Copy failed. Please select text manually.'); });
+  });
 }
 
-function downloadLetter() {
+function downloadLetter(){
   var text = document.getElementById('letter-output').textContent;
-  if (!text||text.trim()==='') return;
+  if(!text||text.trim()==='') return;
   var company = document.getElementById('g-company').value.trim()||'application';
-  var fn = 'Lorenzo_vNC_CoverLetter_'+company.replace(/\s+/g,'_')+'.txt';
-  var blob = new Blob([text],{type:'text/plain'});
-  var a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fn; a.click();
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text],{type:'text/plain'}));
+  a.download = 'Lorenzo_vNC_CoverLetter_'+company.replace(/\s+/g,'_')+'.txt';
+  a.click();
 }
 
-document.getElementById('letter-output').addEventListener('input', function() {
-  document.getElementById('char-count').textContent = this.textContent.length+' characters';
+document.getElementById('letter-output').addEventListener('input', function(){
+  document.getElementById('char-count').textContent = this.textContent.length + ' characters';
 });
 </script>
 </body>

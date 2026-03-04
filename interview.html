@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep | Lorenzo von Neumann-Cosel</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;--warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--cream);font-family:'Playfair Display',serif;min-height:100vh;}
+nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.15em;color:var(--kodak);text-decoration:none;}
+.nav-back{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:0.4rem 0.9rem;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
+.nav-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
+.private-badge{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;background:var(--terracotta);color:white;padding:0.2rem 0.6rem;}
+
+main{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem;}
+
+/* HEADER */
+.page-header{margin-bottom:3rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;}
+.page-heading{font-family:'Abril Fatface',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--kodak);line-height:1;}
+.page-sub{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);margin-top:0.5rem;}
+.header-actions{display:flex;gap:0.5rem;}
+.btn-sm{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.45rem 0.9rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;}
+.btn-sm:hover{border-color:var(--kodak);color:var(--kodak);}
+.btn-sm.active{background:var(--kodak);border-color:var(--kodak);color:var(--black);}
+
+/* CATEGORY TABS */
+.cat-tabs{display:flex;gap:2px;margin-bottom:2rem;flex-wrap:wrap;}
+.cat-tab{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.5rem 1rem;border:1.5px solid #222;background:transparent;color:#555;cursor:pointer;transition:all 0.2s;}
+.cat-tab.active{background:var(--kodak);border-color:var(--kodak);color:var(--black);}
+.cat-tab:hover:not(.active){border-color:var(--warm-grey);color:var(--warm-grey);}
+
+/* PROGRESS BAR */
+.progress-bar{background:#111;border:1px solid #222;height:6px;margin-bottom:2rem;}
+.progress-fill{height:100%;background:var(--kodak);transition:width 0.4s ease;}
+.progress-label{font-family:'Space Mono',monospace;font-size:0.55rem;color:#444;margin-top:0.4rem;letter-spacing:0.1em;}
+
+/* FLASHCARD MODE */
+.flashcard-wrap{display:flex;flex-direction:column;align-items:center;gap:2rem;}
+.flashcard{width:100%;max-width:780px;background:#111;border:1px solid #2a2a2a;border-top:4px solid var(--kodak);padding:3rem;text-align:center;min-height:260px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.card-category{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem;}
+.card-counter{position:absolute;top:1rem;right:1.5rem;font-family:'Space Mono',monospace;font-size:0.55rem;color:#333;}
+.card-question{font-family:'Playfair Display',serif;font-size:1.3rem;line-height:1.6;color:var(--cream);}
+.card-lang-badge{font-family:'Space Mono',monospace;font-size:0.5rem;background:#222;color:#666;padding:0.2rem 0.6rem;margin-top:1rem;display:inline-block;letter-spacing:0.1em;}
+.card-answer-wrap{display:none;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #2a2a2a;text-align:left;}
+.card-answer-wrap.show{display:block;}
+.card-answer-label{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);margin-bottom:0.8rem;}
+.card-answer-text{font-family:'Space Mono',monospace;font-size:0.72rem;line-height:1.8;color:var(--warm-grey);}
+.card-controls{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;}
+.btn-card{font-family:'Space Mono',monospace;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.7rem 1.5rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;}
+.btn-card:hover{border-color:var(--kodak);color:var(--kodak);}
+.btn-card.btn-answer{background:var(--kodak);border-color:var(--kodak);color:var(--black);}
+.btn-card.btn-good{border-color:#27AE60;color:#27AE60;}
+.btn-card.btn-good:hover{background:#27AE60;color:white;}
+.btn-card.btn-again{border-color:var(--terracotta);color:var(--terracotta);}
+.btn-card.btn-again:hover{background:var(--terracotta);color:white;}
+
+/* LIST MODE */
+.questions-list{display:flex;flex-direction:column;gap:1rem;}
+.q-item{background:#111;border:1px solid #2a2a2a;border-left:4px solid var(--terracotta);overflow:hidden;transition:border-color 0.2s;}
+.q-item.mastered{border-left-color:#27AE60;}
+.q-item.mastered .q-header{opacity:0.6;}
+.q-header{display:flex;align-items:flex-start;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;gap:1rem;}
+.q-header:hover{background:#161616;}
+.q-meta{display:flex;flex-direction:column;gap:0.4rem;flex:1;}
+.q-cat{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);}
+.q-item.mastered .q-cat{color:#27AE60;}
+.q-text{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);line-height:1.5;}
+.q-lang{font-family:'Space Mono',monospace;font-size:0.5rem;background:#222;color:#666;padding:0.15rem 0.5rem;display:inline-block;margin-top:0.3rem;}
+.q-right{display:flex;align-items:center;gap:0.8rem;flex-shrink:0;}
+.q-status{font-family:'Space Mono',monospace;font-size:0.5rem;padding:0.2rem 0.6rem;letter-spacing:0.1em;text-transform:uppercase;}
+.status-mastered{background:#1a3a1a;color:#27AE60;}
+.status-practice{background:#1a1a2a;color:#4A90D9;}
+.q-toggle{font-family:'Space Mono',monospace;font-size:0.6rem;color:#444;transition:transform 0.2s;}
+.q-toggle.open{transform:rotate(180deg);}
+.q-body{display:none;padding:0 1.5rem 1.5rem;}
+.q-body.open{display:block;}
+.q-answer-label{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);margin-bottom:0.5rem;}
+.q-answer-text{font-family:'Space Mono',monospace;font-size:0.72rem;line-height:1.8;color:var(--warm-grey);margin-bottom:1rem;}
+.q-notes-area{width:100%;background:#0D0D0D;border:1px solid #333;color:var(--cream);font-family:'Space Mono',monospace;font-size:0.72rem;padding:0.7rem;outline:none;resize:vertical;min-height:70px;transition:border-color 0.2s;margin-bottom:0.8rem;}
+.q-notes-area:focus{border-color:var(--kodak);}
+.q-actions{display:flex;gap:0.5rem;}
+.btn-master{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border:1.5px solid #27AE60;background:transparent;color:#27AE60;cursor:pointer;transition:all 0.2s;}
+.btn-master.on{background:#27AE60;color:white;}
+.btn-save-note{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;}
+.btn-save-note:hover{border-color:var(--kodak);color:var(--kodak);}
+
+/* COMPLETION */
+.completion-screen{display:none;text-align:center;padding:5rem 2rem;}
+.completion-screen.show{display:block;}
+.completion-num{font-family:'Abril Fatface',serif;font-size:5rem;color:var(--kodak);line-height:1;}
+.completion-msg{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--warm-grey);margin-top:1rem;}
+.completion-sub{font-family:'Space Mono',monospace;font-size:0.65rem;color:#444;letter-spacing:0.1em;margin-top:0.8rem;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LvNC</a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <span class="nav-title">Interview Prep</span>
+    <span class="private-badge">Private</span>
+  </div>
+  <a href="index.html" class="nav-back">&larr; Portfolio</a>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div>
+      <h1 class="page-heading">Interview<br>Prep</h1>
+      <p class="page-sub">Event Management &middot; EN &amp; DE &middot; Spaced Practice</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn-sm active" id="btn-list-view" onclick="setView('list')">&#9776; List</button>
+      <button class="btn-sm" id="btn-flash-view" onclick="setView('flash')">&#9654; Flashcards</button>
+      <button class="btn-sm" onclick="resetProgress()">Reset Progress</button>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  <p class="progress-label" id="progress-label">0 of 0 questions mastered</p>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs" id="cat-tabs"></div>
+
+  <!-- LIST VIEW -->
+  <div id="list-view">
+    <div class="questions-list" id="questions-list"></div>
+  </div>
+
+  <!-- FLASHCARD VIEW -->
+  <div id="flash-view" style="display:none;">
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="flashcard">
+        <div class="card-counter" id="card-counter"></div>
+        <div class="card-category" id="card-cat"></div>
+        <div class="card-question" id="card-q"></div>
+        <div class="card-lang-badge" id="card-lang"></div>
+        <div class="card-answer-wrap" id="card-answer-wrap">
+          <div class="card-answer-label">Suggested Answer</div>
+          <div class="card-answer-text" id="card-answer-text"></div>
+        </div>
+      </div>
+      <div class="card-controls">
+        <button class="btn-card" onclick="prevCard()">&larr; Prev</button>
+        <button class="btn-card btn-answer" id="btn-show-answer" onclick="toggleAnswer()">Show Answer</button>
+        <button class="btn-card btn-good" onclick="markMastered()">&#10003; Mastered</button>
+        <button class="btn-card btn-again" onclick="nextCard()">Practice Again &rarr;</button>
+      </div>
+      <div class="completion-screen" id="completion-screen">
+        <div class="completion-num" id="completion-num"></div>
+        <p class="completion-msg">All done for this session.</p>
+        <p class="completion-sub">Keep reviewing the ones marked &lsquo;Again&rsquo; until they feel natural.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+var QUESTIONS = [
+  // GENERAL / MOTIVATION
+  {id:1, cat:"Motivation", en:"Why do you want to work in event management?", de:"Warum m\u00f6chten Sie im Veranstaltungsmanagement arbeiten?", answer:"I\u2019ve been drawn to events since my time as a trumpet player \u2014 I understand both sides of the stage. What excites me is that events are where culture becomes tangible. You can plan perfectly and still need to adapt in the moment. That combination of precision and live improvisation is exactly where I work best. My time at Kunsthalle Darmstadt and Konfuzius-Institut confirmed this \u2014 I left both roles more energised than I arrived."},
+  {id:2, cat:"Motivation", en:"Why are you applying to this specific organisation?", de:"Warum bewerben Sie sich bei uns?", answer:"Be specific to each company. Research their last 3 events, mention something concrete \u2014 a festival edition, a recent programme, a stated value. Then connect it to your own experience: 'Your focus on X resonates directly with my work at Y, where I\u2026'"},
+  {id:3, cat:"Motivation", en:"Where do you see yourself in 3 years?", de:"Wo sehen Sie sich in 3 Jahren?", answer:"In a role with genuine production responsibility \u2014 ideally as a coordinator or project lead on major cultural events. I\u2019m building systematically: from coordination assistant to coordinator to lead. This Praktikum is the next deliberate step. I want to understand the full production cycle from the inside."},
+  // EXPERIENCE
+  {id:4, cat:"Experience", en:"Tell me about your experience at Kunsthalle Darmstadt.", de:"Erz\u00e4hlen Sie mir von Ihrer Erfahrung bei der Kunsthalle Darmstadt.", answer:"From July 2024 to August 2025, I served as Membership & Events Coordinator. I planned and executed 15+ exclusive member events including exhibition openings, gala evenings and cultural gatherings for a community of 500+ members. I consistently achieved 85%+ attendance. I was the primary contact for members and collaborated closely with curators and artists. The role taught me precision in guest relations and the value of calm under pressure."},
+  {id:5, cat:"Experience", en:"Describe your role at Konfuzius-Institut Frankfurt.", de:"Beschreiben Sie Ihre T\u00e4tigkeit am Konfuzius-Institut Frankfurt.", answer:"From January to August 2025, I worked as Cultural & Event Coordinator on a BFD (Bundesfreiwilligendienst). I supported 30+ cultural events including festivals, workshops and public receptions. My key project was the multi-day Theater Festival in July 2025 \u2014 I managed international artist liaison, schedule coordination, backstage operations and audience experience design. I also handled vendor communications and represented the institute at bilingual networking events."},
+  {id:6, cat:"Experience", en:"What was the biggest event you have worked on?", de:"Was war das gr\u00f6\u00dfte Event, an dem Sie mitgewirkt haben?", answer:"The Theater Festival at Konfuzius-Institut Frankfurt in July 2025 \u2014 a multi-day international production with artists from abroad. I was responsible for artist liaison before and during the festival, coordinating their schedules, technical requirements and welfare. I managed backstage operations throughout and contributed to the overall audience experience design. It was the most complex live environment I\u2019ve operated in and it gave me a clear picture of what festival production requires at scale."},
+  {id:7, cat:"Experience", en:"Tell me about a time something went wrong at an event.", de:"Erz\u00e4hlen Sie mir von einer Situation, in der bei einer Veranstaltung etwas schiefgelaufen ist.", answer:"Use the STAR method. Situation, Task, Action, Result. Prepare a specific real example from Kunsthalle or Konfuzius. Key message: I identified the problem quickly, stayed calm, communicated with the right person, executed a solution, and learned something specific from it."},
+  // SKILLS
+  {id:8, cat:"Skills", en:"How do you handle high-pressure situations on event day?", de:"Wie gehen Sie mit stressigen Situationen am Veranstaltungstag um?", answer:"I separate what I can control from what I can\u2019t. On the day, I work from a detailed run-sheet so my mental load is reduced \u2014 I\u2019m not carrying the whole plan in my head, it\u2019s written down. When something unexpected happens, I focus on the immediate decision: who needs to know, what\u2019s the fastest fix, what\u2019s the impact on the rest of the programme. I stay calm by staying methodical. The Theater Festival gave me good practice in this."},
+  {id:9, cat:"Skills", en:"How would you describe your approach to guest relations?", de:"Wie w\u00fcrden Sie Ihren Umgang mit G\u00e4sten beschreiben?", answer:"I treat every guest as if they\u2019re the most important person in the room \u2014 because in that moment, they are. My time at Kunsthalle Darmstadt managing 500+ members taught me that guest relations is about anticipating needs before they\u2019re voiced. I\u2019m bilingual which helps in mixed audiences. Dr. L\u00e9on Krempel noted specifically that I showed high service orientation and professional conduct in every guest interaction."},
+  {id:10, cat:"Skills", en:"What tools and software do you use for event coordination?", de:"Welche Tools und Software nutzen Sie f\u00fcr die Veranstaltungskoordination?", answer:"CRM systems for member management, standard MS Office suite, email coordination tools. I\u2019m comfortable with digital event materials production. I learn new tools quickly \u2014 if you use specific software, I\u2019d expect to get up to speed within the first week."},
+  {id:11, cat:"Skills", en:"How do you manage multiple tasks and deadlines simultaneously?", de:"Wie managen Sie mehrere Aufgaben und Deadlines gleichzeitig?", answer:"Prioritisation by impact and deadline. I use a rolling task list and build timelines working backwards from the event date. Communication is key \u2014 I flag potential bottlenecks early rather than hoping they resolve. At Kunsthalle I was managing member communications, event logistics and administrative duties simultaneously, which required constant reprioritisation."},
+  // SITUATIONAL
+  {id:12, cat:"Situational", en:"A key speaker cancels two hours before the event. What do you do?", de:"Ein Hauptredner sagt zwei Stunden vor der Veranstaltung ab. Was tun Sie?", answer:"1. Assess the programme impact immediately \u2014 can it run without them or does the structure need redesigning? 2. Inform the right person (line manager or artistic director) straight away. 3. Consider alternatives: another speaker, a format change, an extended reception, a recorded contribution. 4. Communicate the change to front-of-house and any affected staff. 5. Decide whether to inform guests and how. Calm, fast, clear communication is the priority."},
+  {id:13, cat:"Situational", en:"You are coordinating an event and a VIP guest is unhappy. How do you handle it?", de:"Sie koordinieren eine Veranstaltung und ein VIP-Gast ist unzufrieden. Wie reagieren Sie?", answer:"First: listen fully without interrupting. Second: acknowledge their concern genuinely \u2014 don\u2019t be defensive. Third: find out exactly what they need and whether it\u2019s fixable right now. Fourth: act, or get the right person who can. Fifth: follow up at the end of the evening. VIPs remember how a problem was handled, not usually that it happened."},
+  {id:14, cat:"Situational", en:"You discover a serious logistics error the day before an event. What do you do?", de:"Sie entdecken einen schwerwiegenden Logistikfehler am Tag vor einer Veranstaltung. Was tun Sie?", answer:"Immediate transparency with the team lead \u2014 no concealing it hoping it resolves. Then rapid triage: what exactly is broken, what\u2019s the worst-case impact, what are the realistic fix options. Present the problem and the options together, not just the problem. Move on the best solution immediately. Document what happened for the debrief."},
+  // CULTURAL FIT
+  {id:15, cat:"Cultural Fit", en:"What do you know about this organisation?", de:"Was wissen Sie \u00fcber unser Unternehmen?", answer:"Research before every interview. Know: their last major season or programme, a specific event they\u2019re known for, how they position themselves (prestige? community? innovation?), and one thing that connects to your own experience. Mentioning something specific and recent shows genuine interest, not just form-letter preparation."},
+  {id:16, cat:"Cultural Fit", en:"What does cultural programming mean to you personally?", de:"Was bedeutet Kulturprogrammierung f\u00fcr Sie pers\u00f6nlich?", answer:"As a trumpet player I\u2019ve experienced what a live performance does to a room \u2014 that unrepeatable, collective moment when something clicks between performer and audience. Cultural programming is the architecture of those moments. My job is to make sure the conditions are right so that what the artists and curators have built can actually land. That\u2019s what drives me."},
+  {id:17, cat:"Cultural Fit", en:"How do you feel about working evenings and weekends?", de:"Wie sehen Sie die Arbeit an Abenden und Wochenenden?", answer:"It\u2019s intrinsic to the work and I genuinely don\u2019t mind it. Events happen when audiences are free \u2014 evenings and weekends are part of the rhythm. My roles at Kunsthalle and Konfuzius both involved this regularly and I found the energy of live event days consistently rewarding, not draining."},
+  // CLOSING
+  {id:18, cat:"Closing", en:"What are your salary expectations for this role?", de:"Was sind Ihre Gehaltsvorstellungen f\u00fcr diese Stelle?", answer:"For a Praktikum or Hospitanz: research the typical range for the sector and location. In Germany, paid internships in cultural institutions often range from \u20ac500-900/month. Lead with your enthusiasm for the role rather than the number. If they ask directly, give a range and note you\u2019re open to discussion."},
+  {id:19, cat:"Closing", en:"Do you have any questions for us?", de:"Haben Sie Fragen an uns?", answer:"Always have 2-3 questions prepared. Good options: What does a typical event week look like for someone in this role? What are the biggest challenges the team is currently navigating? How would you describe the working culture here? What does success look like in this position after 3 months? Avoid asking about things clearly stated in the job listing."},
+  {id:20, cat:"Closing", en:"When can you start?", de:"Wann k\u00f6nnten Sie beginnen?", answer:"Be direct and specific. If you have flexibility, say so. If you have a commitment to finish, state the end date clearly. Employers appreciate candidates who give a clear answer rather than vague \u2018as soon as possible\'."}
+];
+
+var state = JSON.parse(localStorage.getItem('lvnc_interview') || '{"mastered":{},"notes":{}}');
+var currentCat = 'All';
+var currentView = 'list';
+var cardIdx = 0;
+var answerShown = false;
+var filtered = [];
+
+function save(){ localStorage.setItem('lvnc_interview', JSON.stringify(state)); }
+
+function getCategories(){
+  var cats = ['All'];
+  QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+  return cats;
+}
+
+function getFiltered(){
+  return QUESTIONS.filter(function(q){ return currentCat==='All'||q.cat===currentCat; });
+}
+
+function setView(v){
+  currentView = v;
+  document.getElementById('list-view').style.display = v==='list'?'':'none';
+  document.getElementById('flash-view').style.display = v==='flash'?'':'none';
+  document.getElementById('btn-list-view').classList.toggle('active', v==='list');
+  document.getElementById('btn-flash-view').classList.toggle('active', v==='flash');
+  if(v==='flash'){ cardIdx=0; renderFlashcard(); }
+}
+
+function renderCatTabs(){
+  var cats = getCategories();
+  var html = cats.map(function(c){
+    var count = c==='All' ? QUESTIONS.length : QUESTIONS.filter(function(q){ return q.cat===c; }).length;
+    return '<button class="cat-tab'+(currentCat===c?' active':'')+'" onclick="setCat(\'"+c+"\')">'+c+' <span style="opacity:0.5">("+count+")</span></button>';
+  }).join('');
+  document.getElementById('cat-tabs').innerHTML = html;
+}
+
+function setCat(c){
+  currentCat = c;
+  cardIdx = 0;
+  renderCatTabs();
+  renderList();
+  if(currentView==='flash') renderFlashcard();
+  updateProgress();
+}
+
+function updateProgress(){
+  var total = QUESTIONS.length;
+  var mastered = Object.keys(state.mastered).filter(function(k){ return state.mastered[k]; }).length;
+  var pct = total>0 ? Math.round((mastered/total)*100) : 0;
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress-label').textContent = mastered+' of '+total+' questions mastered ('+pct+'%)';
+}
+
+function renderList(){
+  filtered = getFiltered();
+  var html = filtered.map(function(q){
+    var mastered = state.mastered[q.id];
+    var note = state.notes[q.id]||'';
+    return '<div class="q-item'+(mastered?' mastered':'')+'" id="qi-'+q.id+'">'+
+      '<div class="q-header" onclick="toggleQ('+q.id+')">'+
+        '<div class="q-meta">'+
+          '<span class="q-cat">'+q.cat+'</span>'+
+          '<span class="q-text">'+escHtml(q.en)+'</span>'+
+          '<span class="q-lang">DE: '+escHtml(q.de)+'</span>'+
+        '</div>'+
+        '<div class="q-right">'+
+          (mastered?'<span class="q-status status-mastered">Mastered</span>':'')+
+          '<span class="q-toggle" id="qt-'+q.id+'">&#9660;</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="q-body" id="qb-'+q.id+'">'+
+        '<div class="q-answer-label">Suggested Answer / Framework</div>'+
+        '<div class="q-answer-text">'+escHtml(q.answer)+'</div>'+
+        '<textarea class="q-notes-area" id="qn-'+q.id+'" placeholder="Write your personal answer here, refine it over time...">'+escHtml(note)+'</textarea>'+
+        '<div class="q-actions">'+
+          '<button class="btn-master'+(mastered?' on':'')+'" onclick="toggleMastered('+q.id+')">'+(mastered?'&#10003; Mastered':'Mark Mastered')+'</button>'+
+          '<button class="btn-save-note" onclick="saveNote('+q.id+')">Save Note</button>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+  document.getElementById('questions-list').innerHTML = html;
+}
+
+function toggleQ(id){
+  var body = document.getElementById('qb-'+id);
+  var toggle = document.getElementById('qt-'+id);
+  var open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  toggle.classList.toggle('open', !open);
+}
+
+function toggleMastered(id){
+  state.mastered[id] = !state.mastered[id];
+  save(); renderList(); updateProgress();
+  if(currentView==='flash') renderFlashcard();
+}
+
+function saveNote(id){
+  var ta = document.getElementById('qn-'+id);
+  if(!ta) return;
+  state.notes[id] = ta.value;
+  save();
+  var btn = ta.nextElementSibling && ta.nextElementSibling.nextElementSibling ? ta.parentElement.querySelector('.btn-save-note') : null;
+  if(btn){ btn.textContent='Saved!'; setTimeout(function(){ btn.textContent='Save Note'; }, 1500); }
+}
+
+function renderFlashcard(){
+  filtered = getFiltered();
+  var completion = document.getElementById('completion-screen');
+  var card = document.getElementById('flashcard');
+  answerShown = false;
+  document.getElementById('card-answer-wrap').classList.remove('show');
+  document.getElementById('btn-show-answer').textContent='Show Answer';
+
+  if(filtered.length===0){ card.style.display='none'; completion.classList.add('show'); return; }
+  if(cardIdx>=filtered.length) cardIdx=0;
+
+  card.style.display='';
+  completion.classList.remove('show');
+  var q = filtered[cardIdx];
+  document.getElementById('card-counter').textContent = (cardIdx+1)+' / '+filtered.length;
+  document.getElementById('card-cat').textContent = q.cat;
+  document.getElementById('card-q').textContent = q.en;
+  document.getElementById('card-lang').textContent = 'DE: '+q.de;
+  document.getElementById('card-answer-text').textContent = q.answer;
+}
+
+function toggleAnswer(){
+  answerShown = !answerShown;
+  document.getElementById('card-answer-wrap').classList.toggle('show', answerShown);
+  document.getElementById('btn-show-answer').textContent = answerShown?'Hide Answer':'Show Answer';
+}
+
+function nextCard(){ cardIdx++; renderFlashcard(); }
+function prevCard(){ cardIdx = cardIdx>0 ? cardIdx-1 : filtered.length-1; renderFlashcard(); }
+
+function markMastered(){
+  if(filtered[cardIdx]){ state.mastered[filtered[cardIdx].id]=true; save(); updateProgress(); }
+  nextCard();
+}
+
+function resetProgress(){
+  if(!confirm('Reset all mastered status and notes? This cannot be undone.')) return;
+  state = {mastered:{},notes:{}};
+  save(); renderList(); updateProgress(); if(currentView==='flash') renderFlashcard();
+}
+
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// INIT
+renderCatTabs();
+renderList();
+updateProgress();
+</script>
+</body>
+</html>

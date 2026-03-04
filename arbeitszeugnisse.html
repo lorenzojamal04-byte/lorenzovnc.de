@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference Documents | Lorenzo von Neumann-Cosel</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;--warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--cream);font-family:'Playfair Display',serif;min-height:100vh;}
+nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.15em;color:var(--kodak);text-decoration:none;}
+.nav-back{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:0.4rem 0.9rem;transition:all 0.2s;}
+.nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
+.nav-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
+
+/* PIN SCREEN */
+.pin-screen{min-height:calc(100vh - 58px);display:flex;align-items:center;justify-content:center;background:var(--black);}
+.pin-box{background:#111;border:2px solid var(--terracotta);padding:3rem;width:360px;text-align:center;}
+.pin-icon{font-family:'Abril Fatface',serif;font-size:3rem;color:var(--terracotta);margin-bottom:0.5rem;}
+.pin-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.2em;color:var(--cream);margin-bottom:0.3rem;}
+.pin-sub{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:#444;margin-bottom:2rem;line-height:1.7;}
+.pin-input{width:100%;background:#0D0D0D;border:1px solid #333;color:var(--cream);font-family:'Space Mono',monospace;font-size:1rem;padding:0.8rem 1rem;outline:none;text-align:center;letter-spacing:0.25em;transition:border-color 0.2s;margin-bottom:0.8rem;}
+.pin-input:focus{border-color:var(--terracotta);}
+.pin-error{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--terracotta);letter-spacing:0.1em;height:1rem;margin-bottom:0.8rem;}
+.pin-btn{width:100%;background:var(--terracotta);color:white;font-family:'Space Mono',monospace;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.9rem;border:none;cursor:pointer;transition:background 0.2s;}
+.pin-btn:hover{background:#a33f1f;}
+.pin-note{font-family:'Space Mono',monospace;font-size:0.5rem;color:#333;margin-top:1.5rem;letter-spacing:0.08em;line-height:1.7;}
+
+/* MAIN CONTENT */
+.main-content{display:none;max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;}
+.main-content.show{display:block;}
+
+.page-header{margin-bottom:3rem;}
+.page-label{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--terracotta);margin-bottom:0.8rem;}
+.page-heading{font-family:'Abril Fatface',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--cream);line-height:1;}
+.page-note{font-family:'Space Mono',monospace;font-size:0.6rem;line-height:1.8;color:#444;margin-top:1rem;max-width:600px;letter-spacing:0.05em;}
+
+/* DOCUMENT CARDS */
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;}
+.doc-card{background:#111;border:1px solid #2a2a2a;border-top:4px solid var(--kodak);padding:2rem;cursor:pointer;transition:border-color 0.2s;}
+.doc-card:hover{border-top-color:var(--terracotta);}
+.doc-card.active{border-top-color:var(--terracotta);background:#161410;}
+.doc-org{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.1em;color:var(--kodak);margin-bottom:0.3rem;}
+.doc-person{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--cream);margin-bottom:0.2rem;}
+.doc-role{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--warm-grey);margin-bottom:0.2rem;letter-spacing:0.08em;}
+.doc-date{font-family:'Space Mono',monospace;font-size:0.55rem;color:#555;margin-bottom:1.2rem;}
+.doc-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:0.88rem;color:#A09890;line-height:1.7;border-left:3px solid var(--kodak);padding-left:1rem;margin-bottom:1.5rem;}
+.doc-card.active .doc-quote{border-left-color:var(--terracotta);}
+.doc-actions{display:flex;gap:0.5rem;}
+.btn-view{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.45rem 0.9rem;border:1.5px solid var(--kodak);background:transparent;color:var(--kodak);cursor:pointer;transition:all 0.2s;}
+.btn-view:hover{background:var(--kodak);color:var(--black);}
+.btn-dl-doc{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.45rem 0.9rem;border:1.5px solid #333;background:transparent;color:var(--warm-grey);cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;}
+.btn-dl-doc:hover{border-color:var(--terracotta);color:var(--terracotta);}
+
+/* PDF VIEWER */
+.pdf-viewer-wrap{background:#111;border:1px solid #2a2a2a;}
+.pdf-viewer-header{background:#161410;border-bottom:1px solid #2a2a2a;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
+.pdf-viewer-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.15em;color:var(--kodak);}
+.pdf-viewer-actions{display:flex;gap:0.5rem;align-items:center;}
+.pdf-close{font-family:'Space Mono',monospace;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 0.8rem;border:1.5px solid #333;background:transparent;color:#555;cursor:pointer;transition:all 0.2s;}
+.pdf-close:hover{border-color:var(--terracotta);color:var(--terracotta);}
+.pdf-frame-wrap{height:75vh;}
+.pdf-frame-wrap iframe{width:100%;height:100%;border:none;}
+.pdf-placeholder{height:75vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.pdf-placeholder-icon{font-family:'Abril Fatface',serif;font-size:4rem;color:#222;}
+.pdf-placeholder-text{font-family:'Space Mono',monospace;font-size:0.65rem;color:#333;text-align:center;line-height:1.8;letter-spacing:0.1em;}
+.pdf-upload-note{font-family:'Space Mono',monospace;font-size:0.6rem;color:#2a2a2a;text-align:center;line-height:1.8;padding:1rem;}
+
+/* SIGNAL STRIP */
+.signal-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:2rem;}
+.signal-tile{background:#111;padding:1.5rem;text-align:center;}
+.signal-num{font-family:'Abril Fatface',serif;font-size:2.2rem;color:var(--kodak);line-height:1;}
+.signal-label{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);margin-top:0.3rem;}
+.signal-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:0.7rem;color:#555;margin-top:0.5rem;line-height:1.5;}
+
+@media(max-width:700px){.docs-grid{grid-template-columns:1fr;}.signal-strip{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LvNC</a>
+  <span class="nav-title">Reference Documents</span>
+  <a href="index.html" class="nav-back">&larr; Portfolio</a>
+</nav>
+
+<!-- PIN SCREEN -->
+<div class="pin-screen" id="pin-screen">
+  <div class="pin-box">
+    <div class="pin-icon">&#9632;</div>
+    <div class="pin-title">Reference Documents</div>
+    <div class="pin-sub">This page contains official Arbeitszeugnisse<br>for verified recruiters and hiring managers.</div>
+    <input type="password" class="pin-input" id="pin-input" placeholder="Enter access code" autocomplete="off">
+    <div class="pin-error" id="pin-error"></div>
+    <button class="pin-btn" onclick="checkPin()">Access Documents &rarr;</button>
+    <p class="pin-note">Access codes are provided directly by Lorenzo.<br>Contact: lorenzojamal04@gmail.com</p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="main-content">
+  <div class="page-header">
+    <p class="page-label">Official References</p>
+    <h1 class="page-heading">Arbeitszeugnisse</h1>
+    <p class="page-note">These are official German employment references (Arbeitszeugnisse) from Lorenzo&rsquo;s two most recent roles. Both documents are qualified references (qualifiziertes Arbeitszeugnis) issued at the end of each position.<br><br>To view a document, click Preview. To save it, use the Download button.</p>
+  </div>
+
+  <!-- SIGNAL STRIP -->
+  <div class="signal-strip">
+    <div class="signal-tile">
+      <div class="signal-num">2</div>
+      <div class="signal-label">Qualified References</div>
+      <div class="signal-quote">Both issued as qualifiziertes Arbeitszeugnis</div>
+    </div>
+    <div class="signal-tile">
+      <div class="signal-num">&#10003;</div>
+      <div class="signal-label">Professional Conduct</div>
+      <div class="signal-quote">&ldquo;Stets zu unserer vollsten Zufriedenheit&rdquo;</div>
+    </div>
+    <div class="signal-tile">
+      <div class="signal-num">&#10003;</div>
+      <div class="signal-label">Service Orientation</div>
+      <div class="signal-quote">&ldquo;Hohe Serviceorientierung&rdquo;</div>
+    </div>
+  </div>
+
+  <!-- DOC CARDS -->
+  <div class="docs-grid">
+    <div class="doc-card" id="card-kd" onclick="selectDoc('kd')">
+      <div class="doc-org">Kunsthalle Darmstadt</div>
+      <div class="doc-person">Dr. L&eacute;on Krempel</div>
+      <div class="doc-role">Direktor &mdash; Membership &amp; Events Coordinator</div>
+      <div class="doc-date">September 2025 &middot; Juli 2024 &ndash; August 2025</div>
+      <div class="doc-quote">&ldquo;Er bewies Teamf&auml;higkeit, Flexibilit&auml;t und Belastbarkeit in einem sehr hohen Ma&szlig;e &mdash; mit hoher Serviceorientierung und professionellen Umgangsformen im Kontakt mit G&auml;sten.&rdquo;</div>
+      <div class="doc-actions">
+        <button class="btn-view" onclick="event.stopPropagation();previewDoc('kd')">&#9654; Preview</button>
+        <a class="btn-dl-doc" href="Arbeitszeugnis_KunsthalleDarmstadt.pdf" download onclick="event.stopPropagation()">&#8595; Download</a>
+      </div>
+    </div>
+    <div class="doc-card" id="card-ki" onclick="selectDoc('ki')">
+      <div class="doc-org">Konfuzius-Institut Frankfurt</div>
+      <div class="doc-person">Christina Werum-Wang</div>
+      <div class="doc-role">Gesch&auml;ftsf&uuml;hrerin &mdash; Kultur- &amp; Veranstaltungskoordinator</div>
+      <div class="doc-date">August 2025 &middot; Januar 2025 &ndash; August 2025</div>
+      <div class="doc-quote">&ldquo;Selbstst&auml;ndig, zuverl&auml;ssig und stets zu unserer vollsten Zufriedenheit &mdash; strukturiert, professionell und mit vielen guten Anregungen.&rdquo;</div>
+      <div class="doc-actions">
+        <button class="btn-view" onclick="event.stopPropagation();previewDoc('ki')">&#9654; Preview</button>
+        <a class="btn-dl-doc" href="Arbeitszeugnis_KonfuziusInstitut.pdf" download onclick="event.stopPropagation()">&#8595; Download</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF VIEWER -->
+  <div class="pdf-viewer-wrap" id="pdf-viewer-wrap" style="display:none;">
+    <div class="pdf-viewer-header">
+      <span class="pdf-viewer-title" id="pdf-viewer-title">Document Preview</span>
+      <div class="pdf-viewer-actions">
+        <a class="btn-dl-doc" id="pdf-dl-link" href="#" download>&#8595; Download</a>
+        <button class="pdf-close" onclick="closePreview()">&#10005; Close</button>
+      </div>
+    </div>
+    <div class="pdf-frame-wrap" id="pdf-frame-wrap">
+      <div class="pdf-placeholder" id="pdf-placeholder">
+        <div class="pdf-placeholder-icon">&#9632;</div>
+        <div class="pdf-placeholder-text">Upload the PDF files to your GitHub repo<br>to enable document preview here.<br><br>Files needed:<br>Arbeitszeugnis_KunsthalleDarmstadt.pdf<br>Arbeitszeugnis_KonfuziusInstitut.pdf</div>
+      </div>
+    </div>
+    <p class="pdf-upload-note">Documents are served directly from lorenzovnc.de &mdash; no third-party storage.</p>
+  </div>
+</div>
+
+<script>
+var PIN = 'l48uM,k17Z,_f-_,L1';
+var unlocked = sessionStorage.getItem('az_unlocked') === '1';
+var currentDoc = null;
+
+var DOCS = {
+  kd: { title: 'Arbeitszeugnis &mdash; Kunsthalle Darmstadt', file: 'Arbeitszeugnis_KunsthalleDarmstadt.pdf' },
+  ki: { title: 'Arbeitszeugnis &mdash; Konfuzius-Institut Frankfurt', file: 'Arbeitszeugnis_KonfuziusInstitut.pdf' }
+};
+
+if(unlocked){
+  document.getElementById('pin-screen').style.display='none';
+  document.getElementById('main-content').classList.add('show');
+}
+
+document.getElementById('pin-input').addEventListener('keydown', function(e){
+  if(e.key==='Enter') checkPin();
+});
+
+function checkPin(){
+  var val = document.getElementById('pin-input').value;
+  if(val === PIN){
+    sessionStorage.setItem('az_unlocked','1');
+    document.getElementById('pin-screen').style.display='none';
+    document.getElementById('main-content').classList.add('show');
+  } else {
+    document.getElementById('pin-error').textContent = 'Incorrect code. Please try again.';
+    document.getElementById('pin-input').value='';
+    document.getElementById('pin-input').focus();
+  }
+}
+
+function selectDoc(id){
+  document.querySelectorAll('.doc-card').forEach(function(c){ c.classList.remove('active'); });
+  document.getElementById('card-'+id).classList.add('active');
+  currentDoc = id;
+}
+
+function previewDoc(id){
+  selectDoc(id);
+  var doc = DOCS[id];
+  document.getElementById('pdf-viewer-wrap').style.display='';
+  document.getElementById('pdf-viewer-title').innerHTML = doc.title;
+  document.getElementById('pdf-dl-link').href = doc.file;
+  document.getElementById('pdf-dl-link').download = doc.file;
+
+  var frameWrap = document.getElementById('pdf-frame-wrap');
+  frameWrap.innerHTML = '<iframe src="'+doc.file+'" title="'+doc.title+'"></iframe>';
+
+  document.getElementById('pdf-viewer-wrap').scrollIntoView({behavior:'smooth'});
+}
+
+function closePreview(){
+  document.getElementById('pdf-viewer-wrap').style.display='none';
+  document.querySelectorAll('.doc-card').forEach(function(c){ c.classList.remove('active'); });
+}
+</script>
+</body>
+</html>
