@@ -771,40 +771,38 @@ footer{
 
 /* ── RHEINGAU MAP ────────────────────────────────────────────────── */
 .map-section{
-  background:var(--cream);padding:6rem 5rem;
-  display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:center;
+  background:var(--black);padding:6rem 5rem;
+  display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;
 }
-.map-left{}
 .map-left .section-head-wrap{margin-bottom:0;}
 .map-intro{
   font-family:"Cormorant Garamond",serif;font-size:1.1rem;
-  color:#3A3530;line-height:1.85;margin-top:1.5rem;
+  color:var(--warm-grey);line-height:1.85;margin-top:1.5rem;
 }
-.map-coords{
-  margin-top:2rem;display:flex;flex-direction:column;gap:.8rem;
+.map-legend{
+  margin-top:2rem;display:flex;flex-direction:column;gap:0;
+  border-top:1px solid #1e1e1e;
 }
-.map-coord-item{
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid var(--warm-grey);padding-bottom:.6rem;
-  font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.1em;
+.map-legend-item{
+  display:flex;align-items:center;gap:1rem;
+  border-bottom:1px solid #1e1e1e;padding:.9rem 0;
 }
-.map-coord-name{color:var(--black);text-transform:uppercase;letter-spacing:.15em;}
-.map-coord-val{color:#888;font-size:.5rem;}
-.map-coord-dot{
-  width:8px;height:8px;border-radius:50%;margin-right:.8rem;
-  display:inline-block;flex-shrink:0;
+.map-legend-pip{width:10px;height:10px;flex-shrink:0;}
+.map-legend-name{
+  font-family:"Space Mono",monospace;font-size:.55rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--warm-grey);flex:1;
+}
+.map-legend-tag{
+  font-family:"Space Mono",monospace;font-size:.48rem;
+  letter-spacing:.1em;color:#444;
 }
 .map-right{}
-.map-svg-wrap{
-  border:1px solid #ddd;
-  box-shadow:4px 4px 0 var(--warm-grey);
-  overflow:hidden;
-}
+.map-svg-wrap{overflow:hidden;}
 .map-svg-wrap svg{display:block;width:100%;}
 
 /* ── RESPONSIVE ADDITIONS ───────────────────────────────────────── */
 @media(max-width:960px){
-  .map-section{grid-template-columns:1fr;}
+  .map-section{grid-template-columns:1fr;background:var(--black);}
   .typo-mid-strip{flex-direction:column;gap:1.5rem;text-align:left;}
   .typo-mid-right{text-align:left;}
   .floorplan-legend{display:none;}
@@ -815,6 +813,99 @@ footer{
 }
 @media print{
   .floorplan-section,.typo-section,.map-section{display:none!important;}
+}
+
+/* ── CASE STUDY ──────────────────────────────────────────────────── */
+.casestudy-section{
+  background:#060604;padding:6rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
+  border-top:1px solid #111;
+}
+.casestudy-left{}
+.casestudy-stats{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-top:3rem;
+}
+.cs-stat{
+  background:#111;padding:1.5rem 1.2rem;
+}
+.cs-stat-num{
+  font-family:"Abril Fatface",serif;font-size:2.2rem;
+  color:var(--kodak);line-height:1;
+}
+.cs-stat-label{
+  font-family:"Space Mono",monospace;font-size:.52rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--warm-grey);margin-top:.4rem;line-height:1.5;
+}
+.casestudy-right{
+  position:relative;padding-top:1rem;
+}
+.cs-char{
+  position:absolute;top:-2rem;right:-2rem;
+  font-size:22rem;line-height:1;
+  color:rgba(245,200,0,.04);
+  font-family:"Playfair Display",serif;
+  pointer-events:none;user-select:none;
+  z-index:0;
+}
+.cs-body{position:relative;z-index:1;}
+.cs-body p{
+  font-family:"Playfair Display",serif;
+  font-size:1rem;line-height:1.9;color:#A09890;
+  margin-bottom:1.2rem;
+}
+.cs-body p strong{color:var(--cream);}
+.cs-body p em{color:var(--kodak);font-style:normal;}
+.cs-heritage-tag{
+  display:inline-block;margin-top:.5rem;
+  font-family:"Space Mono",monospace;font-size:.52rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid rgba(245,200,0,.2);color:rgba(245,200,0,.5);
+  padding:.35rem .8rem;
+}
+
+/* ── DIPLOMACY STRIP ─────────────────────────────────────────────── */
+.diplomacy-strip{
+  background:var(--terracotta);padding:4rem 5rem;
+  display:grid;grid-template-columns:200px 1fr;gap:4rem;align-items:center;
+}
+.diplomacy-label-col{
+  border-right:1px solid rgba(255,255,255,.2);
+  padding-right:3rem;
+}
+.diplomacy-label{
+  font-family:"Space Mono",monospace;font-size:.52rem;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+.diplomacy-label-big{
+  font-family:"Bebas Neue",sans-serif;font-size:1.6rem;
+  letter-spacing:.1em;color:white;margin-top:.5rem;line-height:1.1;
+}
+.diplomacy-quote{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.45rem;font-style:italic;
+  color:white;line-height:1.65;
+}
+.diplomacy-quote em{
+  font-style:normal;
+  border-bottom:2px solid rgba(255,255,255,.4);
+}
+.diplomacy-attr{
+  font-family:"Space Mono",monospace;font-size:.52rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-top:1.2rem;
+}
+
+@media(max-width:960px){
+  .casestudy-section{grid-template-columns:1fr;gap:3rem;}
+  .diplomacy-strip{grid-template-columns:1fr;gap:1.5rem;}
+  .diplomacy-label-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.2);padding-right:0;padding-bottom:1.5rem;}
+  .cs-char{font-size:12rem;right:0;}
+  .casestudy-section,.diplomacy-strip{padding:3rem 1.5rem;}
+}
+@media print{
+  .casestudy-section,.diplomacy-strip{display:none!important;}
 }
 </style>
 </head>
@@ -876,10 +967,10 @@ footer{
     <div class="hero-right-bg-num">26</div>
     <div class="hero-location" data-key="hero_location">Geisenheim, Germany</div>
     <div class="hero-stats">
-      <div><div class="stat-number">15+</div><div class="stat-label" data-key="stat1">Exclusive events<br>executed</div></div>
+      <div><div class="stat-number">10+</div><div class="stat-label" data-key="stat1">Exclusive events<br>coordinated</div></div>
       <div><div class="stat-number">500+</div><div class="stat-label" data-key="stat2">Members<br>served</div></div>
       <div><div class="stat-number">30+</div><div class="stat-label" data-key="stat3">Cultural events<br>coordinated</div></div>
-      <div><div class="stat-number">85%</div><div class="stat-label" data-key="stat4">Average event<br>attendance</div></div>
+      <div><div class="stat-number">1</div><div class="stat-label" data-key="stat4">Gerhard Richter<br>world premi&egrave;re</div></div>
     </div>
   </div>
 </section>
@@ -899,8 +990,8 @@ footer{
   </div>
   <div class="about-body reveal reveal-d2">
     <p data-key="about_p1">Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere &mdash; the kind of events people remember.</p>
-    <p data-key="about_p2">From exclusive member galas at Kunsthalle Darmstadt to a multi-day Theater Festival coordinating international artists, I bring calm precision to complex, high-pressure production environments.</p>
-    <p data-key="about_p3">Bilingual in German and English. Rooted in the Rheingau. Passionate about cultural diplomacy, live performance, and the moments only great events create.</p>
+    <p data-key="about_p2">From exclusive member galas at Kunsthalle Darmstadt to coordinating Han Zaifen&rsquo;s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt &mdash; 30+ artists, a National Cultural Heritage performance, a German audience &mdash; I bring calm precision to complex, high-pressure, intercultural production environments.</p>
+    <p data-key="about_p3">Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe.</p>
     <p class="italic-note" data-key="about_p4">Classical &amp; jazz trumpet player &mdash; I understand the stage from both sides.</p>
   </div>
 </section>
@@ -933,11 +1024,11 @@ footer{
       <div class="exp-role" data-key="kd_role">Membership &amp; Events Coordinator</div>
       <div class="exp-period">July 2024 &mdash; August 2025</div>
       <ul class="exp-bullets">
-        <li data-key="kd_b1">Planned &amp; executed 15+ exclusive member events &mdash; exhibition previews, galas, cultural meetups &mdash; for 500+ member base</li>
-        <li data-key="kd_b2">Consistently achieved 85%+ attendance rates across all events</li>
+        <li data-key="kd_b1">Planned &amp; supported execution of 10+ exclusive member events &mdash; exhibition previews, galas, cultural meetups &mdash; for 500+ member base</li>
         <li data-key="kd_b3">Primary point of contact for members; elevated guest experience standards across all touchpoints</li>
         <li data-key="kd_b4">Collaborated with curators, artists &amp; external partners on logistics, guest flow &amp; atmosphere design</li>
         <li data-key="kd_b5">Maintained CRM systems, processed inquiries, supported donation &amp; renewal administration</li>
+        <li data-key="kd_b6">Conducted archival research at Deutsche Nationalbibliothek Frankfurt for <em>Eingebrannt</em> &mdash; sourcing lyric texts &amp; primary materials for the DDR art, poetry &amp; music exhibition curated by Dr. L&eacute;on Krempel (Gerhard Richter, Wolf Biermann, Heiner M&uuml;ller, A.R. Penck &amp; others)</li>
       </ul>
     </div>
     <div class="exp-card reveal reveal-d2">
@@ -946,7 +1037,7 @@ footer{
       <div class="exp-period">January 2025 &mdash; August 2025</div>
       <ul class="exp-bullets">
         <li data-key="ki_b1">Supported planning &amp; logistics of 30+ cultural events: festivals, lectures, workshops, public receptions</li>
-        <li data-key="ki_b2">Key role in multi-day Theater Festival (July 2025) &mdash; artist liaison, scheduling, backstage &amp; audience experience</li>
+        <li data-key="ki_b2">Key supporting role in Theater Festival (July 2025) &mdash; artist logistics, scheduling support, and on-site backstage operations for the Han Zaifen Ensemble (30+ artists, Huangmei Opera, National Cultural Heritage of China)</li>
         <li data-key="ki_b3">Technical setup, guest coordination &amp; on-site production at high-profile public events</li>
         <li data-key="ki_b4">Managed vendor &amp; sponsor communications; contributed to print &amp; digital event materials</li>
         <li data-key="ki_b5">Represented the institute at public receptions &amp; networking events in bilingual contexts</li>
@@ -961,6 +1052,7 @@ footer{
         <li data-key="pd_b2">Regularly entrusted with VIP guest welcoming &amp; moderated formats in bilingual settings</li>
         <li data-key="pd_b3">Contributed conceptually to Theater Festival guest-facing implementation</li>
         <li data-key="pd_b4">Deep network across Rheingau cultural institutions, wineries &amp; premium hospitality venues</li>
+        <li data-key="pd_b5">Contributed to planning of Konfuzius-Institut Frankfurt&rsquo;s presence at Frankfurter B&uuml;chermesse &mdash; the world&rsquo;s largest book fair &mdash; prior to departure</li>
       </ul>
     </div>
   </div>
@@ -972,21 +1064,27 @@ footer{
   <div class="works-strip">
     <div class="work-card reveal reveal-d1">
       <div class="work-num">01</div>
-      <div class="work-title">Theater Festival<br>Frankfurt</div>
-      <div class="work-sub">Konfuzius-Institut &middot; July 2025</div>
-      <p class="work-outcome">6 international artists. 3-day programme. Artist liaison, full backstage management, audience experience design from concept to curtain.</p>
+      <div class="work-title">A Performance<br>Across Cultures</div>
+      <div class="work-sub">Han Zaifen Ensemble &middot; Huangmei Opera &middot; Konfuzius-Institut Frankfurt &middot; July 2025</div>
+      <p class="work-outcome">30+ artists. National Cultural Heritage of China. Key supporting role in the production &mdash; artist logistics, scheduling, and on-site backstage operations for an ensemble led by Han Zaifen, one of China&rsquo;s most decorated performers.</p>
     </div>
     <div class="work-card reveal reveal-d2">
       <div class="work-num">02</div>
       <div class="work-title">Gala &amp; Exhibition<br>Series</div>
       <div class="work-sub">Kunsthalle Darmstadt &middot; 2024&ndash;25</div>
-      <p class="work-outcome">15+ exclusive events for 500+ members. Consistent 85%+ attendance. VIP coordination, atmosphere design, full logistics ownership.</p>
+      <p class="work-outcome">10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.</p>
     </div>
     <div class="work-card reveal reveal-d3">
       <div class="work-num">03</div>
       <div class="work-title">IMEX Frankfurt<br>2025</div>
       <div class="work-sub">Industry Engagement &middot; May 2025</div>
       <p class="work-outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate for industry exposure, professional development, and networking with senior event professionals.</p>
+    </div>
+    <div class="work-card reveal reveal-d4">
+      <div class="work-num">04</div>
+      <div class="work-title">Arie van Selm<br>Opening Gala</div>
+      <div class="work-sub">Kunsthalle Darmstadt &middot; September 2024</div>
+      <p class="work-outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L&eacute;on Krempel.</p>
     </div>
   </div>
 </div>
@@ -1238,6 +1336,54 @@ footer{
   </div>
 </div>
 
+<!-- CASE STUDY: A PERFORMANCE ACROSS CULTURES -->
+<div class="casestudy-section">
+  <div class="casestudy-left reveal">
+    <div class="section-head-wrap">
+      <span class="section-ghost section-ghost-light" style="color:rgba(245,200,0,.03);">01</span>
+      <p class="section-label" style="color:var(--terracotta);">Case Study &mdash; Theater Festival 2025</p>
+      <h2 class="section-heading" style="color:var(--cream);">A Performance<br>Across Cultures</h2>
+      <div class="thick-rule"></div>
+    </div>
+    <div class="casestudy-stats">
+      <div class="cs-stat">
+        <div class="cs-stat-num">30+</div>
+        <div class="cs-stat-label">Artists coordinated</div>
+      </div>
+      <div class="cs-stat">
+        <div class="cs-stat-num">2006</div>
+        <div class="cs-stat-label">National Cultural Heritage since</div>
+      </div>
+      <div class="cs-stat">
+        <div class="cs-stat-num">3</div>
+        <div class="cs-stat-label">Days of live production</div>
+      </div>
+    </div>
+  </div>
+  <div class="casestudy-right reveal reveal-d2">
+    <div class="cs-char" aria-hidden="true">&#x6232;</div>
+    <div class="cs-body">
+      <p>In July 2025, the Konfuzius-Institut Frankfurt presented a landmark cultural event: the <strong>Zaifen Huangmei Theater Ensemble</strong> from Anhui Province, led by <strong>Han Zaifen</strong> &mdash; one of China&rsquo;s most decorated performers and a celebrated star of the Huangmei Opera tradition.</p>
+      <p>Huangmei Opera traces its roots to songs sung by women during the tea harvest in Anhui. Distinct from Peking Opera and Yue Opera in its melodic character and emotional directness, it was inscribed as part of China&rsquo;s <em>National Intangible Cultural Heritage</em> in 2006.</p>
+      <p>Presenting a 30+ person ensemble of this standing to a German audience requires more than logistics &mdash; it requires understanding the cultural weight of what is being offered, and ensuring the production honours it. I played a key supporting role in the production: assisting with artist arrival logistics, scheduling coordination, and on-site backstage operations across the three-day programme.</p>
+      <span class="cs-heritage-tag">National Intangible Cultural Heritage of China &mdash; since 2006</span>
+    </div>
+  </div>
+</div>
+
+<!-- CULTURAL DIPLOMACY STRIP -->
+<div class="diplomacy-strip reveal">
+  <div class="diplomacy-label-col">
+    <div class="diplomacy-label">On Cultural Diplomacy</div>
+    <div class="diplomacy-label-big">Working<br>Between<br>Worlds</div>
+  </div>
+  <div>
+    <p class="diplomacy-quote">&ldquo;Working at the intersection of German and Chinese cultural institutions taught me that the best events don&rsquo;t just entertain &mdash; they <em>translate</em>.&rdquo;</p>
+    <p class="diplomacy-attr">Lorenzo von Neumann-Cosel &nbsp;&middot;&nbsp; Event Coordination &amp; Cultural Programming</p>
+  </div>
+</div>
+
+
 
 <div class="section-divider"></div>
 
@@ -1284,7 +1430,7 @@ footer{
       <div class="comp-icon">02</div>
       <div class="comp-name" data-key="c2_name">Guest Experience Design</div>
       <div class="comp-desc" data-key="c2_desc">Atmosphere curation, VIP services, personalized engagement, hospitality standards</div>
-      <div class="comp-detail">500+ member base at Kunsthalle &mdash; 85%+ attendance maintained across 15+ events. VIP welcoming in bilingual formats.</div>
+      <div class="comp-detail">500+ member base at Kunsthalle &mdash; 10+ exclusive events, VIP welcoming, guest relations in bilingual formats.</div>
     </div>
     <div class="comp-card reveal reveal-d3">
       <div class="comp-icon">03</div>
@@ -1295,8 +1441,8 @@ footer{
     <div class="comp-card reveal reveal-d4">
       <div class="comp-icon">04</div>
       <div class="comp-name" data-key="c4_name">Cultural Programming</div>
-      <div class="comp-desc" data-key="c4_desc">Exhibition support, artist liaison, festival coordination, arts administration</div>
-      <div class="comp-detail">International artist liaison at Theater Festival. Exhibition opening coordination at Kunsthalle alongside curatorial team.</div>
+      <div class="comp-desc" data-key="c4_desc">Intercultural programming, international artist liaison, festival coordination, arts administration across German and Chinese cultural institutions</div>
+      <div class="comp-detail">Han Zaifen Ensemble liaison &mdash; 30+ artists, National Cultural Heritage performance. Exhibition coordination alongside Kunsthalle curatorial team.</div>
     </div>
     <div class="comp-card reveal reveal-d1">
       <div class="comp-icon">05</div>
@@ -1370,164 +1516,151 @@ footer{
 <section class="map-section">
   <div class="map-left reveal">
     <div class="section-head-wrap">
-      <span class="section-ghost" style="color:rgba(0,0,0,.04);">GEO</span>
+      <span class="section-ghost section-ghost-light">GEO</span>
       <p class="section-label">Geography</p>
-      <h2 class="section-heading">Rooted in<br>the Rheingau</h2>
+      <h2 class="section-heading" style="color:var(--cream);">From Darmstadt<br>to the World</h2>
       <div class="thick-rule"></div>
     </div>
-    <p class="map-intro" data-key="map_intro">Based in Geisenheim, in the heart of Germany&rsquo;s most celebrated wine and cultural region. Within reach of Frankfurt and Darmstadt &mdash; the two institutions that define my professional foundation.</p>
-    <div class="map-coords">
-      <div class="map-coord-item">
-        <span style="display:flex;align-items:center;gap:.6rem;">
-          <span class="map-coord-dot" style="background:#F5C800;"></span>
-          <span class="map-coord-name">Geisenheim</span>
-        </span>
-        <span class="map-coord-val">49.98&deg;N &nbsp;7.96&deg;E</span>
+    <p class="map-intro" data-key="map_intro">Born and raised in Darmstadt. Trained in Frankfurt. Now based in Geisenheim, Rheingau &mdash; and open to opportunities across Germany and Europe.</p>
+    <div class="map-legend">
+      <div class="map-legend-item">
+        <svg width="10" height="10" class="map-legend-pip"><rect width="10" height="10" fill="#F5C800"/></svg>
+        <span class="map-legend-name">Geisenheim</span>
+        <span class="map-legend-tag">Current base</span>
       </div>
-      <div class="map-coord-item">
-        <span style="display:flex;align-items:center;gap:.6rem;">
-          <span class="map-coord-dot" style="background:#C4522A;"></span>
-          <span class="map-coord-name">Frankfurt am Main</span>
-        </span>
-        <span class="map-coord-val">50.11&deg;N &nbsp;8.68&deg;E</span>
+      <div class="map-legend-item">
+        <svg width="10" height="10" class="map-legend-pip"><rect width="10" height="10" fill="#C4522A"/></svg>
+        <span class="map-legend-name">Frankfurt am Main</span>
+        <span class="map-legend-tag">Konfuzius-Institut</span>
       </div>
-      <div class="map-coord-item">
-        <span style="display:flex;align-items:center;gap:.6rem;">
-          <span class="map-coord-dot" style="background:#C8C2B4;"></span>
-          <span class="map-coord-name">Darmstadt</span>
-        </span>
-        <span class="map-coord-val">49.87&deg;N &nbsp;8.65&deg;E</span>
+      <div class="map-legend-item">
+        <svg width="10" height="10" class="map-legend-pip"><rect width="10" height="10" fill="#C8C2B4"/></svg>
+        <span class="map-legend-name">Darmstadt</span>
+        <span class="map-legend-tag">Origin &middot; Kunsthalle</span>
       </div>
     </div>
   </div>
   <div class="map-right reveal reveal-d2">
     <div class="map-svg-wrap">
-      <svg viewBox="0 0 620 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hand-drawn style map of the Rheingau region showing Geisenheim, Frankfurt, and Darmstadt">
+      <svg viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Editorial diagram showing Geisenheim, Frankfurt, and Darmstadt">
+
+        <!-- black ground -->
+        <rect width="560" height="480" fill="#0D0D0D"/>
+
+        <!-- dot grid (very faint, matches hero) -->
         <defs>
-          <filter id="roughen">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" seed="2" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-          <pattern id="map-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#d4c8b0" stroke-width=".5" opacity=".3"/>
-          </pattern>
-          <pattern id="map-hatch2" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
-            <line x1="0" y1="0" x2="0" y2="4" stroke="#c8b898" stroke-width=".4" opacity=".2"/>
+          <pattern id="diag-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="11" cy="11" r="0.8" fill="rgba(245,200,0,.06)"/>
           </pattern>
         </defs>
+        <rect width="560" height="480" fill="url(#diag-dots)"/>
 
-        <!-- parchment background -->
-        <rect width="620" height="480" fill="#f0e8d4"/>
-        <!-- subtle texture layer -->
-        <rect width="620" height="480" fill="url(#map-hatch)"/>
+        <!-- GHOSTED BACKGROUND LETTERS — editorial backdrop -->
+        <!-- "H" for Hessen -->
+        <text x="-20" y="420" font-family="Georgia,serif" font-size="420"
+          fill="rgba(245,200,0,.018)" font-weight="bold">H</text>
 
-        <!-- coordinate grid (faint) -->
-        <line x1="0" y1="160" x2="620" y2="160" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-        <line x1="0" y1="240" x2="620" y2="240" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-        <line x1="0" y1="320" x2="620" y2="320" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-        <line x1="155" y1="0" x2="155" y2="480" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-        <line x1="310" y1="0" x2="310" y2="480" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-        <line x1="465" y1="0" x2="465" y2="480" stroke="#c8b898" stroke-width=".4" stroke-dasharray="2,8"/>
-
-        <!-- Taunus hills (north, hand-drawn undulating ridge) -->
-        <path d="M20,110 Q50,80 90,95 Q130,70 170,88 Q210,60 250,78 Q290,55 330,72 Q370,50 410,68 Q450,48 490,65 Q530,45 570,58 Q600,52 620,60 L620,130 L20,130 Z"
-          fill="url(#map-hatch2)" stroke="#b0a080" stroke-width="1.2" opacity=".6"/>
-        <path d="M20,112 Q60,85 100,98 Q140,74 180,90 Q220,64 260,80 Q300,58 340,74 Q380,52 420,70 Q460,50 500,66 Q540,46 580,60 Q600,54 620,62"
-          fill="none" stroke="#a09070" stroke-width="1.8" filter="url(#roughen)" opacity=".7"/>
-        <text x="310" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#8a7a60" font-style="italic" letter-spacing="3" opacity=".7">TAUNUS</text>
-
-        <!-- Rhine river — flowing left to right, slightly south of centre -->
-        <path d="M0,258 Q30,252 60,260 Q90,268 120,255 Q150,245 180,256 Q210,264 240,254 Q265,246 290,252 Q310,256 330,250 Q355,244 380,252 Q405,258 430,248 Q455,240 480,248 Q510,254 540,244 Q570,236 600,244 L620,248 L620,280 Q590,272 560,282 Q530,290 500,278 Q470,268 445,278 Q420,286 395,276 Q370,268 345,278 Q320,286 295,276 Q275,270 255,278 Q235,284 210,274 Q185,265 160,275 Q135,283 110,272 Q85,263 60,272 Q30,280 0,274 Z"
-          fill="rgba(100,150,200,.18)" stroke="rgba(80,130,180,.45)" stroke-width="1.5"/>
-        <!-- Rhine label -->
-        <text x="80" y="270" font-family="Georgia,serif" font-size="9" fill="rgba(80,130,180,.7)" font-style="italic" letter-spacing="2">Rhein</text>
-
-        <!-- Rheingau wine slopes (south bank of Rhine, gentle hatching zone) -->
-        <path d="M0,278 Q40,290 80,284 Q120,278 160,285 Q200,290 240,282 Q270,276 300,282 L300,360 Q260,365 220,358 Q180,352 140,360 Q100,366 60,358 Q30,352 0,360 Z"
-          fill="url(#map-hatch)" stroke="none" opacity=".5"/>
-        <text x="148" y="330" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#6a5c40" font-style="italic" letter-spacing="2" opacity=".8">Rheingau</text>
-
-        <!-- Main landscape softening -->
-        <path d="M0,360 Q80,340 160,355 Q240,368 320,350 Q400,334 480,350 Q550,363 620,348 L620,480 L0,480 Z"
-          fill="#e8dcc4" stroke="none" opacity=".7"/>
-        <!-- Odenwald suggestion (SE) -->
-        <path d="M480,320 Q510,295 540,310 Q570,295 600,308 Q615,302 620,306 L620,380 Q590,370 560,378 Q530,384 500,374 Q480,368 460,372 Z"
-          fill="url(#map-hatch2)" stroke="#b0a080" stroke-width=".8" opacity=".4"/>
-        <text x="560" y="358" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" fill="#8a7a60" font-style="italic" opacity=".6">Odenwald</text>
-
-        <!-- Main am Main river (east, vertical-ish) -->
-        <path d="M445,0 Q440,40 448,80 Q454,120 446,160 Q440,195 450,230 Q456,250 452,260"
-          fill="none" stroke="rgba(80,130,180,.35)" stroke-width="2"/>
-        <text x="462" y="120" font-family="Georgia,serif" font-size="8" fill="rgba(80,130,180,.6)" font-style="italic" letter-spacing="1">Main</text>
-
-        <!-- CITY: GEISENHEIM (on Rhine south bank, west side) -->
-        <circle cx="148" cy="286" r="6" fill="#F5C800" stroke="#2A1F0A" stroke-width="1.5"/>
-        <circle cx="148" cy="286" r="2.5" fill="#2A1F0A"/>
-        <!-- label -->
-        <rect x="108" y="295" width="82" height="16" fill="rgba(240,232,212,.9)" rx="1"/>
-        <text x="149" y="307" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8.5" fill="#2A1F0A" font-weight="700" letter-spacing="1">GEISENHEIM</text>
-        <!-- home marker detail -->
-        <line x1="148" y1="292" x2="148" y2="294" stroke="#2A1F0A" stroke-width="1"/>
-
-        <!-- CITY: FRANKFURT -->
-        <circle cx="452" cy="186" r="7" fill="#C4522A" stroke="#2A1F0A" stroke-width="1.5"/>
-        <circle cx="452" cy="186" r="2.5" fill="#fff" opacity=".8"/>
-        <rect x="420" y="197" width="70" height="16" fill="rgba(240,232,212,.9)" rx="1"/>
-        <text x="455" y="209" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8.5" fill="#2A1F0A" font-weight="700" letter-spacing=".5">FRANKFURT</text>
-        <!-- city density marks -->
-        <rect x="440" y="168" width="4" height="5" fill="rgba(196,82,42,.3)"/>
-        <rect x="447" y="165" width="4" height="8" fill="rgba(196,82,42,.3)"/>
-        <rect x="454" y="170" width="4" height="4" fill="rgba(196,82,42,.3)"/>
-        <rect x="461" y="166" width="4" height="7" fill="rgba(196,82,42,.3)"/>
-
-        <!-- CITY: DARMSTADT -->
-        <circle cx="468" cy="355" r="5.5" fill="#C8C2B4" stroke="#2A1F0A" stroke-width="1.2"/>
-        <circle cx="468" cy="355" r="2" fill="#2A1F0A"/>
-        <rect x="436" y="363" width="70" height="16" fill="rgba(240,232,212,.9)" rx="1"/>
-        <text x="471" y="375" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8.5" fill="#2A1F0A" font-weight="700" letter-spacing=".5">DARMSTADT</text>
-
-        <!-- connecting route lines (dashed paths between cities) -->
+        <!-- CONNECTOR LINES (thin, Kodak yellow) -->
         <!-- Geisenheim to Frankfurt -->
-        <path d="M154,284 Q200,240 310,220 Q370,208 444,192"
-          fill="none" stroke="#2A1F0A" stroke-width="1" stroke-dasharray="5,4" opacity=".25"/>
+        <line x1="130" y1="248" x2="360" y2="148"
+          stroke="rgba(245,200,0,.25)" stroke-width="1" stroke-dasharray="4,5"/>
         <!-- Frankfurt to Darmstadt -->
-        <path d="M452,193 Q455,260 464,348"
-          fill="none" stroke="#2A1F0A" stroke-width="1" stroke-dasharray="5,4" opacity=".25"/>
+        <line x1="368" y1="162" x2="400" y2="330"
+          stroke="rgba(245,200,0,.15)" stroke-width="1" stroke-dasharray="4,5"/>
+        <!-- Geisenheim to Darmstadt (faint) -->
+        <line x1="138" y1="255" x2="392" y2="336"
+          stroke="rgba(245,200,0,.07)" stroke-width="1" stroke-dasharray="2,8"/>
 
-        <!-- distance annotations -->
-        <text x="280" y="248" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#8a7a60" opacity=".7">&#x7e;65 km</text>
-        <text x="492" y="278" font-family="'Space Mono',monospace" font-size="7" fill="#8a7a60" opacity=".7">&#x7e;32 km</text>
+        <!-- DISTANCE LABELS on connectors -->
+        <text x="248" y="188" text-anchor="middle"
+          font-family="'Space Mono',monospace" font-size="8"
+          fill="rgba(245,200,0,.35)" letter-spacing="1">~65 KM</text>
+        <text x="392" y="255" text-anchor="middle"
+          font-family="'Space Mono',monospace" font-size="8"
+          fill="rgba(245,200,0,.25)" letter-spacing="1">~32 KM</text>
 
-        <!-- compass rose -->
-        <g transform="translate(566,56)">
-          <circle r="22" fill="rgba(240,232,212,.8)" stroke="#b0a080" stroke-width="1"/>
-          <line x1="0" y1="-16" x2="0" y2="16" stroke="#6a5c40" stroke-width="1"/>
-          <line x1="-16" y1="0" x2="16" y2="0" stroke="#6a5c40" stroke-width="1"/>
-          <polygon points="0,-16 -3,-6 0,-10 3,-6" fill="#2A1F0A"/>
-          <text x="0" y="-19" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8" fill="#2A1F0A" font-weight="700">N</text>
-          <text x="19" y="4" font-family="'Space Mono',monospace" font-size="6.5" fill="#6a5c40">E</text>
-          <text x="-25" y="4" text-anchor="middle" font-family="'Space Mono',monospace" font-size="6.5" fill="#6a5c40">W</text>
-          <text x="0" y="28" text-anchor="middle" font-family="'Space Mono',monospace" font-size="6.5" fill="#6a5c40">S</text>
+        <!-- ── GEISENHEIM ────────────────────────────── -->
+        <!-- ghost city name -->
+        <text x="18" y="300" font-family="'Space Mono',monospace"
+          font-size="38" fill="rgba(245,200,0,.04)" font-weight="700"
+          letter-spacing="2">GEISENHEIM</text>
+        <!-- dot -->
+        <rect x="120" y="238" width="20" height="20" fill="#F5C800"/>
+        <!-- label block -->
+        <text x="150" y="245" font-family="'Bebas Neue',sans-serif"
+          font-size="18" fill="#F5C800" letter-spacing="2">GEISENHEIM</text>
+        <text x="151" y="256" font-family="'Space Mono',monospace"
+          font-size="7" fill="rgba(245,200,0,.5)" letter-spacing="1.5">49.98°N  7.96°E</text>
+        <!-- tag -->
+        <rect x="150" y="262" width="68" height="12" fill="rgba(245,200,0,.08)"/>
+        <text x="154" y="271" font-family="'Space Mono',monospace"
+          font-size="6.5" fill="#F5C800" letter-spacing="1">CURRENT BASE</text>
+
+        <!-- ── FRANKFURT ──────────────────────────────── -->
+        <!-- ghost city name -->
+        <text x="220" y="120" font-family="'Space Mono',monospace"
+          font-size="28" fill="rgba(196,82,42,.05)" font-weight="700"
+          letter-spacing="2">FRANKFURT</text>
+        <!-- dot -->
+        <rect x="355" y="140" width="20" height="20" fill="#C4522A"/>
+        <!-- label block -->
+        <text x="385" y="148" font-family="'Bebas Neue',sans-serif"
+          font-size="18" fill="#C4522A" letter-spacing="2">FRANKFURT</text>
+        <text x="386" y="159" font-family="'Space Mono',monospace"
+          font-size="7" fill="rgba(196,82,42,.5)" letter-spacing="1.5">50.11°N  8.68°E</text>
+        <!-- institution tag -->
+        <text x="386" y="172" font-family="'Space Mono',monospace"
+          font-size="6" fill="#444" letter-spacing="1">KONFUZIUS-INSTITUT</text>
+
+        <!-- ── DARMSTADT ──────────────────────────────── -->
+        <!-- ghost city name -->
+        <text x="220" y="395" font-family="'Space Mono',monospace"
+          font-size="26" fill="rgba(200,194,180,.04)" font-weight="700"
+          letter-spacing="2">DARMSTADT</text>
+        <!-- dot -->
+        <rect x="388" y="323" width="20" height="20" fill="#C8C2B4"/>
+        <!-- label block (to the left of dot) -->
+        <text x="270" y="330" font-family="'Bebas Neue',sans-serif"
+          font-size="18" fill="#C8C2B4" letter-spacing="2" text-anchor="start">DARMSTADT</text>
+        <text x="270" y="342" font-family="'Space Mono',monospace"
+          font-size="7" fill="rgba(200,194,180,.4)" letter-spacing="1.5">49.87°N  8.65°E</text>
+        <!-- dual tag -->
+        <text x="270" y="355" font-family="'Space Mono',monospace"
+          font-size="6" fill="#444" letter-spacing="1">ORIGIN &nbsp;·&nbsp; KUNSTHALLE</text>
+
+        <!-- BORDER CROP MARKS (editorial) -->
+        <!-- TL -->
+        <line x1="16" y1="16" x2="36" y2="16" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <line x1="16" y1="16" x2="16" y2="36" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <!-- TR -->
+        <line x1="544" y1="16" x2="524" y2="16" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <line x1="544" y1="16" x2="544" y2="36" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <!-- BL -->
+        <line x1="16" y1="464" x2="36" y2="464" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <line x1="16" y1="464" x2="16" y2="444" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <!-- BR -->
+        <line x1="544" y1="464" x2="524" y2="464" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+        <line x1="544" y1="464" x2="544" y2="444" stroke="rgba(245,200,0,.2)" stroke-width="1"/>
+
+        <!-- COMPASS — minimal, editorial -->
+        <g transform="translate(500,430)">
+          <line x1="0" y1="-18" x2="0" y2="18" stroke="#2a2a2a" stroke-width="1"/>
+          <line x1="-18" y1="0" x2="18" y2="0" stroke="#2a2a2a" stroke-width="1"/>
+          <polygon points="0,-18 -3,-8 0,-12 3,-8" fill="rgba(245,200,0,.6)"/>
+          <text x="0" y="-22" text-anchor="middle"
+            font-family="'Space Mono',monospace" font-size="7"
+            fill="rgba(245,200,0,.5)" letter-spacing="1">N</text>
         </g>
 
-        <!-- scale bar -->
-        <line x1="30" y1="450" x2="130" y2="450" stroke="#6a5c40" stroke-width="1.5"/>
-        <line x1="30" y1="445" x2="30" y2="455" stroke="#6a5c40" stroke-width="1.5"/>
-        <line x1="80" y1="445" x2="80" y2="455" stroke="#6a5c40" stroke-width="1.5"/>
-        <line x1="130" y1="445" x2="130" y2="455" stroke="#6a5c40" stroke-width="1.5"/>
-        <rect x="30" y="447" width="50" height="3" fill="#6a5c40" opacity=".4"/>
-        <text x="80" y="465" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7.5" fill="#6a5c40">25 KM</text>
+        <!-- REGION LABEL -->
+        <text x="28" y="452" font-family="'Space Mono',monospace"
+          font-size="7.5" fill="#1e1e1e" letter-spacing="3">HESSEN &nbsp;·&nbsp; DEUTSCHLAND</text>
 
-        <!-- title cartouche -->
-        <rect x="20" y="18" width="190" height="52" fill="rgba(240,232,212,.9)" stroke="#b0a080" stroke-width="1"/>
-        <text x="115" y="36" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#2A1F0A" font-weight="bold" letter-spacing="2">RHEINGAU</text>
-        <line x1="30" y1="42" x2="200" y2="42" stroke="#b0a080" stroke-width=".8"/>
-        <text x="115" y="56" text-anchor="middle" font-family="'Space Mono',monospace" font-size="6.5" fill="#6a5c40" letter-spacing="1.5">HESSEN &middot; DEUTSCHLAND</text>
-        <text x="115" y="66" text-anchor="middle" font-family="'Space Mono',monospace" font-size="6" fill="#9a8a70" letter-spacing="1">49&deg;N / 8&deg;E</text>
+        <!-- OPEN TO EUROPE note — small, editorial, bottom right -->
+        <text x="532" y="452" text-anchor="end"
+          font-family="'Space Mono',monospace" font-size="6.5"
+          fill="rgba(245,200,0,.3)" letter-spacing="1.5">OPEN TO EUROPE</text>
 
-        <!-- border frame -->
-        <rect x="6" y="6" width="608" height="468" fill="none" stroke="#b0a080" stroke-width="1.5"/>
-        <rect x="10" y="10" width="600" height="460" fill="none" stroke="#c8b898" stroke-width=".6"/>
       </svg>
     </div>
   </div>
@@ -1820,7 +1953,7 @@ if("IntersectionObserver" in window){
 // ── FIELD NOTE ─────────────────────────────────────────────────────
 var fieldNotes = [
   "The Theater Festival schedule required four complete rebuilds in 48 hours. The fifth version held.",
-  "The difference between 70% and 85% attendance is almost always in the briefing, not the execution.",
+  "The best briefing is the one that makes the night feel effortless.",
   "A gala that feels effortless is one where every contingency was resolved before the doors opened.",
   "Artist liaison is not logistics. It is the management of creative uncertainty under production constraints.",
   "The best VIP moment is the one the guest doesn’t notice was designed at all.",
@@ -1865,24 +1998,25 @@ var T = {
     hero_tagline:"Crafting premium cultural experiences where logistics meet atmosphere — from opening galas to international festival stages.",
     hero_cta_work:"View Work",hero_cta_contact:"Get in Touch",hero_cta_cv:"↓ Download CV",
     hero_location:"Geisenheim, Germany",
-    stat1:"Exclusive events<br>executed",stat2:"Members<br>served",stat3:"Cultural events<br>coordinated",stat4:"Average event<br>attendance",
+    stat1:"Exclusive events<br>coordinated",stat2:"Members<br>served",stat3:"Cultural events<br>coordinated",stat4:"Gerhard Richter<br>world premi\u00e8re",
     about_label:"001 — Profile",about_heading:"The Art of<br>the Experience",
     about_p1:"Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere — the kind of events people remember.",
-    about_p2:"From exclusive member galas at Kunsthalle Darmstadt to a multi-day Theater Festival coordinating international artists, I bring calm precision to complex, high-pressure production environments.",
-    about_p3:"Bilingual in German and English. Rooted in the Rheingau. Passionate about cultural diplomacy, live performance, and the moments only great events create.",
+    about_p2:"From exclusive member galas at Kunsthalle Darmstadt to supporting the production of Han Zaifen\u2019s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt \u2014 30+ artists, a National Cultural Heritage performance, a German audience \u2014 I bring calm precision to high-pressure, intercultural environments.",
+    about_p3:"Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe.",
     about_p4:"Classical & jazz trumpet player — I understand the stage from both sides.",
     pullquote_text:"“He demonstrated teamwork, flexibility and resilience to the <em>highest degree</em> — with a high service orientation and professional conduct in every guest interaction.”",
     pullquote_attr:"Dr. León Krempel · Director, Kunsthalle Darmstadt",
     exp_label:"002 — Experience",exp_heading:"Where I’ve<br>Worked",
     kd_role:"Membership & Events Coordinator",
-    kd_b1:"Planned & executed 15+ exclusive member events — exhibition previews, galas, cultural meetups — for 500+ member base",
-    kd_b2:"Consistently achieved 85%+ attendance rates across all events",
+    kd_b1:"Planned & supported execution of 10+ exclusive member events — exhibition previews, galas, cultural meetups — for 500+ member base",
+    
     kd_b3:"Primary point of contact for members; elevated guest experience standards across all touchpoints",
     kd_b4:"Collaborated with curators, artists & external partners on logistics, guest flow & atmosphere design",
     kd_b5:"Maintained CRM systems, processed inquiries, supported donation & renewal administration",
+    kd_b6:"Conducted archival research at Deutsche Nationalbibliothek Frankfurt for \u2018Eingebrannt\u2019 \u2014 sourcing lyric texts & primary materials for the DDR art, poetry & music exhibition curated by Dr. L\u00e9on Krempel",
     ki_role:"Cultural & Event Coordinator · BFD",
     ki_b1:"Supported planning & logistics of 30+ cultural events: festivals, lectures, workshops, public receptions",
-    ki_b2:"Key role in multi-day Theater Festival (July 2025) — artist liaison, scheduling, backstage & audience experience",
+    ki_b2:"Key supporting role in Theater Festival (July 2025) — artist logistics, scheduling support, and on-site backstage operations for the Han Zaifen Ensemble (30+ artists, Huangmei Opera, National Cultural Heritage of China)",
     ki_b3:"Technical setup, guest coordination & on-site production at high-profile public events",
     ki_b4:"Managed vendor & sponsor communications; contributed to print & digital event materials",
     ki_b5:"Represented the institute at public receptions & networking events in bilingual contexts",
@@ -1891,6 +2025,7 @@ var T = {
     pd_b2:"Regularly entrusted with VIP guest welcoming & moderated formats in bilingual settings",
     pd_b3:"Contributed conceptually to Theater Festival guest-facing implementation",
     pd_b4:"Deep network across Rheingau cultural institutions, wineries & premium hospitality venues",
+    pd_b5:"Contributed to planning of Konfuzius-Institut Frankfurt\u2019s presence at Frankfurter B\u00fcchermesse \u2014 the world\u2019s largest book fair \u2014 prior to departure",
     ref_label:"003 — References",ref_heading:"In Their<br>Own Words",
     ref1_quote:"“He demonstrated teamwork, flexibility and resilience to the highest degree — with a high service orientation and professional conduct in every guest interaction.”",
     ref1_title:"Director",
@@ -1900,7 +2035,7 @@ var T = {
     c1_name:"Event Planning & Coordination",c1_desc:"End-to-end logistics, vendor management, timeline control, contingency planning",
     c2_name:"Guest Experience Design",c2_desc:"Atmosphere curation, VIP services, personalized engagement, hospitality standards",
     c3_name:"Stakeholder Relations",c3_desc:"CRM management, donor stewardship, sponsor & partner development",
-    c4_name:"Cultural Programming",c4_desc:"Exhibition support, artist liaison, festival coordination, arts administration",
+    c4_name:"Cultural Diplomacy & Programming",c4_desc:"Intercultural programming, international artist liaison, festival coordination across German and Chinese cultural institutions",
     c5_name:"Technical Production",c5_desc:"AV setup, stage management, backstage coordination, on-site production",
     c6_name:"Crisis Management",c6_desc:"Calm under pressure, quick decision-making, adaptive thinking in live environments",
     lang_label:"005 — Languages",lang_heading:"Fluent in<br>Two Worlds",
@@ -1925,21 +2060,22 @@ var T = {
     hero_tagline:"Premium-Kulturerlebnisse, bei denen präzise Logistik auf echte Atmosphäre trifft — von exklusiven Vernissagen bis zu internationalen Festivalproduktionen.",
     hero_cta_work:"Meine Arbeit",hero_cta_contact:"Kontakt aufnehmen",hero_cta_cv:"↓ Lebenslauf herunterladen",
     hero_location:"Geisenheim, Deutschland",
-    stat1:"Exklusive Veranstaltungen<br>durchgeführt",stat2:"Mitglieder<br>betreut",stat3:"Kulturveranstaltungen<br>koordiniert",stat4:"Durchschnittliche<br>Teilnahmequote",
+    stat1:"Exklusive Veranstaltungen<br>durchgeführt",stat2:"Mitglieder<br>betreut",stat3:"Kulturveranstaltungen<br>koordiniert",stat4:"Gerhard Richter<br>Weltpremiere",
     about_label:"001 — Profil",about_heading:"Die Kunst des<br>Erlebnisses",
     about_p1:"Veranstaltungskoordinator mit über 1,5 Jahren Erfahrung in der Realisierung hochwertiger Kulturerlebnisse für internationale Zielgruppen.",
     about_p2:"Von exklusiven Mitgliedergalas der Kunsthalle Darmstadt bis hin zu einem mehrtägigen Theaterfestival mit internationalen Künstlern bringe ich ruhige Präzision in komplexe Produktionsumgebungen.",
-    about_p3:"Zweisprachig auf Deutsch und Englisch. Verwurzelt im Rheingau. Mit Leidenschaft für Kulturdiplomatie, Live-Aufführungen und unvergessliche Momente.",
+    about_p3:"Zweisprachig auf Deutsch und Englisch, mit Erfahrung in Großbritannien und den USA. Aufgewachsen in Darmstadt, jetzt in Geisenheim. Offen für Positionen in ganz Deutschland und Europa.",
     about_p4:"Klassischer & Jazz-Trompeter — ich kenne die Bühne von beiden Seiten.",
     pullquote_text:"„Er bewies Teamfähigkeit, Flexibilität und Belastbarkeit in einem sehr hohen Maße — mit hoher Serviceorientierung und <em>professionellen Umgangsformen</em> im Kontakt mit Gästen.“",
     pullquote_attr:"Dr. León Krempel · Direktor, Kunsthalle Darmstadt",
     exp_label:"002 — Erfahrung",exp_heading:"Meine<br>Stationen",
     kd_role:"Koordinator Mitgliedschaft & Veranstaltungen",
-    kd_b1:"Planung & Durchführung von 15+ exklusiven Mitgliederveranstaltungen für über 500 Mitglieder",
-    kd_b2:"Kontinuierliche Erreichung von 85%+ Teilnahmequoten",
+    kd_b1:"Planung & Unterstützung der Durchführung von 10+ exklusiven Mitgliederveranstaltungen für über 500 Mitglieder",
+    
     kd_b3:"Hauptansprechpartner für Mitglieder; höchste Gästebetreuungsstandards",
     kd_b4:"Enge Zusammenarbeit mit Kuratoren, Künstlern & externen Partnern",
     kd_b5:"Pflege von CRM-Systemen, Bearbeitung von Anfragen, Unterstützung der Mitgliederverwaltung",
+    kd_b6:"Archivrecherche an der Deutschen Nationalbibliothek Frankfurt f\u00fcr die Ausstellung \u2018Eingebrannt\u2019 \u2014 Beschaffung von Lyriktexten und Prim\u00e4rmaterialien f\u00fcr die von Dr. L\u00e9on Krempel kuratierte Ausstellung zu Kunst, Lyrik und Musik der DDR",
     ki_role:"Kultur- & Veranstaltungskoordinator · BFD",
     ki_b1:"Unterstützung bei Planung & Logistik von 30+ Kulturveranstaltungen",
     ki_b2:"Schlüsselrolle beim Theaterfestival (Juli 2025) — Künstlerbetreuung, Terminkoordination, Backstage",
@@ -1951,6 +2087,7 @@ var T = {
     pd_b2:"Regelmäßig mit VIP-Gästeempfang & Moderation betraut",
     pd_b3:"Konzeptionelle Mitwirkung an der Besuchererfahrung beim Theaterfestival",
     pd_b4:"Netzwerk in Rheingauer Kulturinstitutionen, Weingütern & Premium-Hospitality",
+    pd_b5:"Mitarbeit an der Planung des Messeauftritts des Konfuzius-Instituts Frankfurt auf der Frankfurter B\u00fcchermesse \u2014 der weltgr\u00f6\u00dften Buchmesse",
     ref_label:"003 — Referenzen",ref_heading:"Stimmen aus<br>der Praxis",
     ref1_quote:"„Er bewies Teamfähigkeit, Flexibilität und Belastbarkeit in einem sehr hohen Maße — mit hoher Serviceorientierung und professionellen Umgangsformen im Kontakt mit Gästen.“",
     ref1_title:"Direktor",
