@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Tracker | Lorenzo von Neumann-Cosel</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kodak:#F5C800; --kodak-deep:#E0B200; --black:#0D0D0D;
+    --cream:#F5F0E8; --warm-grey:#C8C2B4; --dark-brown:#2A1F0A;
+    --terracotta:#C4522A;
+    --s-applied:#F5C800; --s-interview:#4A90D9; --s-offer:#27AE60;
+    --s-rejected:#C4522A; --s-waiting:#888; --s-followup:#9B59B6;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--black);color:var(--cream);font-family:'Playfair Display',serif;min-height:100vh;}
+  nav{background:var(--black);border-bottom:3px solid var(--kodak);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;position:sticky;top:0;z-index:100;}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.15em;color:var(--kodak);text-decoration:none;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-grey);text-decoration:none;border:1.5px solid #333;padding:0.4rem 0.9rem;transition:all 0.2s;}
+  .nav-back:hover{border-color:var(--kodak);color:var(--kodak);}
+  .nav-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--warm-grey);}
+
+  main{max-width:1200px;margin:0 auto;padding:3rem 2rem 5rem;}
+
+  /* STATS BAR */
+  .stats-bar{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;margin-bottom:3rem;}
+  .stat-tile{padding:1.2rem 1rem;text-align:center;cursor:pointer;transition:opacity 0.2s;}
+  .stat-tile:hover{opacity:0.8;}
+  .stat-tile.all{background:#222;}
+  .stat-tile.applied{background:var(--s-applied);}
+  .stat-tile.interview{background:var(--s-interview);}
+  .stat-tile.offer{background:var(--s-offer);}
+  .stat-tile.rejected{background:var(--s-rejected);}
+  .stat-tile.waiting{background:var(--s-waiting);}
+  .stat-num{font-family:'Abril Fatface',serif;font-size:2rem;color:var(--black);line-height:1;}
+  .stat-tile.all .stat-num,.stat-tile.waiting .stat-num{color:var(--cream);}
+  .stat-lbl{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--black);margin-top:0.3rem;}
+  .stat-tile.all .stat-lbl,.stat-tile.waiting .stat-lbl{color:var(--warm-grey);}
+
+  /* ADD FORM */
+  .add-section{background:#111;border:1px solid #2a2a2a;padding:2rem;margin-bottom:2.5rem;}
+  .add-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--kodak);margin-bottom:1.5rem;}
+  .form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-label{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);}
+  .form-input,.form-select,.form-textarea{background:#0D0D0D;border:1px solid #333;color:var(--cream);font-family:'Space Mono',monospace;font-size:0.8rem;padding:0.6rem 0.8rem;outline:none;transition:border-color 0.2s;width:100%;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--kodak);}
+  .form-textarea{resize:vertical;min-height:70px;}
+  .form-select option{background:#0D0D0D;}
+  .btn-add{background:var(--kodak);color:var(--black);font-family:'Space Mono',monospace;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.8rem 2rem;border:none;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;}
+  .btn-add:hover{background:var(--kodak-deep);}
+
+  /* FILTER / SEARCH */
+  .controls{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;align-items:center;}
+  .search-input{background:#111;border:1px solid #2a2a2a;color:var(--cream);font-family:'Space Mono',monospace;font-size:0.75rem;padding:0.6rem 1rem;outline:none;flex:1;min-width:200px;}
+  .search-input:focus{border-color:var(--kodak);}
+  .filter-label{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);}
+
+  /* TABLE */
+  .table-wrap{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-grey);padding:0.8rem 1rem;text-align:left;border-bottom:2px solid #222;white-space:nowrap;}
+  tbody tr{border-bottom:1px solid #1a1a1a;transition:background 0.15s;}
+  tbody tr:hover{background:#111;}
+  tbody td{padding:1rem;font-family:'Space Mono',monospace;font-size:0.72rem;color:#A09890;vertical-align:middle;}
+  td.company{color:var(--cream);font-weight:700;}
+  td.position{color:var(--warm-grey);}
+  .status-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:0.5rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.6rem;color:var(--black);}
+  .badge-applied{background:var(--s-applied);}
+  .badge-interview{background:var(--s-interview);color:white;}
+  .badge-offer{background:var(--s-offer);color:white;}
+  .badge-rejected{background:var(--s-rejected);color:white;}
+  .badge-waiting{background:var(--s-waiting);color:white;}
+  .badge-followup{background:var(--s-followup);color:white;}
+  .btn-del{background:none;border:none;color:#333;cursor:pointer;font-size:1rem;transition:color 0.2s;padding:0.2rem;}
+  .btn-del:hover{color:var(--terracotta);}
+  .followup-due{color:var(--terracotta) !important;font-weight:700;}
+  .empty-state{text-align:center;padding:4rem 2rem;}
+  .empty-state p{font-family:'Space Mono',monospace;font-size:0.7rem;color:#444;letter-spacing:0.1em;}
+  .empty-headline{font-family:'Abril Fatface',serif;font-size:2rem;color:#222;margin-bottom:1rem;}
+
+  @media(max-width:700px){
+    .stats-bar{grid-template-columns:repeat(3,1fr);}
+    .form-row{grid-template-columns:1fr;}
+    thead th:nth-child(n+5){display:none;}
+    tbody td:nth-child(n+5){display:none;}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LvNC</a>
+  <span class="nav-title">Application Tracker</span>
+  <a href="index.html" class="nav-back">&larr; Portfolio</a>
+</nav>
+
+<main>
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-tile all" onclick="filterStatus('all')">
+      <div class="stat-num" id="count-all">0</div>
+      <div class="stat-lbl">Total</div>
+    </div>
+    <div class="stat-tile applied" onclick="filterStatus('Applied')">
+      <div class="stat-num" id="count-applied">0</div>
+      <div class="stat-lbl">Applied</div>
+    </div>
+    <div class="stat-tile interview" onclick="filterStatus('Interview')">
+      <div class="stat-num" id="count-interview" style="color:white">0</div>
+      <div class="stat-lbl" style="color:white">Interview</div>
+    </div>
+    <div class="stat-tile offer" onclick="filterStatus('Offer')">
+      <div class="stat-num" id="count-offer" style="color:white">0</div>
+      <div class="stat-lbl" style="color:white">Offer</div>
+    </div>
+    <div class="stat-tile rejected" onclick="filterStatus('Rejected')">
+      <div class="stat-num" id="count-rejected" style="color:white">0</div>
+      <div class="stat-lbl" style="color:white">Rejected</div>
+    </div>
+    <div class="stat-tile waiting" onclick="filterStatus('all')">
+      <div class="stat-num" id="count-followup">0</div>
+      <div class="stat-lbl">Follow-up Due</div>
+    </div>
+  </div>
+
+  <!-- ADD NEW APPLICATION -->
+  <div class="add-section">
+    <p class="add-title">+ New Application</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Company / Organisation</label>
+        <input type="text" class="form-input" id="inp-company" placeholder="Rheingau Musik Festival">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Position</label>
+        <input type="text" class="form-input" id="inp-position" placeholder="Praktikum Veranstaltungsmanagement">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact Person</label>
+        <input type="text" class="form-input" id="inp-contact" placeholder="Frau Mller">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date Applied</label>
+        <input type="date" class="form-input" id="inp-date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Follow-up Date</label>
+        <input type="date" class="form-input" id="inp-followup">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select class="form-select" id="inp-status">
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
+          <option value="Offer">Offer</option>
+          <option value="Rejected">Rejected</option>
+          <option value="Waiting">Waiting</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group" style="grid-column:1/-1">
+        <label class="form-label">Notes</label>
+        <textarea class="form-textarea" id="inp-notes" placeholder="Cover letter sent, mentioned Theater Festival experience..."></textarea>
+      </div>
+    </div>
+    <button class="btn-add" onclick="addApplication()">+ Add Application</button>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <input type="text" class="search-input" id="search-inp" placeholder="Search company or position..." oninput="renderTable()">
+    <span class="filter-label" id="active-filter">Showing: All</span>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Status</th>
+          <th>Applied</th>
+          <th>Follow-up</th>
+          <th>Contact</th>
+          <th>Notes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="app-table-body"></tbody>
+    </table>
+    <div class="empty-state" id="empty-state">
+      <p class="empty-headline">No applications yet</p>
+      <p>Add your first application above to start tracking.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+var apps = JSON.parse(localStorage.getItem('lvnc_apps') || '[]');
+var currentFilter = 'all';
+
+function save() { localStorage.setItem('lvnc_apps', JSON.stringify(apps)); }
+
+function addApplication() {
+  var company = document.getElementById('inp-company').value.trim();
+  var position = document.getElementById('inp-position').value.trim();
+  if (!company || !position) { alert('Please enter company and position.'); return; }
+  apps.unshift({
+    id: Date.now(),
+    company: company,
+    position: position,
+    contact: document.getElementById('inp-contact').value.trim(),
+    date: document.getElementById('inp-date').value,
+    followup: document.getElementById('inp-followup').value,
+    status: document.getElementById('inp-status').value,
+    notes: document.getElementById('inp-notes').value.trim()
+  });
+  save();
+  ['inp-company','inp-position','inp-contact','inp-date','inp-followup','inp-notes'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('inp-status').value='Applied';
+  renderTable(); updateStats();
+}
+
+function deleteApp(id) {
+  if (!confirm('Remove this application?')) return;
+  apps = apps.filter(function(a){return a.id!==id;});
+  save(); renderTable(); updateStats();
+}
+
+function filterStatus(s) { currentFilter=s; document.getElementById('active-filter').textContent='Showing: '+(s==='all'?'All':s); renderTable(); }
+
+function isFollowupDue(date) {
+  if (!date) return false;
+  return new Date(date) <= new Date();
+}
+
+function badgeClass(s) {
+  return {'Applied':'badge-applied','Interview':'badge-interview','Offer':'badge-offer','Rejected':'badge-rejected','Waiting':'badge-waiting'}[s]||'badge-waiting';
+}
+
+function fmt(d) { if (!d) return '&mdash;'; var p=d.split('-'); return p[2]+'.'+p[1]+'.'+p[0]; }
+
+function renderTable() {
+  var search = document.getElementById('search-inp').value.toLowerCase();
+  var filtered = apps.filter(function(a) {
+    var matchStatus = currentFilter==='all' || a.status===currentFilter;
+    var matchSearch = !search || a.company.toLowerCase().includes(search) || a.position.toLowerCase().includes(search);
+    return matchStatus && matchSearch;
+  });
+  var tbody = document.getElementById('app-table-body');
+  document.getElementById('empty-state').style.display = filtered.length===0?'block':'none';
+  tbody.innerHTML = filtered.map(function(a) {
+    var due = isFollowupDue(a.followup);
+    return '<tr>'+
+      '<td class="company">'+escHtml(a.company)+'</td>'+
+      '<td class="position">'+escHtml(a.position)+'</td>'+
+      '<td><span class="status-badge '+badgeClass(a.status)+'">'+a.status+'</span></td>'+
+      '<td>'+fmt(a.date)+'</td>'+
+      '<td class="'+( due?'followup-due':'' )+'">'+fmt(a.followup)+(due?' &#9888;':'')+'</td>'+
+      '<td>'+escHtml(a.contact||'')+'</td>'+
+      '<td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="'+escHtml(a.notes||'')+'">'+escHtml((a.notes||'')).substring(0,40)+(a.notes&&a.notes.length>40?'...':'' )+'</td>'+
+      '<td><button class="btn-del" onclick="deleteApp('+a.id+')" title="Delete">&times;</button></td>'+
+    '</tr>';
+  }).join('');
+}
+
+function updateStats() {
+  var today = new Date(); today.setHours(0,0,0,0);
+  var counts = {Applied:0,Interview:0,Offer:0,Rejected:0,Waiting:0};
+  var dueCount = 0;
+  apps.forEach(function(a) {
+    if (counts[a.status]!==undefined) counts[a.status]++;
+    if (a.followup && new Date(a.followup)<=today) dueCount++;
+  });
+  document.getElementById('count-all').textContent=apps.length;
+  document.getElementById('count-applied').textContent=counts.Applied;
+  document.getElementById('count-interview').textContent=counts.Interview;
+  document.getElementById('count-offer').textContent=counts.Offer;
+  document.getElementById('count-rejected').textContent=counts.Rejected;
+  document.getElementById('count-followup').textContent=dueCount;
+}
+
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Set today as default date
+document.getElementById('inp-date').valueAsDate = new Date();
+
+renderTable(); updateStats();
+</script>
+</body>
+</html>
