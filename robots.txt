@@ -1,0 +1,21 @@
+# robots.txt — lorenzovnc.de
+# https://lorenzovnc.de/robots.txt
+
+User-agent: *
+
+# Public pages — allow indexing
+Allow: /
+Allow: /index.html
+
+# Private tools — block all crawlers
+Disallow: /tracker.html
+Disallow: /generator.html
+Disallow: /backend.html
+Disallow: /arbeitszeugnisse.html
+Disallow: /interview.html
+
+# Block direct PDF indexing (CV should be downloaded via the site, not found raw)
+Disallow: /Lorenzo_vonNeumannCosel_CV_2026.pdf
+
+# Sitemap location
+Sitemap: https://lorenzovnc.de/sitemap.xml
