@@ -1,11 +1,12 @@
 // LvNC Service Worker — Cache-first for offline support
-const CACHE = 'lvnc-v1';
+const CACHE = 'lvnc-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/tracker.html',
   '/generator.html',
-  '/manifest.json'
+  '/manifest.json',
+  '/Lorenzo_vonNeumannCosel_CV_2026.pdf'
 ];
 
 self.addEventListener('install', function(e) {

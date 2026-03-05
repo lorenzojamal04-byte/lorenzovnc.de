@@ -12,7 +12,7 @@
 <meta name="author" content="Lorenzo von Neumann-Cosel">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#F5C800">
-<meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE">
+<meta name="google-site-verification" content="E6rw0SKdq-Sa1Bn4N1yAJ0vOYpKZdxREyLSLb9Y6lmU">
 <link rel="canonical" href="https://lorenzovnc.de/">
 <link rel="manifest" href="/manifest.json">
 <meta property="og:type" content="profile">
@@ -24,18 +24,22 @@
 <meta property="profile:last_name" content="von Neumann-Cosel">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lorenzo von Neumann-Cosel | Event Coordination &amp; Cultural Programming">
+<meta property="og:image" content="https://lorenzovnc.de/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://lorenzovnc.de/og-image.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://lorenzovnc.de/#person","name":"Lorenzo von Neumann-Cosel","email":"lorenzojamal04@gmail.com","telephone":"+4917645608913","jobTitle":"Event Coordination & Cultural Programming","url":"https://lorenzovnc.de/","address":{"@type":"PostalAddress","addressLocality":"Geisenheim","addressRegion":"Rheingau","addressCountry":"DE"},"knowsLanguage":["de","en"]}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & VARS ──────────────────────────────────────────────── */
 :root{
   --kodak:#F5C800;--kodak-deep:#E0B200;--black:#0D0D0D;--cream:#F5F0E8;
-  --warm-grey:#C8C2B4;--dark-brown:#2A1F0A;--terracotta:#C4522A;
-  --rule:rgba(245,200,0,0.15);
+  --warm-grey:#C8C2B4;--warm-grey-dark:#9A9488;--dark-brown:#2A1F0A;--terracotta:#C4522A;
+  --rule:rgba(245,200,0,0.15);--meta-on-light:#8A8478;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -44,6 +48,14 @@ body{
   font-family:"Cormorant Garamond",Georgia,serif;
   overflow-x:hidden;cursor:none;
 }
+.skip-to-content{
+  position:absolute;top:-100px;left:0;z-index:10000;
+  background:var(--kodak);color:var(--black);padding:.8rem 1.5rem;
+  font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.15em;
+  text-transform:uppercase;text-decoration:none;font-weight:700;
+  transition:top .2s;
+}
+.skip-to-content:focus{top:0;}
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.03;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -63,6 +75,9 @@ body::after{
   transition:width .3s ease,height .3s ease,border-color .3s ease,transform .12s ease;
 }
 #cursor-ring.hovered{width:50px;height:50px;border-color:rgba(245,200,0,.7);}
+#cursor-dot.cursor-dark{background:var(--black);}
+#cursor-ring.cursor-dark{border-color:rgba(13,13,13,.5);}
+#cursor-ring.cursor-dark.hovered{border-color:rgba(13,13,13,.8);}
 a,button{cursor:none;}
 
 /* ── MARGIN LINE ───────────────────────────────────────────────── */
@@ -309,7 +324,7 @@ nav.nav-hidden{transform:translateY(-100%);}
   line-height:1.9;color:#3A3530;margin-bottom:1.4rem;
 }
 .about-body p.italic-note{
-  font-style:italic;color:#7A7060;font-size:1rem;margin-top:1.5rem;
+  font-style:italic;color:var(--meta-on-light);font-size:1rem;margin-top:1.5rem;
 }
 /* Vertical rule beside about body */
 .about-body{border-left:3px solid var(--kodak);padding-left:2.5rem;}
@@ -489,7 +504,7 @@ nav.nav-hidden{transform:translateY(-100%);}
   font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.2em;
   text-transform:uppercase;background:var(--kodak);padding:.3rem .8rem;color:var(--black);font-weight:700;
 }
-.lang-note{font-family:"Space Mono",monospace;font-size:.62rem;color:#7A7060;letter-spacing:.08em;line-height:1.8;margin-top:1.5rem;}
+.lang-note{font-family:"Space Mono",monospace;font-size:.62rem;color:var(--meta-on-light);letter-spacing:.08em;line-height:1.8;margin-top:1.5rem;}
 .interests-list{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;}
 .interest-tag{
   font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.12em;
@@ -497,7 +512,7 @@ nav.nav-hidden{transform:translateY(-100%);}
   color:var(--black);transition:all .2s;
 }
 .interest-tag:hover{background:var(--terracotta);border-color:var(--terracotta);color:var(--cream);}
-.int-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:#7A7060;line-height:1.8;margin-top:2rem;}
+.int-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:var(--meta-on-light);line-height:1.8;margin-top:2rem;}
 
 /* ── CONTACT ────────────────────────────────────────────────────── */
 .contact-section{background:var(--black);padding:7rem 5rem;position:relative;overflow:hidden;}
@@ -534,6 +549,14 @@ nav.nav-hidden{transform:translateY(-100%);}
 .form-submit{width:100%;margin-top:1.2rem;}
 .form-success{display:none;text-align:center;padding:2rem;}
 .form-success-icon{font-size:2rem;color:var(--kodak);}
+.form-error{
+  display:none;text-align:center;padding:1.2rem;margin-top:1rem;
+  border:1px solid var(--terracotta);background:rgba(196,82,42,.08);
+}
+.form-error-msg{
+  font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.1em;
+  color:var(--terracotta);line-height:1.6;
+}
 .form-success-msg{
   font-family:"Cormorant Garamond",serif;font-style:italic;
   color:var(--kodak);font-size:1.1rem;margin-top:.5rem;
@@ -682,7 +705,7 @@ footer{
 }
 @media(max-width:680px){
   nav .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
+  .nav-hamburger{display:flex;top:72px;}
   nav{opacity:1!important;pointer-events:all!important;background:transparent;border:none;}
   nav.nav-visible{background:var(--black);border-bottom:3px solid var(--kodak);}
 }
@@ -690,6 +713,15 @@ footer{
   body{cursor:auto!important;}
   #cursor-dot,#cursor-ring{display:none!important;}
   a,button{cursor:pointer!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{transition:none!important;}
+  .js-ready .reveal{opacity:1!important;transform:none!important;}
+  .hero-name .word{opacity:1!important;transform:none!important;animation:none!important;}
+  .hairline-rule::after{animation:none!important;}
+  .typo-word{transition:none!important;transform:none!important;}
+  .comp-card{transition:none!important;}
+  .magnetic-wrap{transition:none!important;}
 }
 
 /* ── FLOOR PLAN ──────────────────────────────────────────────────── */
@@ -911,6 +943,7 @@ footer{
 </head>
 <body>
 
+<a href="#about" class="skip-to-content">Skip to content</a>
 <div id="margin-line"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
@@ -925,7 +958,15 @@ footer{
     <li><a href="#contact" onclick="closeOverlayNav()" data-key="nav_contact">Contact</a></li>
     <li><a href="#" onclick="event.preventDefault();closeOverlayNav();openPDF();" data-key="nav_cv">&#8595; CV</a></li>
   </ul>
+  <div class="lang-toggle" style="margin-top:2rem;">
+    <button class="lang-btn active" onclick="setLang('en');closeOverlayNav();">EN</button>
+    <button class="lang-btn" onclick="setLang('de');closeOverlayNav();">DE</button>
+  </div>
   <p class="nav-overlay-hint">Tap anywhere to close</p>
+  <div class="lang-toggle" style="margin-top:2rem;">
+    <button class="lang-btn" id="btn-en-mobile" onclick="setLang('en');closeOverlayNav();">EN</button>
+    <button class="lang-btn" id="btn-de-mobile" onclick="setLang('de');closeOverlayNav();">DE</button>
+  </div>
 </div>
 <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation">
   <span></span><span></span><span></span>
@@ -958,7 +999,7 @@ footer{
     <p class="hero-title" data-key="hero_title">Event Coordination &amp; Cultural Programming</p>
     <p class="hero-tagline" data-key="hero_tagline">Crafting premium cultural experiences where logistics meet atmosphere &mdash; from opening galas to international festival stages.</p>
     <div class="hero-cta-group">
-      <div class="magnetic-wrap"><a href="#experience" class="btn-primary" data-key="hero_cta_work">View Work</a></div>
+      <div class="magnetic-wrap"><a href="#works" class="btn-primary" data-key="hero_cta_work">View Work</a></div>
       <div class="magnetic-wrap"><a href="#contact" class="btn-secondary" data-key="hero_cta_contact">Get in Touch</a></div>
       <div class="magnetic-wrap"><button onclick="openPDF()" class="btn-cv" data-key="hero_cta_cv">&#8595; Download CV</button></div>
     </div>
@@ -1059,32 +1100,32 @@ footer{
 </section>
 
 <!-- SELECTED WORKS -->
-<div class="works-section">
-  <p class="section-label">Selected Work</p>
+<div class="works-section" id="works">
+  <p class="section-label" data-key="works_label">Selected Work</p>
   <div class="works-strip">
     <div class="work-card reveal reveal-d1">
       <div class="work-num">01</div>
-      <div class="work-title">A Performance<br>Across Cultures</div>
-      <div class="work-sub">Han Zaifen Ensemble &middot; Huangmei Opera &middot; Konfuzius-Institut Frankfurt &middot; July 2025</div>
-      <p class="work-outcome">30+ artists. National Cultural Heritage of China. Key supporting role in the production &mdash; artist logistics, scheduling, and on-site backstage operations for an ensemble led by Han Zaifen, one of China&rsquo;s most decorated performers.</p>
+      <div class="work-title" data-key="w1_title">A Performance<br>Across Cultures</div>
+      <div class="work-sub" data-key="w1_sub">Han Zaifen Ensemble &middot; Huangmei Opera &middot; Konfuzius-Institut Frankfurt &middot; July 2025</div>
+      <p class="work-outcome" data-key="w1_desc">30+ artists. National Cultural Heritage of China. Key supporting role in the production &mdash; artist logistics, scheduling, and on-site backstage operations for an ensemble led by Han Zaifen, one of China&rsquo;s most decorated performers.</p>
     </div>
     <div class="work-card reveal reveal-d2">
       <div class="work-num">02</div>
-      <div class="work-title">Gala &amp; Exhibition<br>Series</div>
-      <div class="work-sub">Kunsthalle Darmstadt &middot; 2024&ndash;25</div>
-      <p class="work-outcome">10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.</p>
+      <div class="work-title" data-key="w2_title">Gala &amp; Exhibition<br>Series</div>
+      <div class="work-sub" data-key="w2_sub">Kunsthalle Darmstadt &middot; 2024&ndash;25</div>
+      <p class="work-outcome" data-key="w2_desc">10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.</p>
     </div>
     <div class="work-card reveal reveal-d3">
       <div class="work-num">03</div>
-      <div class="work-title">IMEX Frankfurt<br>2025</div>
-      <div class="work-sub">Industry Engagement &middot; May 2025</div>
-      <p class="work-outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate for industry exposure, professional development, and networking with senior event professionals.</p>
+      <div class="work-title" data-key="w3_title">IMEX Frankfurt<br>2025</div>
+      <div class="work-sub" data-key="w3_sub">Industry Engagement &middot; May 2025</div>
+      <p class="work-outcome" data-key="w3_desc">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate for industry exposure, professional development, and networking with senior event professionals.</p>
     </div>
     <div class="work-card reveal reveal-d4">
       <div class="work-num">04</div>
-      <div class="work-title">Arie van Selm<br>Opening Gala</div>
-      <div class="work-sub">Kunsthalle Darmstadt &middot; September 2024</div>
-      <p class="work-outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L&eacute;on Krempel.</p>
+      <div class="work-title" data-key="w4_title">Arie van Selm<br>Opening Gala</div>
+      <div class="work-sub" data-key="w4_sub">Kunsthalle Darmstadt &middot; September 2024</div>
+      <p class="work-outcome" data-key="w4_desc">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L&eacute;on Krempel.</p>
     </div>
   </div>
 </div>
@@ -1092,7 +1133,7 @@ footer{
 <!-- FLOOR PLAN -->
 <div class="floorplan-section reveal">
   <div class="floorplan-header">
-    <span class="floorplan-label">Anatomy of an Event &nbsp;&mdash;&nbsp; Abstract Venue Study</span>
+    <span class="floorplan-label" data-key="fp_label">Anatomy of an Event &nbsp;&mdash;&nbsp; Abstract Venue Study</span>
     <div class="floorplan-legend">
       <div class="legend-item"><svg width="8" height="8" class="legend-dot"><rect width="8" height="8" fill="#F5C800" opacity=".7"/></svg>Performance &amp; Stage</div>
       <div class="legend-item"><svg width="8" height="8" class="legend-dot"><circle cx="4" cy="4" r="4" fill="#C8C2B4" opacity=".5"/></svg>Guest Seating</div>
@@ -1341,32 +1382,32 @@ footer{
   <div class="casestudy-left reveal">
     <div class="section-head-wrap">
       <span class="section-ghost section-ghost-light" style="color:rgba(245,200,0,.03);">01</span>
-      <p class="section-label" style="color:var(--terracotta);">Case Study &mdash; Theater Festival 2025</p>
-      <h2 class="section-heading" style="color:var(--cream);">A Performance<br>Across Cultures</h2>
+      <p class="section-label" style="color:var(--terracotta);" data-key="cs_label">Case Study &mdash; Theater Festival 2025</p>
+      <h2 class="section-heading" style="color:var(--cream);" data-key="cs_heading">A Performance<br>Across Cultures</h2>
       <div class="thick-rule"></div>
     </div>
     <div class="casestudy-stats">
       <div class="cs-stat">
         <div class="cs-stat-num">30+</div>
-        <div class="cs-stat-label">Artists coordinated</div>
+        <div class="cs-stat-label" data-key="cs_stat1">Artists coordinated</div>
       </div>
       <div class="cs-stat">
         <div class="cs-stat-num">2006</div>
-        <div class="cs-stat-label">National Cultural Heritage since</div>
+        <div class="cs-stat-label" data-key="cs_stat2">National Cultural Heritage since</div>
       </div>
       <div class="cs-stat">
         <div class="cs-stat-num">3</div>
-        <div class="cs-stat-label">Days of live production</div>
+        <div class="cs-stat-label" data-key="cs_stat3">Days of live production</div>
       </div>
     </div>
   </div>
   <div class="casestudy-right reveal reveal-d2">
     <div class="cs-char" aria-hidden="true">&#x6232;</div>
     <div class="cs-body">
-      <p>In July 2025, the Konfuzius-Institut Frankfurt presented a landmark cultural event: the <strong>Zaifen Huangmei Theater Ensemble</strong> from Anhui Province, led by <strong>Han Zaifen</strong> &mdash; one of China&rsquo;s most decorated performers and a celebrated star of the Huangmei Opera tradition.</p>
-      <p>Huangmei Opera traces its roots to songs sung by women during the tea harvest in Anhui. Distinct from Peking Opera and Yue Opera in its melodic character and emotional directness, it was inscribed as part of China&rsquo;s <em>National Intangible Cultural Heritage</em> in 2006.</p>
-      <p>Presenting a 30+ person ensemble of this standing to a German audience requires more than logistics &mdash; it requires understanding the cultural weight of what is being offered, and ensuring the production honours it. I played a key supporting role in the production: assisting with artist arrival logistics, scheduling coordination, and on-site backstage operations across the three-day programme.</p>
-      <span class="cs-heritage-tag">National Intangible Cultural Heritage of China &mdash; since 2006</span>
+      <p data-key="cs_p1">In July 2025, the Konfuzius-Institut Frankfurt presented a landmark cultural event: the <strong>Zaifen Huangmei Theater Ensemble</strong> from Anhui Province, led by <strong>Han Zaifen</strong> &mdash; one of China&rsquo;s most decorated performers and a celebrated star of the Huangmei Opera tradition.</p>
+      <p data-key="cs_p2">Huangmei Opera traces its roots to songs sung by women during the tea harvest in Anhui. Distinct from Peking Opera and Yue Opera in its melodic character and emotional directness, it was inscribed as part of China&rsquo;s <em>National Intangible Cultural Heritage</em> in 2006.</p>
+      <p data-key="cs_p3">Presenting a 30+ person ensemble of this standing to a German audience requires more than logistics &mdash; it requires understanding the cultural weight of what is being offered, and ensuring the production honours it. I played a key supporting role in the production: assisting with artist arrival logistics, scheduling coordination, and on-site backstage operations across the three-day programme.</p>
+      <span class="cs-heritage-tag" data-key="cs_tag">National Intangible Cultural Heritage of China &mdash; since 2006</span>
     </div>
   </div>
 </div>
@@ -1374,12 +1415,12 @@ footer{
 <!-- CULTURAL DIPLOMACY STRIP -->
 <div class="diplomacy-strip reveal">
   <div class="diplomacy-label-col">
-    <div class="diplomacy-label">On Cultural Diplomacy</div>
-    <div class="diplomacy-label-big">Working<br>Between<br>Worlds</div>
+    <div class="diplomacy-label" data-key="dip_label">On Cultural Diplomacy</div>
+    <div class="diplomacy-label-big" data-key="dip_heading">Working<br>Between<br>Worlds</div>
   </div>
   <div>
-    <p class="diplomacy-quote">&ldquo;Working at the intersection of German and Chinese cultural institutions taught me that the best events don&rsquo;t just entertain &mdash; they <em>translate</em>.&rdquo;</p>
-    <p class="diplomacy-attr">Lorenzo von Neumann-Cosel &nbsp;&middot;&nbsp; Event Coordination &amp; Cultural Programming</p>
+    <p class="diplomacy-quote" data-key="dip_quote">&ldquo;Working at the intersection of German and Chinese cultural institutions taught me that the best events don&rsquo;t just entertain &mdash; they <em>translate</em>.&rdquo;</p>
+    <p class="diplomacy-attr" data-key="dip_attr">Lorenzo von Neumann-Cosel &nbsp;&middot;&nbsp; Event Coordination &amp; Cultural Programming</p>
   </div>
 </div>
 
@@ -1681,20 +1722,20 @@ footer{
       <p class="form-heading" data-key="form_heading">Send a Message</p>
       <form id="contact-form" action="https://formspree.io/f/mdalqpna" method="POST">
         <div class="form-group">
-          <label class="form-label" data-key="form_name_label">Your Name</label>
-          <input type="text" name="name" class="form-input" required placeholder="Anna Schmidt">
+          <label class="form-label" for="field-name" data-key="form_name_label">Your Name</label>
+          <input type="text" name="name" id="field-name" class="form-input" required placeholder="Anna Schmidt">
         </div>
         <div class="form-group">
-          <label class="form-label" data-key="form_email_label">Your Email</label>
-          <input type="email" name="email" class="form-input" required placeholder="anna@example.com">
+          <label class="form-label" for="field-email" data-key="form_email_label">Your Email</label>
+          <input type="email" name="email" id="field-email" class="form-input" required placeholder="anna@example.com">
         </div>
         <div class="form-group">
-          <label class="form-label" data-key="form_subject_label">Subject</label>
-          <input type="text" name="subject" class="form-input" placeholder="Inquiry">
+          <label class="form-label" for="field-subject" data-key="form_subject_label">Subject</label>
+          <input type="text" name="subject" id="field-subject" class="form-input" placeholder="Inquiry">
         </div>
         <div class="form-group">
-          <label class="form-label" data-key="form_msg_label">Message</label>
-          <textarea name="message" class="form-textarea" required></textarea>
+          <label class="form-label" for="field-message" data-key="form_msg_label">Message</label>
+          <textarea name="message" id="field-message" class="form-textarea" required></textarea>
         </div>
         <input type="hidden" name="_subject" value="New message from lorenzovnc.de">
         <p class="form-gdpr" data-key="form_gdpr">By submitting this form you agree that your data will be processed solely to respond to your inquiry, in accordance with GDPR / DSGVO.</p>
@@ -1703,6 +1744,9 @@ footer{
       <div class="form-success" id="form-success">
         <div class="form-success-icon">&#10003;</div>
         <p class="form-success-msg" data-key="form_success_msg">Message sent. I&rsquo;ll be in touch shortly.</p>
+      </div>
+      <div class="form-error" id="form-error">
+        <p class="form-error-msg">Something went wrong. Please email <a href="mailto:lorenzojamal04@gmail.com" style="color:var(--terracotta);">lorenzojamal04@gmail.com</a> directly.</p>
       </div>
     </div>
   </div>
@@ -1981,8 +2025,8 @@ if(form){
     fetch(form.action, {method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
     .then(function(r){
       if(r.ok){ form.style.display="none"; document.getElementById("form-success").style.display="block"; }
-      else { btn.innerHTML=orig; btn.disabled=false; alert("Something went wrong. Please email directly."); }
-    }).catch(function(){ btn.innerHTML=orig; btn.disabled=false; alert("Network error. Please email directly."); });
+      else { btn.innerHTML=orig; btn.disabled=false; document.getElementById("form-error").style.display="block"; }
+    }).catch(function(){ btn.innerHTML=orig; btn.disabled=false; document.getElementById("form-error").style.display="block"; });
   });
 }
 
@@ -2051,7 +2095,24 @@ var T = {
     form_subject_label:"Subject",form_msg_label:"Message",
     form_gdpr:"By submitting this form you agree that your data will be processed solely to respond to your inquiry, in accordance with GDPR / DSGVO.",
     form_submit:"Send Message →",form_success_msg:"Message sent. I’ll be in touch shortly.",
-    modal_dl:"↓ Download",footer_loc:"Geisenheim, Rheingau · Germany"
+    modal_dl:"↓ Download",footer_loc:"Geisenheim, Rheingau · Germany",
+    works_label:"Selected Work",
+    w1_title:"A Performance<br>Across Cultures",w1_sub:"Han Zaifen Ensemble · Huangmei Opera · Konfuzius-Institut Frankfurt · July 2025",w1_desc:"30+ artists. National Cultural Heritage of China. Key supporting role in the production — artist logistics, scheduling, and on-site backstage operations for an ensemble led by Han Zaifen, one of China\u2019s most decorated performers.",
+    w2_title:"Gala & Exhibition<br>Series",w2_sub:"Kunsthalle Darmstadt · 2024–25",w2_desc:"10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.",
+    w3_title:"IMEX Frankfurt<br>2025",w3_sub:"Industry Engagement · May 2025",w3_desc:"Europe\u2019s leading meetings & events trade fair. Attended as a delegate for industry exposure, professional development, and networking with senior event professionals.",
+    w4_title:"Arie van Selm<br>Opening Gala",w4_sub:"Kunsthalle Darmstadt · September 2024",w4_desc:"Fundraising gala dinner for the first comprehensive institutional survey of van Selm — works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L\u00e9on Krempel.",
+    fp_label:"Anatomy of an Event &nbsp;—&nbsp; Abstract Venue Study",
+    cs_label:"Case Study — Theater Festival 2025",cs_heading:"A Performance<br>Across Cultures",
+    cs_stat1:"Artists coordinated",cs_stat2:"National Cultural Heritage since",cs_stat3:"Days of live production",
+    cs_p1:"In July 2025, the Konfuzius-Institut Frankfurt presented a landmark cultural event: the <strong>Zaifen Huangmei Theater Ensemble</strong> from Anhui Province, led by <strong>Han Zaifen</strong> — one of China\u2019s most decorated performers and a celebrated star of the Huangmei Opera tradition.",
+    cs_p2:"Huangmei Opera traces its roots to songs sung by women during the tea harvest in Anhui. Distinct from Peking Opera and Yue Opera in its melodic character and emotional directness, it was inscribed as part of China\u2019s <em>National Intangible Cultural Heritage</em> in 2006.",
+    cs_p3:"Presenting a 30+ person ensemble of this standing to a German audience requires more than logistics — it requires understanding the cultural weight of what is being offered, and ensuring the production honours it. I played a key supporting role in the production: assisting with artist arrival logistics, scheduling coordination, and on-site backstage operations across the three-day programme.",
+    cs_tag:"National Intangible Cultural Heritage of China — since 2006",
+    dip_label:"On Cultural Diplomacy",dip_heading:"Working<br>Between<br>Worlds",
+    dip_quote:"\u201cWorking at the intersection of German and Chinese cultural institutions taught me that the best events don\u2019t just entertain — they <em>translate</em>.\u201d",
+    dip_attr:"Lorenzo von Neumann-Cosel &nbsp;·&nbsp; Event Coordination & Cultural Programming",
+    map_intro:"Born and raised in Darmstadt. Trained in Frankfurt. Now based in Geisenheim, Rheingau \u2014 and open to opportunities across Germany and Europe.",
+    typo_line:"The work is invisible when it is done right. Every detail resolved before the doors open \u2014 so the only thing the audience experiences is the <em>atmosphere</em>."
   },
   de:{
     nav_about:"Profil",nav_exp:"Erfahrung",nav_skills:"Kompetenzen",nav_contact:"Kontakt",nav_cv:"↓ Lebenslauf",
@@ -2113,7 +2174,24 @@ var T = {
     form_subject_label:"Betreff",form_msg_label:"Nachricht",
     form_gdpr:"Mit dem Absenden erklären Sie sich einverstanden, dass Ihre Daten gemäß DSGVO zur Beantwortung Ihrer Anfrage verarbeitet werden.",
     form_submit:"Nachricht senden →",form_success_msg:"Nachricht gesendet. Ich melde mich in Kürze.",
-    modal_dl:"↓ Herunterladen",footer_loc:"Geisenheim, Rheingau · Deutschland"
+    modal_dl:"↓ Herunterladen",footer_loc:"Geisenheim, Rheingau · Deutschland",
+    works_label:"Ausgew\u00e4hlte Arbeiten",
+    w1_title:"Kultur\u00fcbergreifend<br>auf der B\u00fchne",w1_sub:"Han-Zaifen-Ensemble · Huangmei-Oper · Konfuzius-Institut Frankfurt · Juli 2025",w1_desc:"30+ K\u00fcnstler. Nationales Kulturerbe Chinas. Unterst\u00fctzende Rolle in der Produktion — K\u00fcnstlerlogistik, Terminplanung und Backstage-Koordination f\u00fcr ein Ensemble unter Leitung von Han Zaifen.",
+    w2_title:"Gala- &amp; Ausstellungs&shy;reihe",w2_sub:"Kunsthalle Darmstadt · 2024–25",w2_desc:"10+ exklusive Veranstaltungen f\u00fcr 500+ Mitglieder. VIP-Koordination, Atmosph\u00e4regestaltung und Logistik f\u00fcr Vernissagen, Galas und kulturelle Begegnungen.",
+    w3_title:"IMEX Frankfurt<br>2025",w3_sub:"Branchenengagement · Mai 2025",w3_desc:"Europas f\u00fchrende Messe f\u00fcr Meetings, Events und Live-Kommunikation. Teilnahme als Delegierter f\u00fcr Brancheneinblicke und Networking.",
+    w4_title:"Arie van Selm<br>Er\u00f6ffnungsgala",w4_sub:"Kunsthalle Darmstadt · September 2024",w4_desc:"Fundraising-Gala f\u00fcr die erste umfassende institutionelle Werkschau van Selms — Leihgaben von 17 Leihgebern, Darmstadt bis Dallas. Unterst\u00fctzung der Veranstaltungskoordination unter Leitung von Direktor Dr. L\u00e9on Krempel.",
+    fp_label:"Anatomie einer Veranstaltung &nbsp;—&nbsp; Abstrakte Venue-Studie",
+    cs_label:"Fallstudie — Theaterfestival 2025",cs_heading:"Kultur\u00fcbergreifend<br>auf der B\u00fchne",
+    cs_stat1:"K\u00fcnstler koordiniert",cs_stat2:"Nationales Kulturerbe seit",cs_stat3:"Tage Live-Produktion",
+    cs_p1:"Im Juli 2025 pr\u00e4sentierte das Konfuzius-Institut Frankfurt ein kulturelles Gro\u00dfereignis: das <strong>Zaifen Huangmei Theater Ensemble</strong> aus der Provinz Anhui, geleitet von <strong>Han Zaifen</strong> — einer der bedeutendsten Darstellerinnen Chinas und gefeierter Star der Huangmei-Oper.",
+    cs_p2:"Die Huangmei-Oper hat ihre Wurzeln in Liedern, die Frauen w\u00e4hrend der Teeernte in Anhui sangen. Anders als Peking-Oper und Yue-Oper zeichnet sie sich durch melodischen Charakter und emotionale Direktheit aus. Sie wurde 2006 als <em>Nationales Immaterielles Kulturerbe</em> Chinas eingetragen.",
+    cs_p3:"Ein 30-k\u00f6pfiges Ensemble dieses Ranges einem deutschen Publikum zu pr\u00e4sentieren erfordert mehr als Logistik — es erfordert ein Verst\u00e4ndnis f\u00fcr das kulturelle Gewicht des Gebotenen. Ich unterst\u00fctzte die Produktion: K\u00fcnstlerlogistik, Terminkoordination und Backstage-Betrieb \u00fcber das dreit\u00e4gige Programm.",
+    cs_tag:"Nationales Immaterielles Kulturerbe Chinas — seit 2006",
+    dip_label:"\u00dcber Kulturdiplomatie",dip_heading:"Arbeiten<br>zwischen<br>den Welten",
+    dip_quote:"\u201eAn der Schnittstelle deutscher und chinesischer Kulturinstitutionen habe ich gelernt, dass die besten Veranstaltungen nicht nur unterhalten — sie <em>\u00fcbersetzen</em>.\u201c",
+    dip_attr:"Lorenzo von Neumann-Cosel &nbsp;·&nbsp; Veranstaltungskoordination &amp; Kulturprogrammierung",
+    map_intro:"Aufgewachsen in Darmstadt. Ausgebildet in Frankfurt. Jetzt in Geisenheim, Rheingau — und offen f\u00fcr Positionen in ganz Deutschland und Europa.",
+    typo_line:"Die Arbeit ist unsichtbar, wenn sie gelingt. Jedes Detail gel\u00f6st, bevor die T\u00fcren \u00f6ffnen \u2014 damit das Publikum nur eines erlebt: die <em>Atmosph\u00e4re</em>."
   }
 };
 function setLang(l){
@@ -2124,11 +2202,24 @@ function setLang(l){
   });
   document.getElementById("btn-en").classList.toggle("active", l==="en");
   document.getElementById("btn-de").classList.toggle("active", l==="de");
+  // Sync overlay lang buttons
+  document.querySelectorAll(".nav-overlay .lang-btn").forEach(function(btn){
+    btn.classList.toggle("active", btn.textContent.trim()===(l==="en"?"EN":"DE"));
+  });
   document.documentElement.lang = l;
+  try{ localStorage.setItem("lvnc_lang", l); }catch(e){}
 }
+// Restore saved language on load
+(function(){
+  try{
+    var saved = localStorage.getItem("lvnc_lang");
+    if(saved && T[saved]) setLang(saved);
+  }catch(e){}
+})();
 
 // ── TYPOGRAPHY DRIFT ───────────────────────────────────────────────
 (function(){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   var ty1 = document.getElementById("ty1");
   var ty2 = document.getElementById("ty2");
   var ty3 = document.getElementById("ty3");
