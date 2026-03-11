@@ -63,6 +63,9 @@ body::after{
   transition:width .3s ease,height .3s ease,border-color .3s ease,transform .12s ease;
 }
 #cursor-ring.hovered{width:50px;height:50px;border-color:rgba(245,200,0,.7);}
+#cursor-dot.on-yellow{background:var(--black);}
+#cursor-ring.on-yellow{border-color:rgba(13,13,13,.5);}
+#cursor-ring.hovered.on-yellow{border-color:rgba(13,13,13,.8);}
 a,button{cursor:none;}
 
 /* ── MARGIN LINE ───────────────────────────────────────────────── */
@@ -969,7 +972,7 @@ footer{
     <div class="hero-stats">
       <div><div class="stat-number">10+</div><div class="stat-label" data-key="stat1">Exclusive events<br>coordinated</div></div>
       <div><div class="stat-number">500+</div><div class="stat-label" data-key="stat2">Members<br>served</div></div>
-      <div><div class="stat-number">30+</div><div class="stat-label" data-key="stat3">Cultural events<br>coordinated</div></div>
+      <div><div class="stat-number">1.5+</div><div class="stat-label" data-key="stat3">Years of<br>experience</div></div>
       <div><div class="stat-number">1</div><div class="stat-label" data-key="stat4">Gerhard Richter<br>world premi&egrave;re</div></div>
     </div>
   </div>
@@ -992,7 +995,6 @@ footer{
     <p data-key="about_p1">Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere &mdash; the kind of events people remember.</p>
     <p data-key="about_p2">From exclusive member galas at Kunsthalle Darmstadt to coordinating Han Zaifen&rsquo;s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt &mdash; 30+ artists, a National Cultural Heritage performance, a German audience &mdash; I bring calm precision to complex, high-pressure, intercultural production environments.</p>
     <p data-key="about_p3">Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe. Currently developing personal tools for event scenario planning and atmosphere design.</p>
-    <p class="italic-note" data-key="about_p4">Classical &amp; jazz trumpet player &mdash; I understand the stage from both sides.</p>
   </div>
 </section>
 
@@ -1048,7 +1050,7 @@ footer{
       <div class="exp-role" style="color:var(--cream);" data-key="pd_role">Industry Engagement &amp; Highlights</div>
       <div class="exp-period" data-key="pd_period">Ongoing</div>
       <ul class="exp-bullets" style="columns:2;gap:2rem;">
-        <li data-key="pd_b1">Visited IMEX Frankfurt 2025 as a delegate &mdash; professional development and networking at Europe&rsquo;s leading meetings &amp; events fair</li>
+        <li data-key="pd_b1">Attending IMEX Frankfurt as a delegate in 2025 and 2026 &mdash; consistent professional development and networking at Europe&rsquo;s leading meetings &amp; events fair</li>
         <li data-key="pd_b2">Regularly entrusted with VIP guest welcoming &amp; moderated formats in bilingual settings</li>
         <li data-key="pd_b3">Contributed conceptually to Theater Festival guest-facing implementation</li>
         <li data-key="pd_b4">Deep network across Rheingau cultural institutions, wineries &amp; premium hospitality venues</li>
@@ -1076,9 +1078,9 @@ footer{
     </div>
     <div class="work-card reveal reveal-d3">
       <div class="work-num">03</div>
-      <div class="work-title">IMEX Frankfurt<br>2025</div>
-      <div class="work-sub">Industry Engagement &middot; May 2025</div>
-      <p class="work-outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate for industry exposure, professional development, and networking with senior event professionals.</p>
+      <div class="work-title">IMEX Frankfurt<br>2025 &amp; 2026</div>
+      <div class="work-sub">Industry Engagement &middot; May 2025 &amp; May 2026</div>
+      <p class="work-outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate in 2025 and returning in May 2026 &mdash; consistent engagement with the industry for professional development, network building, and market exposure.</p>
     </div>
     <div class="work-card reveal reveal-d4">
       <div class="work-num">04</div>
@@ -1790,6 +1792,18 @@ if(!isTouch){
     el.addEventListener("mouseenter", function(){ ring.classList.add("hovered"); });
     el.addEventListener("mouseleave", function(){ ring.classList.remove("hovered"); });
   });
+  // Switch cursor to black when over yellow-background sections
+  var yellowSections = document.querySelectorAll(".competencies-section,.diplomacy-strip,footer");
+  yellowSections.forEach(function(sec){
+    sec.addEventListener("mouseenter", function(){
+      dot.classList.add("on-yellow");
+      ring.classList.add("on-yellow");
+    });
+    sec.addEventListener("mouseleave", function(){
+      dot.classList.remove("on-yellow");
+      ring.classList.remove("on-yellow");
+    });
+  });
   document.body.style.cursor = "none";
 }
 
@@ -1961,7 +1975,7 @@ var fieldNotes = [
   "Festival production taught me that the backstage experience determines the stage experience.",
   "500 members. Every name, every preference, every follow-up. The relationship is the product.",
   "Rheingau in July: the harvest calendar and the event calendar are the same calendar.",
-  "IMEX 2025 — the meetings industry at full scale. Seeing it from the inside changes how you plan for it.",
+  "IMEX — the meetings industry at full scale. Seeing it from the inside changes how you plan for it.",
   "An exhibition opening is theatre with no rehearsal and an audience of professionals.",
   "The question is never whether something will go wrong. The question is how quickly it is resolved.",
   "Cultural diplomacy and event coordination share the same fundamental discipline: make the other person feel exactly right.",
@@ -2003,7 +2017,7 @@ var T = {
     about_p1:"Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere — the kind of events people remember.",
     about_p2:"From exclusive member galas at Kunsthalle Darmstadt to supporting the production of Han Zaifen\u2019s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt \u2014 30+ artists, a National Cultural Heritage performance, a German audience \u2014 I bring calm precision to high-pressure, intercultural environments.",
     about_p3:"Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe. Currently developing personal tools for event scenario planning and atmosphere design.",
-    about_p4:"Classical & jazz trumpet player — I understand the stage from both sides.",
+    
     pullquote_text:"“He demonstrated teamwork, flexibility and resilience to the <em>highest degree</em> — with a high service orientation and professional conduct in every guest interaction.”",
     pullquote_attr:"Dr. León Krempel · Director, Kunsthalle Darmstadt",
     exp_label:"002 — Experience",exp_heading:"Where I’ve<br>Worked",
@@ -2065,7 +2079,7 @@ var T = {
     about_p1:"Veranstaltungskoordinator mit über 1,5 Jahren Erfahrung in der Realisierung hochwertiger Kulturerlebnisse für internationale Zielgruppen.",
     about_p2:"Von exklusiven Mitgliedergalas der Kunsthalle Darmstadt bis hin zu einem mehrtägigen Theaterfestival mit internationalen Künstlern bringe ich ruhige Präzision in komplexe Produktionsumgebungen.",
     about_p3:"Zweisprachig auf Deutsch und Englisch, mit Erfahrung in Großbritannien und den USA. Aufgewachsen in Darmstadt, jetzt in Geisenheim. Offen für Positionen in ganz Deutschland und Europa. Aktuell in der Entwicklung persönlicher Tools für Event-Szenarioplanung und Atmosphärengestaltung.",
-    about_p4:"Klassischer & Jazz-Trompeter — ich kenne die Bühne von beiden Seiten.",
+    
     pullquote_text:"„Er bewies Teamfähigkeit, Flexibilität und Belastbarkeit in einem sehr hohen Maße — mit hoher Serviceorientierung und <em>professionellen Umgangsformen</em> im Kontakt mit Gästen.“",
     pullquote_attr:"Dr. León Krempel · Direktor, Kunsthalle Darmstadt",
     exp_label:"002 — Erfahrung",exp_heading:"Meine<br>Stationen",
@@ -2083,7 +2097,7 @@ var T = {
     ki_b4:"Kommunikation mit Dienstleistern & Sponsoren",
     ki_b5:"Repräsentation des Instituts bei Empfängen & Networking",
     pd_org:"Berufliche Weiterentwicklung",pd_role:"Branchenengagement & Highlights",pd_period:"Laufend",
-    pd_b1:"Besuch der IMEX Frankfurt 2025 als Delegierter — Netzwerken und berufliche Weiterentwicklung",
+    pd_b1:"Teilnahme als Delegierter an der IMEX Frankfurt 2025 und 2026 — kontinuierliche berufliche Weiterentwicklung und Vernetzung auf Europas führender Meetings- & Eventmesse",
     pd_b2:"Regelmäßig mit VIP-Gästeempfang & Moderation betraut",
     pd_b3:"Konzeptionelle Mitwirkung an der Besuchererfahrung beim Theaterfestival",
     pd_b4:"Netzwerk in Rheingauer Kulturinstitutionen, Weingütern & Premium-Hospitality",
