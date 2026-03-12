@@ -220,6 +220,15 @@ nav.nav-hidden{transform:translateY(-100%);}
   display:inline-block;
 }
 .btn-cv:hover{background:var(--terracotta);color:var(--cream);}
+.btn-linkedin{
+  display:inline-block;padding:.85rem 1.8rem;
+  font-family:"Space Mono",monospace;font-size:.6rem;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;
+  border:1.5px solid rgba(245,240,232,.25);background:transparent;
+  color:var(--cream);text-decoration:none;
+  transition:border-color .25s,color .25s;white-space:nowrap;
+}
+.btn-linkedin:hover{border-color:var(--kodak);color:var(--kodak);}
 /* Magnetic wrapper */
 .magnetic-wrap{display:inline-block;transition:transform .3s cubic-bezier(.25,.46,.45,.94);}
 
@@ -1677,6 +1686,7 @@ footer{
       <h2 class="contact-heading reveal" data-key="con_heading">Let&rsquo;s Build<br>Something <em>Remarkable</em></h2>
       <div class="contact-cta-row reveal">
         <div class="magnetic-wrap"><button onclick="openPDF()" class="btn-cv" data-key="con_cta_cv">&#8595; Download CV</button></div>
+        <a href="https://www.linkedin.com/in/lorenzo-von-neumann-cosel" target="_blank" rel="noopener noreferrer" class="btn-linkedin magnetic-wrap" data-key="con_cta_li">LinkedIn &#8599;</a>
       </div>
     </div>
     <div class="contact-form-wrap reveal">
@@ -2060,7 +2070,7 @@ var T = {
     int5:"International Events",int6:"Premium Hospitality",int7:"Arts Administration",int8:"Live Performance",
     int_quote:"“As a trumpet player, I understand the stage from both sides — the performance and the production.”",
     con_label:"007 — Contact",con_heading:"Let’s Build<br>Something <em>Remarkable</em>",
-    con_cta_cv:"↓ Download CV",
+    con_cta_cv:"↓ Download CV",con_cta_li:"LinkedIn ↗",
     form_heading:"Send a Message",form_name_label:"Your Name",form_email_label:"Your Email",
     form_subject_label:"Subject",form_msg_label:"Message",
     form_gdpr:"By submitting this form you agree that your data will be processed solely to respond to your inquiry, in accordance with GDPR / DSGVO.",
@@ -2122,7 +2132,7 @@ var T = {
     int5:"Internationale Events",int6:"Premium Hospitality",int7:"Kunstbetrieb",int8:"Live-Performance",
     int_quote:"„Als Trompeter kenne ich die Bühne von beiden Seiten — als Performer und als Produzent.“",
     con_label:"007 — Kontakt",con_heading:"Gemeinsam<br>etwas <em>Besonderes</em> schaffen",
-    con_cta_cv:"↓ Lebenslauf herunterladen",
+    con_cta_cv:"↓ Lebenslauf herunterladen",con_cta_li:"LinkedIn ↗",
     form_heading:"Nachricht senden",form_name_label:"Ihr Name",form_email_label:"Ihre E-Mail",
     form_subject_label:"Betreff",form_msg_label:"Nachricht",
     form_gdpr:"Mit dem Absenden erklären Sie sich einverstanden, dass Ihre Daten gemäß DSGVO zur Beantwortung Ihrer Anfrage verarbeitet werden.",
