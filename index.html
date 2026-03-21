@@ -74,6 +74,91 @@ a,button{cursor:none;}
   background:var(--kodak);z-index:500;pointer-events:none;
 }
 
+/* ── SCROLL PROGRESS BAR ──────────────────────────────────────── */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:var(--kodak);z-index:999;pointer-events:none;
+  transition:none;
+}
+
+/* ── ACTIVE NAV LINK ──────────────────────────────────────────── */
+.nav-links a.nav-active{color:var(--kodak);}
+.nav-links a.nav-active::after{
+  content:"";display:block;height:2px;background:var(--kodak);
+  margin-top:4px;animation:navUnderline .3s ease forwards;
+}
+@keyframes navUnderline{from{width:0}to{width:100%}}
+
+/* ── AVAILABILITY STRIP ───────────────────────────────────────── */
+.avail-strip{
+  background:var(--black);border-bottom:1px solid #1a1a1a;
+  padding:1.2rem 2.5rem;display:flex;align-items:center;
+  justify-content:center;gap:1rem;
+}
+.avail-dot{
+  width:8px;height:8px;background:#4CAF50;
+  display:inline-block;animation:availPulse 2s ease infinite;
+}
+@keyframes availPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.avail-text{
+  font-family:"Space Mono",monospace;font-size:.6rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--warm-grey);
+}
+.avail-text strong{color:var(--cream);font-weight:700;}
+
+/* ── WORK DETAIL MODAL ────────────────────────────────────────── */
+.work-card{cursor:pointer;}
+.work-card::after{
+  content:"Read more →";position:absolute;bottom:1rem;right:1.5rem;
+  font-family:"Space Mono",monospace;font-size:.5rem;letter-spacing:.15em;
+  text-transform:uppercase;color:#333;transition:color .3s;
+}
+.work-card:hover::after{color:var(--kodak);}
+.work-modal-overlay{
+  position:fixed;inset:0;z-index:600;background:rgba(13,13,13,.96);
+  display:none;justify-content:center;align-items:center;
+  padding:2rem;backdrop-filter:blur(4px);
+}
+.work-modal-overlay.wm-open{display:flex;}
+.work-modal-box{
+  max-width:680px;width:100%;max-height:85vh;overflow-y:auto;
+  background:var(--black);border:1px solid #222;position:relative;
+  padding:3.5rem 3rem;
+}
+.work-modal-box::-webkit-scrollbar{width:3px;}
+.work-modal-box::-webkit-scrollbar-thumb{background:var(--kodak);}
+.work-modal-close{
+  position:absolute;top:1.2rem;right:1.5rem;background:none;
+  border:1px solid #333;color:var(--warm-grey);font-size:1.2rem;
+  width:36px;height:36px;display:flex;align-items:center;
+  justify-content:center;transition:all .2s;cursor:pointer;
+}
+.work-modal-close:hover{border-color:var(--kodak);color:var(--kodak);}
+.work-modal-num{
+  font-family:"Abril Fatface",serif;font-size:5rem;color:#161410;
+  line-height:1;margin-bottom:1rem;
+}
+.work-modal-title{
+  font-family:"Cormorant Garamond",serif;font-size:1.8rem;font-weight:500;
+  color:var(--cream);line-height:1.15;margin-bottom:.5rem;
+}
+.work-modal-sub{
+  font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.15em;
+  color:var(--warm-grey);text-transform:uppercase;margin-bottom:2rem;
+}
+.work-modal-rule{height:2px;background:var(--kodak);width:40px;margin-bottom:2rem;}
+.work-modal-body p{
+  font-family:"Cormorant Garamond",serif;font-size:1.05rem;
+  color:#999;line-height:1.8;margin-bottom:1.2rem;
+}
+.work-modal-body p strong{color:var(--cream);}
+.work-modal-body p em{color:var(--kodak);font-style:normal;}
+.work-modal-role{
+  font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--terracotta);margin-top:2rem;
+  padding-top:1.5rem;border-top:1px solid #1a1a1a;
+}
+
 /* ── NAV ───────────────────────────────────────────────────────── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
@@ -143,6 +228,14 @@ nav.nav-hidden{transform:translateY(-100%);}
   text-transform:uppercase;transition:color .3s,background .3s;
 }
 .nav-overlay-links a:hover{color:var(--kodak);background:rgba(245,200,0,.04);}
+.nav-overlay-lang{display:flex;gap:0;margin-top:2.5rem;border:1.5px solid #444;overflow:hidden;}
+.nav-overlay-lang .lang-btn{
+  font-family:"Space Mono",monospace;font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;padding:.6rem 1.2rem;background:transparent;color:#666;
+  border:none;transition:all .2s;
+}
+.nav-overlay-lang .lang-btn.active{background:var(--kodak);color:var(--black);}
+.nav-overlay-lang .lang-btn:not(.active):hover{color:var(--cream);}
 .nav-overlay-hint{
   margin-top:2rem;font-family:"Space Mono",monospace;
   font-size:.5rem;letter-spacing:.3em;color:#333;text-transform:uppercase;
@@ -439,8 +532,8 @@ nav.nav-hidden{transform:translateY(-100%);}
   border-top:1px solid rgba(196,82,42,.2);border-right:1px solid rgba(196,82,42,.2);
 }
 .testimonial-quote{
-  font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.1rem;
-  line-height:1.8;color:#2A2520;margin-bottom:1.8rem;
+  font-family:"Playfair Display",serif;font-style:italic;font-size:1.35rem;
+  line-height:1.7;color:#2A2520;margin-bottom:1.8rem;font-weight:400;
 }
 .testimonial-name{
   font-family:"Bebas Neue",sans-serif;font-size:1rem;letter-spacing:.12em;
@@ -508,7 +601,7 @@ nav.nav-hidden{transform:translateY(-100%);}
   text-transform:uppercase;border:1.5px solid var(--black);padding:.4rem .9rem;
   color:var(--black);transition:all .2s;
 }
-.interest-tag:hover{background:var(--terracotta);border-color:var(--terracotta);color:var(--cream);}
+.interest-tag:hover{background:var(--terracotta);border-color:var(--terracotta);color:var(--cream);transform:translateY(-2px);box-shadow:0 3px 0 0 var(--kodak);}
 .int-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:#7A7060;line-height:1.8;margin-top:2rem;}
 
 /* ── CONTACT ────────────────────────────────────────────────────── */
@@ -665,7 +758,7 @@ footer{
 
 /* ── PRINT ──────────────────────────────────────────────────────── */
 @media print{
-  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.field-note-section,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay{display:none!important;}
+  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.field-note-section,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay,.avail-strip,.work-modal-overlay,#scroll-progress{display:none!important;}
   body{background:white;color:black;font-size:11pt;cursor:auto!important;}
   body::after{display:none;}
   .hero{min-height:auto;grid-template-columns:1fr;padding-top:0;}
@@ -694,7 +787,8 @@ footer{
 }
 @media(max-width:680px){
   nav .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
+  .nav-hamburger{display:flex;top:68px;}
+  .nav-cv-btn{display:none;}
   nav{opacity:1!important;pointer-events:all!important;background:transparent;border:none;}
   nav.nav-visible{background:var(--black);border-bottom:3px solid var(--kodak);}
 }
@@ -927,6 +1021,9 @@ footer{
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
 <!-- MOBILE NAV OVERLAY -->
 <div class="nav-overlay" id="nav-overlay">
   <p class="nav-overlay-mark">LvN&#8209;C</p>
@@ -937,6 +1034,10 @@ footer{
     <li><a href="#contact" onclick="closeOverlayNav()" data-key="nav_contact">Contact</a></li>
     <li><a href="#" onclick="event.preventDefault();closeOverlayNav();openPDF();" data-key="nav_cv">&#8595; CV</a></li>
   </ul>
+  <div class="nav-overlay-lang">
+    <button class="lang-btn active" id="ov-btn-en" onclick="setLang('en');syncLangBtns('en')">EN</button>
+    <button class="lang-btn" id="ov-btn-de" onclick="setLang('de');syncLangBtns('de')">DE</button>
+  </div>
   <p class="nav-overlay-hint">Tap anywhere to close</p>
 </div>
 <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation">
@@ -986,6 +1087,11 @@ footer{
     </div>
   </div>
 </section>
+
+<div class="avail-strip">
+  <span class="avail-dot"></span>
+  <span class="avail-text" data-key="avail_text"><strong>Available</strong> for Praktikum &amp; Hospitanz positions &middot; Rheingau &amp; across Germany</span>
+</div>
 
 <div class="section-divider"></div>
 <div class="hairline-rule"></div>
@@ -1073,30 +1179,80 @@ footer{
 <div class="works-section">
   <p class="section-label" data-key="works_label">Selected Work</p>
   <div class="works-strip">
-    <div class="work-card reveal reveal-d1">
+    <div class="work-card reveal reveal-d1" onclick="scrollToCaseStudy()" role="button" tabindex="0">
       <div class="work-num">01</div>
       <div class="work-title" data-key="w1_title">A Performance<br>Across Cultures</div>
       <div class="work-sub" data-key="w1_sub">Han Zaifen Ensemble &middot; Huangmei Opera &middot; Konfuzius-Institut Frankfurt &middot; July 2025</div>
       <p class="work-outcome" data-key="w1_outcome">30+ artists. National Cultural Heritage of China. Key supporting role in the production &mdash; artist logistics, scheduling, and on-site backstage operations for an ensemble led by Han Zaifen, one of China&rsquo;s most decorated performers.</p>
     </div>
-    <div class="work-card reveal reveal-d2">
+    <div class="work-card reveal reveal-d2" onclick="openWorkModal(2)" role="button" tabindex="0">
       <div class="work-num">02</div>
       <div class="work-title" data-key="w2_title">Gala &amp; Exhibition<br>Series</div>
       <div class="work-sub" data-key="w2_sub">Kunsthalle Darmstadt &middot; 2024&ndash;25</div>
       <p class="work-outcome" data-key="w2_outcome">10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.</p>
     </div>
-    <div class="work-card reveal reveal-d3">
+    <div class="work-card reveal reveal-d3" onclick="openWorkModal(3)" role="button" tabindex="0">
       <div class="work-num">03</div>
       <div class="work-title" data-key="w3_title">IMEX Frankfurt<br>2025 &amp; 2026</div>
       <div class="work-sub" data-key="w3_sub">Industry Engagement &middot; May 2025 &amp; May 2026</div>
       <p class="work-outcome" data-key="w3_outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate in 2025 and returning in May 2026 &mdash; consistent engagement with the industry for professional development, network building, and market exposure.</p>
     </div>
-    <div class="work-card reveal reveal-d4">
+    <div class="work-card reveal reveal-d4" onclick="openWorkModal(4)" role="button" tabindex="0">
       <div class="work-num">04</div>
       <div class="work-title" data-key="w4_title">Arie van Selm<br>Opening Gala</div>
       <div class="work-sub" data-key="w4_sub">Kunsthalle Darmstadt &middot; September 2024</div>
       <p class="work-outcome" data-key="w4_outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L&eacute;on Krempel.</p>
     </div>
+  </div>
+</div>
+
+
+<!-- WORK DETAIL MODALS -->
+<div class="work-modal-overlay" id="work-modal-2">
+  <div class="work-modal-box">
+    <button class="work-modal-close" onclick="closeWorkModal(2)">&times;</button>
+    <div class="work-modal-num">02</div>
+    <div class="work-modal-title" data-key="wm2_title">Gala &amp; Exhibition Series</div>
+    <div class="work-modal-sub" data-key="wm2_sub">Kunsthalle Darmstadt &middot; 2024&ndash;25</div>
+    <div class="work-modal-rule"></div>
+    <div class="work-modal-body">
+      <p data-key="wm2_p1">Over the course of a year at Kunsthalle Darmstadt, I planned and supported the execution of <strong>10+ exclusive member events</strong> &mdash; from exhibition previews and private galas to cultural networking evenings &mdash; for a base of over <strong>500 members</strong>.</p>
+      <p data-key="wm2_p2">My responsibilities covered the full event arc: pre-event logistics planning, atmosphere design and room preparation, VIP guest coordination on the night, and post-event follow-up. Every event was an opportunity to <em>strengthen the relationship</em> between the institution and its community.</p>
+      <p data-key="wm2_p3">I served as the primary point of contact for members, managing inquiries, renewals, and personal follow-ups. The role demanded discretion, warmth, and the ability to make every guest feel individually attended to &mdash; even across a large membership base.</p>
+    </div>
+    <div class="work-modal-role" data-key="wm2_role">Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. L&eacute;on Krempel</div>
+  </div>
+</div>
+
+<div class="work-modal-overlay" id="work-modal-3">
+  <div class="work-modal-box">
+    <button class="work-modal-close" onclick="closeWorkModal(3)">&times;</button>
+    <div class="work-modal-num">03</div>
+    <div class="work-modal-title" data-key="wm3_title">IMEX Frankfurt 2025 &amp; 2026</div>
+    <div class="work-modal-sub" data-key="wm3_sub">Industry Engagement &middot; May 2025 &amp; May 2026</div>
+    <div class="work-modal-rule"></div>
+    <div class="work-modal-body">
+      <p data-key="wm3_p1"><strong>IMEX Frankfurt</strong> is Europe&rsquo;s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and am returning in <strong>May 2026</strong> &mdash; marking a consistent investment in professional development.</p>
+      <p data-key="wm3_p2">Attending IMEX offered direct exposure to the global events industry at scale: destination marketing, venue innovation, event technology, and the professional networks that drive major productions. It sharpened my understanding of <em>where the industry is heading</em> and how premium cultural events fit within the broader MICE landscape.</p>
+      <p data-key="wm3_p3">The return visit in 2026 reflects a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.</p>
+    </div>
+    <div class="work-modal-role" data-key="wm3_role">Delegate &middot; Professional development &amp; industry networking</div>
+  </div>
+</div>
+
+<div class="work-modal-overlay" id="work-modal-4">
+  <div class="work-modal-box">
+    <button class="work-modal-close" onclick="closeWorkModal(4)">&times;</button>
+    <div class="work-modal-num">04</div>
+    <div class="work-modal-title" data-key="wm4_title">Arie van Selm &mdash; Opening Gala</div>
+    <div class="work-modal-sub" data-key="wm4_sub">Kunsthalle Darmstadt &middot; September 2024</div>
+    <div class="work-modal-rule"></div>
+    <div class="work-modal-body">
+      <p data-key="wm4_p1">This was one of the most significant events of my time at Kunsthalle Darmstadt: a <strong>fundraising gala dinner</strong> for the opening of the first comprehensive institutional survey of <strong>Arie van Selm</strong>.</p>
+      <p data-key="wm4_p2">The exhibition featured works on loan from <strong>17 lenders</strong>, spanning collections from <em>Darmstadt to Dallas</em>. The gala brought together donors, collectors, institutional partners, and cultural figures for an evening that combined art, philanthropy, and the highest hospitality standards.</p>
+      <p data-key="wm4_p3">I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. L&eacute;on Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.</p>
+    </div>
+    <div class="work-modal-role" data-key="wm4_role">Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. L&eacute;on Krempel</div>
   </div>
 </div>
 
@@ -2116,6 +2272,26 @@ var T = {
     fi6:"<span>006 &mdash; Interests</span><span>Beyond</span>",
     fi7:"<span>007 &mdash; Contact</span><span>Touch</span>",
     footer_tagline:"Event Coordination &amp; Cultural Programming",
+    avail_text:"<strong>Available</strong> for Praktikum &amp; Hospitanz positions &middot; Rheingau &amp; across Germany",
+    wm2_title:"Gala &amp; Exhibition Series",
+    wm2_sub:"Kunsthalle Darmstadt &middot; 2024–25",
+    wm2_p1:"Over the course of a year at Kunsthalle Darmstadt, I planned and supported the execution of <strong>10+ exclusive member events</strong> &mdash; from exhibition previews and private galas to cultural networking evenings &mdash; for a base of over <strong>500 members</strong>.",
+    wm2_p2:"My responsibilities covered the full event arc: pre-event logistics planning, atmosphere design and room preparation, VIP guest coordination on the night, and post-event follow-up. Every event was an opportunity to <em>strengthen the relationship</em> between the institution and its community.",
+    wm2_p3:"I served as the primary point of contact for members, managing inquiries, renewals, and personal follow-ups. The role demanded discretion, warmth, and the ability to make every guest feel individually attended to &mdash; even across a large membership base.",
+    wm2_role:"Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. L\u00e9on Krempel",
+    wm3_title:"IMEX Frankfurt 2025 &amp; 2026",
+    wm3_sub:"Industry Engagement &middot; May 2025 &amp; May 2026",
+    wm3_p1:"<strong>IMEX Frankfurt</strong> is Europe\u2019s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and am returning in <strong>May 2026</strong> &mdash; marking a consistent investment in professional development.",
+    wm3_p2:"Attending IMEX offered direct exposure to the global events industry at scale: destination marketing, venue innovation, event technology, and the professional networks that drive major productions. It sharpened my understanding of <em>where the industry is heading</em> and how premium cultural events fit within the broader MICE landscape.",
+    wm3_p3:"The return visit in 2026 reflects a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.",
+    wm3_role:"Delegate &middot; Professional development &amp; industry networking",
+    wm4_title:"Arie van Selm &mdash; Opening Gala",
+    wm4_sub:"Kunsthalle Darmstadt &middot; September 2024",
+    wm4_p1:"This was one of the most significant events of my time at Kunsthalle Darmstadt: a <strong>fundraising gala dinner</strong> for the opening of the first comprehensive institutional survey of <strong>Arie van Selm</strong>.",
+    wm4_p2:"The exhibition featured works on loan from <strong>17 lenders</strong>, spanning collections from <em>Darmstadt to Dallas</em>. The gala brought together donors, collectors, institutional partners, and cultural figures for an evening that combined art, philanthropy, and the highest hospitality standards.",
+    wm4_p3:"I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. L\u00e9on Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.",
+    wm4_role:"Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. L\u00e9on Krempel",
+    map_intro:"Born and raised in Darmstadt. Trained in Frankfurt. Now based in Geisenheim, Rheingau &mdash; and open to opportunities across Germany and Europe.",
     footer_stmt:"&ldquo;Crafting premium cultural experiences where logistics meet atmosphere.&rdquo;"
   },
   de:{
@@ -2219,6 +2395,26 @@ var T = {
     fi6:"<span>006 &mdash; Interessen</span><span>Darüber hinaus</span>",
     fi7:"<span>007 &mdash; Kontakt</span><span>Schreiben</span>",
     footer_tagline:"Veranstaltungskoordination &amp; Kulturprogrammierung",
+    avail_text:"<strong>Verfügbar</strong> für Praktikum- &amp; Hospitanz-Positionen &middot; Rheingau &amp; deutschlandweit",
+    wm2_title:"Gala- &amp; Ausstellungsreihe",
+    wm2_sub:"Kunsthalle Darmstadt &middot; 2024–25",
+    wm2_p1:"Im Verlauf eines Jahres an der Kunsthalle Darmstadt plante und unterstützte ich die Durchführung von <strong>10+ exklusiven Mitgliederveranstaltungen</strong> &mdash; von Ausstellungspreviews und privaten Galas bis hin zu kulturellen Netzwerkabenden &mdash; für eine Basis von über <strong>500 Mitgliedern</strong>.",
+    wm2_p2:"Meine Aufgaben umfassten den gesamten Veranstaltungsbogen: Logistikplanung, Atmosphärengestaltung und Raumvorbereitung, VIP-Gästekoordination am Abend und Nachbereitung. Jede Veranstaltung war eine Gelegenheit, <em>die Beziehung</em> zwischen Institution und Gemeinschaft zu stärken.",
+    wm2_p3:"Ich war die primäre Ansprechperson für Mitglieder, verwaltete Anfragen, Verlängerungen und persönliche Nachfassaktionen. Die Rolle erforderte Diskretion, Herzlichkeit und die Fähigkeit, jedem Gast individuelle Aufmerksamkeit zu schenken.",
+    wm2_role:"Rolle: Koordinator Mitgliedschaft &amp; Veranstaltungen &middot; Unter der Leitung von Dr. Léon Krempel",
+    wm3_title:"IMEX Frankfurt 2025 &amp; 2026",
+    wm3_sub:"Branchenengagement &middot; Mai 2025 &amp; Mai 2026",
+    wm3_p1:"Die <strong>IMEX Frankfurt</strong> ist Europas führende Fachmesse für die Meetings-, Event- und Incentive-Reise-Branche. Ich nahm als Delegierter im <strong>Mai 2025</strong> teil und kehre im <strong>Mai 2026</strong> zurück &mdash; eine konsequente Investition in berufliche Weiterentwicklung.",
+    wm3_p2:"Die IMEX bot direkten Einblick in die globale Eventbranche: Destinationsmarketing, Venue-Innovation, Eventtechnologie und die Netzwerke, die große Produktionen ermöglichen. Sie schärfte mein Verständnis dafür, <em>wohin die Branche sich entwickelt</em>.",
+    wm3_p3:"Der Rückbesuch 2026 unterstreicht ein bewusstes Engagement für langfristige Branchenbeziehungen und die Auseinandersetzung mit Trends im Eventmanagement, Nachhaltigkeit und erlebnisorientierten Design.",
+    wm3_role:"Delegierter &middot; Berufliche Weiterentwicklung &amp; Branchenvernetzung",
+    wm4_title:"Arie van Selm &mdash; Eröffnungsgala",
+    wm4_sub:"Kunsthalle Darmstadt &middot; September 2024",
+    wm4_p1:"Dies war eine der bedeutendsten Veranstaltungen meiner Zeit an der Kunsthalle Darmstadt: ein <strong>Fundraising-Gala-Dinner</strong> zur Eröffnung der ersten umfassenden institutionellen Werkschau von <strong>Arie van Selm</strong>.",
+    wm4_p2:"Die Ausstellung zeigte Werke von <strong>17 Leihgebern</strong>, von Sammlungen aus <em>Darmstadt bis Dallas</em>. Die Gala brachte Förderer, Sammler, institutionelle Partner und Kulturschaffende für einen Abend zusammen, der Kunst, Philanthropie und höchste Hospitality-Standards vereinte.",
+    wm4_p3:"Ich unterstützte die Veranstaltungskoordination und Spender-Gästelogistik unter der direkten Aufsicht von Direktor <strong>Dr. Léon Krempel</strong>. Die Aufgabe erforderte akribische Aufmerksamkeit für Sitzordnung, Empfangsablauf und die nahtlose Integration des Gala-Erlebnisses mit der Ausstellung.",
+    wm4_role:"Veranstaltungskoordination &amp; Spender-Gästelogistik &middot; Unter der Leitung von Dr. Léon Krempel",
+    map_intro:"Aufgewachsen in Darmstadt. Ausgebildet in Frankfurt. Jetzt in Geisenheim, Rheingau &mdash; und offen für Chancen in ganz Deutschland und Europa.",
     footer_stmt:"&ldquo;Erstklassige Kulturerlebnisse, bei denen Logistik und Atmosphäre zusammenfinden.&rdquo;"
   }
 };
@@ -2232,6 +2428,107 @@ function setLang(l){
   document.getElementById("btn-de").classList.toggle("active", l==="de");
   document.documentElement.lang = l;
 }
+
+
+// ── SCROLL PROGRESS BAR ───────────────────────────────────────────
+var progressBar = document.getElementById("scroll-progress");
+window.addEventListener("scroll", function(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  progressBar.style.width = pct + "%";
+});
+
+// ── ACTIVE NAV SECTION HIGHLIGHTING ───────────────────────────────
+(function(){
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+  if(!sections.length || !navLinks.length) return;
+  var navObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.getAttribute("id");
+        navLinks.forEach(function(link){
+          link.classList.remove("nav-active");
+          if(link.getAttribute("href") === "#" + id) link.classList.add("nav-active");
+        });
+      }
+    });
+  }, {threshold:0.15, rootMargin:"-60px 0px -40% 0px"});
+  sections.forEach(function(s){ navObs.observe(s); });
+})();
+
+// ── SMOOTH SCROLL WITH NAV OFFSET ─────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener("click", function(e){
+    var href = this.getAttribute("href");
+    if(!href || href === "#") return;
+    try {
+      var target = document.querySelector(href);
+    } catch(err){ return; }
+    if(!target) return;
+    e.preventDefault();
+    var navH = document.getElementById("main-nav").offsetHeight || 60;
+    var top = target.getBoundingClientRect().top + window.scrollY - navH - 12;
+    window.scrollTo({top:top, behavior:"smooth"});
+  });
+});
+
+// ── LANG TOGGLE SYNC (nav + overlay) ──────────────────────────────
+function syncLangBtns(l){
+  document.getElementById("btn-en").classList.toggle("active", l==="en");
+  document.getElementById("btn-de").classList.toggle("active", l==="de");
+  document.getElementById("ov-btn-en").classList.toggle("active", l==="en");
+  document.getElementById("ov-btn-de").classList.toggle("active", l==="de");
+}
+// Patch original setLang to also sync overlay buttons
+var origSetLang = setLang;
+setLang = function(l){
+  origSetLang(l);
+  var ovEn = document.getElementById("ov-btn-en");
+  var ovDe = document.getElementById("ov-btn-de");
+  if(ovEn){ ovEn.classList.toggle("active", l==="en"); }
+  if(ovDe){ ovDe.classList.toggle("active", l==="de"); }
+};
+
+// ── WORK CARD MODALS ──────────────────────────────────────────────
+function scrollToCaseStudy(){
+  var cs = document.querySelector(".casestudy-section");
+  if(!cs) return;
+  var navH = document.getElementById("main-nav").offsetHeight || 60;
+  var top = cs.getBoundingClientRect().top + window.scrollY - navH - 12;
+  window.scrollTo({top:top, behavior:"smooth"});
+}
+function openWorkModal(n){
+  var m = document.getElementById("work-modal-"+n);
+  if(!m) return;
+  m.classList.add("wm-open");
+  document.body.style.overflow = "hidden";
+}
+function closeWorkModal(n){
+  var m = document.getElementById("work-modal-"+n);
+  if(!m) return;
+  m.classList.remove("wm-open");
+  document.body.style.overflow = "";
+}
+// Close on backdrop click
+document.querySelectorAll(".work-modal-overlay").forEach(function(el){
+  el.addEventListener("click", function(e){
+    if(e.target===this){
+      this.classList.remove("wm-open");
+      document.body.style.overflow = "";
+    }
+  });
+});
+// Close on Escape (extend existing handler)
+var origKeyHandler = document.onkeydown;
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape"){
+    document.querySelectorAll(".work-modal-overlay.wm-open").forEach(function(m){
+      m.classList.remove("wm-open");
+    });
+    document.body.style.overflow = "";
+  }
+});
 
 // ── TYPOGRAPHY DRIFT ───────────────────────────────────────────────
 (function(){
