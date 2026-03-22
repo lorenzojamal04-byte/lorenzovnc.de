@@ -758,7 +758,7 @@ footer{
 
 /* ── PRINT ──────────────────────────────────────────────────────── */
 @media print{
-  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.field-note-section,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay,.avail-strip,.work-modal-overlay,#scroll-progress{display:none!important;}
+  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.field-note-section,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay,.avail-strip,.work-modal-overlay,#scroll-progress,.timeline-section,.seeking-section{display:none!important;}
   body{background:white;color:black;font-size:11pt;cursor:auto!important;}
   body::after{display:none;}
   .hero{min-height:auto;grid-template-columns:1fr;padding-top:0;}
@@ -775,17 +775,29 @@ footer{
 @media(max-width:960px){
   .hero,.about-strip,.profile-section,.contact-inner{grid-template-columns:1fr;}
   .hero-right{min-height:40vh;}
-  .exp-grid,.comp-grid,.testimonials-grid,.works-strip{grid-template-columns:1fr;}
+  .exp-grid{grid-template-columns:1fr;}
+  .comp-grid{grid-template-columns:repeat(2,1fr);}
+  .testimonials-grid{grid-template-columns:1fr 1fr;}
+  .works-strip{grid-template-columns:repeat(2,1fr);}
   nav{padding:0 1rem;}
   .nav-links li:nth-child(n+3){display:none;}
-  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.field-note-section,.works-section,.pull-quote-section{padding:3rem 1.5rem;}
-  footer{padding:2rem 1.5rem;grid-template-columns:1fr;gap:1.5rem;}
+  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.field-note-section,.works-section,.pull-quote-section{padding:3rem 2.5rem;}
+  footer{padding:2rem 2.5rem;grid-template-columns:1fr;gap:1.5rem;}
   .footer-col-centre{border:none;padding:0;}
   .footer-col-right{text-align:left;}
   .contact-section::before{font-size:5rem;}
   #margin-line{display:none;}
+  .work-modal-box{max-width:90vw;padding:2.5rem 2rem;}
 }
-@media(max-width:680px){
+@media(max-width:768px){
+  .comp-grid,.testimonials-grid,.works-strip{grid-template-columns:1fr;}
+  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.field-note-section,.works-section,.pull-quote-section{padding:3rem 1.5rem;}
+  footer{padding:2rem 1.5rem;}
+  .casestudy-section,.diplomacy-strip,.floorplan-section{padding:3rem 1.5rem;}
+  .timeline-track{gap:0;padding:0 1rem;}
+  .timeline-node{min-width:200px;padding:1.5rem 1rem;}
+  .seeking-inner{padding:0 1.5rem;}
+  .seeking-text{font-size:1.15rem;}
   nav .nav-links{display:none;}
   .nav-hamburger{display:flex;top:68px;}
   .nav-cv-btn{display:none;}
@@ -1008,11 +1020,122 @@ footer{
   .diplomacy-strip{grid-template-columns:1fr;gap:1.5rem;}
   .diplomacy-label-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.2);padding-right:0;padding-bottom:1.5rem;}
   .cs-char{font-size:12rem;right:0;}
-  .casestudy-section,.diplomacy-strip{padding:3rem 1.5rem;}
+  .casestudy-section,.diplomacy-strip{padding:3rem 2.5rem;}
 }
 @media print{
   .casestudy-section,.diplomacy-strip{display:none!important;}
 }
+
+/* ── EVENT TIMELINE ────────────────────────────────────────────── */
+.timeline-section{
+  background:var(--black);padding:5rem 5rem 4rem;border-top:1px solid #1a1a1a;
+  overflow:hidden;position:relative;
+}
+.timeline-section::before{
+  content:"TIMELINE";position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-family:"Abril Fatface",serif;
+  font-size:10rem;color:#111;white-space:nowrap;pointer-events:none;line-height:1;
+}
+.timeline-header{position:relative;z-index:1;margin-bottom:3rem;}
+.timeline-scroll{
+  overflow-x:auto;position:relative;z-index:1;
+  scrollbar-width:thin;scrollbar-color:var(--kodak) #111;
+  padding-bottom:1.5rem;
+}
+.timeline-scroll::-webkit-scrollbar{height:3px;}
+.timeline-scroll::-webkit-scrollbar-thumb{background:var(--kodak);}
+.timeline-scroll::-webkit-scrollbar-track{background:#111;}
+.timeline-track{
+  display:flex;gap:3px;min-width:max-content;position:relative;
+  padding:0 2rem;
+}
+.timeline-track::before{
+  content:"";position:absolute;top:28px;left:0;right:0;height:1px;
+  background:repeating-linear-gradient(90deg,var(--kodak) 0,var(--kodak) 8px,transparent 8px,transparent 16px);
+  opacity:.3;
+}
+.timeline-node{
+  min-width:240px;padding:2rem 1.5rem;background:#0a0a0a;
+  border-top:3px solid #161410;position:relative;
+  transition:border-top-color .3s,background .3s;flex-shrink:0;
+}
+.timeline-node:hover{border-top-color:var(--kodak);background:#111;}
+.timeline-node::before{
+  content:"";position:absolute;top:-3px;left:2rem;width:8px;height:8px;
+  background:var(--kodak);transform:translateY(-50%) rotate(45deg);
+  transition:transform .3s;
+}
+.timeline-node:hover::before{transform:translateY(-50%) rotate(45deg) scale(1.3);}
+.timeline-node.tl-milestone::before{
+  width:12px;height:12px;background:var(--terracotta);
+}
+.timeline-node.tl-milestone{border-top-color:var(--terracotta);}
+.timeline-node.tl-milestone:hover{border-top-color:var(--kodak);}
+.timeline-date{
+  font-family:"Space Mono",monospace;font-size:.52rem;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--kodak);margin-bottom:.6rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.timeline-date::after{content:"";flex:1;height:1px;background:#222;}
+.timeline-name{
+  font-family:"Bebas Neue",sans-serif;font-size:1rem;letter-spacing:.08em;
+  color:var(--cream);margin-bottom:.3rem;
+}
+.timeline-desc{
+  font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.85rem;
+  color:#666;line-height:1.6;
+}
+.timeline-hint{
+  font-family:"Space Mono",monospace;font-size:.48rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#333;text-align:right;margin-top:.5rem;
+  position:relative;z-index:1;
+}
+.timeline-hint::after{content:" →";}
+
+
+/* ── WHAT I'M LOOKING FOR ──────────────────────────────────────── */
+.seeking-section{
+  background:var(--cream);padding:6rem 5rem;position:relative;overflow:hidden;
+}
+.seeking-section::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:repeating-linear-gradient(90deg,var(--kodak) 0,var(--kodak) 20px,var(--cream) 20px,var(--cream) 24px);
+}
+.seeking-inner{max-width:720px;margin:0 auto;text-align:center;}
+.seeking-overline{
+  font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--terracotta);margin-bottom:1.5rem;
+}
+.seeking-text{
+  font-family:"Playfair Display",serif;font-style:italic;font-size:1.45rem;
+  line-height:1.75;color:var(--black);margin-bottom:2rem;
+}
+.seeking-text em{
+  font-style:normal;color:var(--terracotta);
+  border-bottom:2px solid rgba(196,82,42,.25);
+}
+.seeking-coda{
+  font-family:"Space Mono",monospace;font-size:.58rem;letter-spacing:.15em;
+  color:var(--warm-grey);line-height:1.8;
+}
+
+
+/* ── PAGE TRANSITIONS ──────────────────────────────────────────── */
+.sec-enter{
+  opacity:1;transform:none;
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);
+}
+.js-ready .sec-enter{opacity:0;transform:translateY(40px);}
+.js-ready .sec-enter.sec-visible{opacity:1;transform:none;}
+
+/* Section divider wipe animation */
+.section-divider{
+  transform-origin:left;transform:scaleX(1);
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+}
+.js-ready .section-divider{transform:scaleX(0);}
+.js-ready .section-divider.sec-visible{transform:scaleX(1);}
+
 </style>
 </head>
 <body>
@@ -1093,7 +1216,7 @@ footer{
   <span class="avail-text" data-key="avail_text"><strong>Available</strong> for Praktikum &amp; Hospitanz positions &middot; Rheingau &amp; across Germany</span>
 </div>
 
-<div class="section-divider"></div>
+<div class="section-divider sec-enter"></div>
 <div class="hairline-rule"></div>
 
 <!-- ABOUT -->
@@ -1123,10 +1246,10 @@ footer{
   </div>
 </div>
 
-<div class="section-divider"></div>
+<div class="section-divider sec-enter"></div>
 
 <!-- EXPERIENCE -->
-<section class="experience-section" id="experience">
+<section class="experience-section sec-enter" id="experience">
   <div class="reveal">
     <div class="section-head-wrap">
       <span class="section-ghost section-ghost-light">02</span>
@@ -1174,6 +1297,59 @@ footer{
     </div>
   </div>
 </section>
+
+
+<!-- EVENT TIMELINE -->
+<div class="timeline-section">
+  <div class="timeline-header">
+    <p class="section-label" style="color:var(--warm-grey);" data-key="tl_label">Career Arc</p>
+  </div>
+  <div class="timeline-scroll">
+    <div class="timeline-track">
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl1_date">Jul 2024</div>
+        <div class="timeline-name" data-key="tl1_name">Kunsthalle Darmstadt</div>
+        <div class="timeline-desc" data-key="tl1_desc">Membership &amp; Events Coordinator. 500+ members, 10+ exclusive events.</div>
+      </div>
+      <div class="timeline-node tl-milestone sec-enter">
+        <div class="timeline-date" data-key="tl2_date">Sep 2024</div>
+        <div class="timeline-name" data-key="tl2_name">Arie van Selm Gala</div>
+        <div class="timeline-desc" data-key="tl2_desc">Fundraising gala for the first institutional survey. 17 international lenders.</div>
+      </div>
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl3_date">Jan 2025</div>
+        <div class="timeline-name" data-key="tl3_name">Konfuzius-Institut Frankfurt</div>
+        <div class="timeline-desc" data-key="tl3_desc">Cultural &amp; Event Coordinator. 30+ events, bilingual production.</div>
+      </div>
+      <div class="timeline-node tl-milestone sec-enter">
+        <div class="timeline-date" data-key="tl4_date">May 2025</div>
+        <div class="timeline-name" data-key="tl4_name">IMEX Frankfurt</div>
+        <div class="timeline-desc" data-key="tl4_desc">Europe&rsquo;s leading meetings &amp; events trade fair. First visit as delegate.</div>
+      </div>
+      <div class="timeline-node tl-milestone sec-enter">
+        <div class="timeline-date" data-key="tl5_date">Jul 2025</div>
+        <div class="timeline-name" data-key="tl5_name">Theater Festival</div>
+        <div class="timeline-desc" data-key="tl5_desc">Han Zaifen Ensemble. 30+ artists. National Cultural Heritage of China.</div>
+      </div>
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl6_date">Oct 2025</div>
+        <div class="timeline-name" data-key="tl6_name">Frankfurter B&uuml;chermesse</div>
+        <div class="timeline-desc" data-key="tl6_desc">Contributed to Konfuzius-Institut&rsquo;s presence at the world&rsquo;s largest book fair.</div>
+      </div>
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl7_date">2025&ndash;26</div>
+        <div class="timeline-name" data-key="tl7_name">Building &amp; Seeking</div>
+        <div class="timeline-desc" data-key="tl7_desc">Developing personal event tools. Active industry engagement. Open to the right opportunity.</div>
+      </div>
+      <div class="timeline-node tl-milestone sec-enter">
+        <div class="timeline-date" data-key="tl8_date">May 2026</div>
+        <div class="timeline-name" data-key="tl8_name">IMEX Frankfurt</div>
+        <div class="timeline-desc" data-key="tl8_desc">Returning as delegate. Consistent commitment to the industry.</div>
+      </div>
+    </div>
+  </div>
+  <div class="timeline-hint" data-key="tl_hint">Scroll to explore</div>
+</div>
 
 <!-- SELECTED WORKS -->
 <div class="works-section">
@@ -1552,10 +1728,10 @@ footer{
 
 
 
-<div class="section-divider"></div>
+<div class="section-divider sec-enter"></div>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
+<section class="testimonials-section sec-enter" id="testimonials">
   <div class="reveal">
     <div class="section-head-wrap">
       <span class="section-ghost">03</span>
@@ -1577,7 +1753,7 @@ footer{
 </section>
 
 <!-- COMPETENCIES -->
-<section class="competencies-section" id="skills">
+<section class="competencies-section sec-enter" id="skills">
   <div class="reveal">
     <div class="section-head-wrap">
       <span class="section-ghost">04</span>
@@ -1834,8 +2010,19 @@ footer{
 </section>
 
 
+<!-- WHAT I'M LOOKING FOR -->
+<div class="seeking-section">
+  <div class="seeking-inner reveal">
+    <p class="seeking-overline" data-key="seek_label">What I&rsquo;m Looking For</p>
+    <p class="seeking-text" data-key="seek_text">I&rsquo;m drawn to institutions where the programme is ambitious and every detail matters &mdash; where a team builds something the audience remembers long after the evening ends. I want to bring my precision, my calm under pressure, and my instinct for <em>atmosphere</em> to cultural productions that set the standard &mdash; and grow within them.</p>
+    <p class="seeking-coda" data-key="seek_coda">Open to roles across Germany and Europe &middot; Available immediately</p>
+  </div>
+</div>
+
+<div class="section-divider sec-enter"></div>
+
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
+<section class="contact-section sec-enter" id="contact">
   <p class="section-label" data-key="con_label">007 &mdash; Contact</p>
   <div class="contact-inner">
     <div>
@@ -2291,6 +2478,19 @@ var T = {
     wm4_p2:"The exhibition featured works on loan from <strong>17 lenders</strong>, spanning collections from <em>Darmstadt to Dallas</em>. The gala brought together donors, collectors, institutional partners, and cultural figures for an evening that combined art, philanthropy, and the highest hospitality standards.",
     wm4_p3:"I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. L\u00e9on Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.",
     wm4_role:"Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. L\u00e9on Krempel",
+    tl_label:"Career Arc",
+    tl1_date:"Jul 2024",tl1_name:"Kunsthalle Darmstadt",tl1_desc:"Membership &amp; Events Coordinator. 500+ members, 10+ exclusive events.",
+    tl2_date:"Sep 2024",tl2_name:"Arie van Selm Gala",tl2_desc:"Fundraising gala for the first institutional survey. 17 international lenders.",
+    tl3_date:"Jan 2025",tl3_name:"Konfuzius-Institut Frankfurt",tl3_desc:"Cultural &amp; Event Coordinator. 30+ events, bilingual production.",
+    tl4_date:"May 2025",tl4_name:"IMEX Frankfurt",tl4_desc:"Europe\u2019s leading meetings &amp; events trade fair. First visit as delegate.",
+    tl5_date:"Jul 2025",tl5_name:"Theater Festival",tl5_desc:"Han Zaifen Ensemble. 30+ artists. National Cultural Heritage of China.",
+    tl6_date:"Oct 2025",tl6_name:"Frankfurter B\u00fcchermesse",tl6_desc:"Contributed to Konfuzius-Institut\u2019s presence at the world\u2019s largest book fair.",
+    tl7_date:"2025\u201326",tl7_name:"Building &amp; Seeking",tl7_desc:"Developing personal event tools. Active industry engagement. Open to the right opportunity.",
+    tl8_date:"May 2026",tl8_name:"IMEX Frankfurt",tl8_desc:"Returning as delegate. Consistent commitment to the industry.",
+    tl_hint:"Scroll to explore",
+    seek_label:"What I\u2019m Looking For",
+    seek_text:"I\u2019m drawn to institutions where the programme is ambitious and every detail matters &mdash; where a team builds something the audience remembers long after the evening ends. I want to bring my precision, my calm under pressure, and my instinct for <em>atmosphere</em> to cultural productions that set the standard &mdash; and grow within them.",
+    seek_coda:"Open to roles across Germany and Europe &middot; Available immediately",
     map_intro:"Born and raised in Darmstadt. Trained in Frankfurt. Now based in Geisenheim, Rheingau &mdash; and open to opportunities across Germany and Europe.",
     footer_stmt:"&ldquo;Crafting premium cultural experiences where logistics meet atmosphere.&rdquo;"
   },
@@ -2414,6 +2614,19 @@ var T = {
     wm4_p2:"Die Ausstellung zeigte Werke von <strong>17 Leihgebern</strong>, von Sammlungen aus <em>Darmstadt bis Dallas</em>. Die Gala brachte Förderer, Sammler, institutionelle Partner und Kulturschaffende für einen Abend zusammen, der Kunst, Philanthropie und höchste Hospitality-Standards vereinte.",
     wm4_p3:"Ich unterstützte die Veranstaltungskoordination und Spender-Gästelogistik unter der direkten Aufsicht von Direktor <strong>Dr. Léon Krempel</strong>. Die Aufgabe erforderte akribische Aufmerksamkeit für Sitzordnung, Empfangsablauf und die nahtlose Integration des Gala-Erlebnisses mit der Ausstellung.",
     wm4_role:"Veranstaltungskoordination &amp; Spender-Gästelogistik &middot; Unter der Leitung von Dr. Léon Krempel",
+    tl_label:"Werdegang",
+    tl1_date:"Jul 2024",tl1_name:"Kunsthalle Darmstadt",tl1_desc:"Koordinator Mitgliedschaft &amp; Veranstaltungen. 500+ Mitglieder, 10+ exklusive Events.",
+    tl2_date:"Sep 2024",tl2_name:"Arie van Selm Gala",tl2_desc:"Fundraising-Gala zur ersten institutionellen Werkschau. 17 internationale Leihgeber.",
+    tl3_date:"Jan 2025",tl3_name:"Konfuzius-Institut Frankfurt",tl3_desc:"Kultur- &amp; Veranstaltungskoordinator. 30+ Events, zweisprachige Produktion.",
+    tl4_date:"Mai 2025",tl4_name:"IMEX Frankfurt",tl4_desc:"Europas f\u00fchrende Meetings- &amp; Eventmesse. Erster Besuch als Delegierter.",
+    tl5_date:"Jul 2025",tl5_name:"Theaterfestival",tl5_desc:"Han-Zaifen-Ensemble. 30+ K\u00fcnstler. Nationales Kulturerbe Chinas.",
+    tl6_date:"Okt 2025",tl6_name:"Frankfurter B\u00fcchermesse",tl6_desc:"Mitwirkung am Messeauftritt des Konfuzius-Instituts auf der weltgr\u00f6\u00dften Buchmesse.",
+    tl7_date:"2025\u201326",tl7_name:"Aufbau &amp; Suche",tl7_desc:"Entwicklung pers\u00f6nlicher Event-Tools. Aktives Branchenengagement. Offen f\u00fcr die richtige Chance.",
+    tl8_date:"Mai 2026",tl8_name:"IMEX Frankfurt",tl8_desc:"R\u00fcckkehr als Delegierter. Konsequentes Branchenengagement.",
+    tl_hint:"Scrollen zum Entdecken",
+    seek_label:"Wonach ich suche",
+    seek_text:"Mich ziehen Institutionen an, deren Programm ambitioniert ist und bei denen jedes Detail z\u00e4hlt &mdash; wo ein Team etwas aufbaut, das das Publikum noch lange nach dem Abend in Erinnerung beh\u00e4lt. Ich m\u00f6chte meine Pr\u00e4zision, meine Ruhe unter Druck und mein Gesp\u00fcr f\u00fcr <em>Atmosph\u00e4re</em> in Kulturproduktionen einbringen, die Ma\u00dfst\u00e4be setzen &mdash; und mit ihnen wachsen.",
+    seek_coda:"Offen f\u00fcr Positionen in ganz Deutschland und Europa &middot; Sofort verf\u00fcgbar",
     map_intro:"Aufgewachsen in Darmstadt. Ausgebildet in Frankfurt. Jetzt in Geisenheim, Rheingau &mdash; und offen für Chancen in ganz Deutschland und Europa.",
     footer_stmt:"&ldquo;Erstklassige Kulturerlebnisse, bei denen Logistik und Atmosphäre zusammenfinden.&rdquo;"
   }
@@ -2529,6 +2742,25 @@ document.addEventListener("keydown", function(e){
     document.body.style.overflow = "";
   }
 });
+
+
+// ── PAGE TRANSITION OBSERVER ──────────────────────────────────────
+(function(){
+  var secEls = document.querySelectorAll(".sec-enter");
+  if(!("IntersectionObserver" in window)){
+    secEls.forEach(function(el){ el.classList.add("sec-visible"); });
+    return;
+  }
+  var secObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add("sec-visible");
+        secObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.05, rootMargin:"0px 0px -60px 0px"});
+  secEls.forEach(function(el){ secObs.observe(el); });
+})();
 
 // ── TYPOGRAPHY DRIFT ───────────────────────────────────────────────
 (function(){
