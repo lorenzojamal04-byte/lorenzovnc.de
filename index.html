@@ -7,17 +7,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
-<meta name="description" content="Lorenzo von Neumann-Cosel — event coordination and cultural programming professional based in Geisenheim, Rheingau. 1.5+ years experience at Kunsthalle Darmstadt and Konfuzius-Institut Frankfurt.">
+<meta name="description" content="Lorenzo von Neumann-Cosel — event coordination and cultural programming professional based in Geisenheim, Rheingau. event coordination and cultural programming. Kunsthalle Darmstadt, Konfuzius-Institut Frankfurt, IMEX delegate.">
 <meta name="keywords" content="Lorenzo von Neumann-Cosel, event coordinator Rheingau, Veranstaltungskoordinator, Kunsthalle Darmstadt, Konfuzius Institut Frankfurt">
 <meta name="author" content="Lorenzo von Neumann-Cosel">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#F5C800">
-<meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE">
 <link rel="canonical" href="https://lorenzovnc.de/">
 <link rel="manifest" href="/manifest.json">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Lorenzo von Neumann-Cosel | Event Coordination &amp; Cultural Programming">
-<meta property="og:description" content="Event coordination professional with 1.5+ years delivering premium cultural experiences. Based in Geisenheim, Rheingau.">
+<meta property="og:description" content="Event coordination professional delivering premium cultural experiences. Based in Geisenheim, Rheingau.">
 <meta property="og:url" content="https://lorenzovnc.de/">
 <meta property="og:site_name" content="Lorenzo von Neumann-Cosel">
 <meta property="profile:first_name" content="Lorenzo">
@@ -644,26 +643,6 @@ nav.nav-hidden{transform:translateY(-100%);}
   color:var(--kodak);font-size:1.1rem;margin-top:.5rem;
 }
 
-/* ── FIELD NOTE ─────────────────────────────────────────────────── */
-.field-note-section{
-  background:var(--black);border-top:1px solid #1a1a1a;
-  padding:3rem 5rem;
-}
-.field-note-inner{
-  max-width:800px;margin:0 auto;
-  display:flex;align-items:flex-start;gap:2rem;
-  border-left:2px solid #2a2a2a;padding-left:2rem;
-}
-.field-note-label{
-  font-family:"Space Mono",monospace;font-size:.52rem;letter-spacing:.35em;
-  text-transform:uppercase;color:var(--terracotta);white-space:nowrap;
-  padding-top:.2rem;flex-shrink:0;
-}
-.field-note-text{
-  font-family:"Cormorant Garamond",serif;font-style:italic;
-  font-size:1.05rem;color:#555;line-height:1.8;
-}
-.field-note-text::after{content:" —";color:var(--terracotta);font-style:normal;}
 
 /* ── FOOTER (COLOPHON) ──────────────────────────────────────────── */
 footer{
@@ -758,7 +737,7 @@ footer{
 
 /* ── PRINT ──────────────────────────────────────────────────────── */
 @media print{
-  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.field-note-section,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay,.avail-strip,.work-modal-overlay,#scroll-progress,.timeline-section,.seeking-section{display:none!important;}
+  nav,.hero-cta-group,.btn-cv,.lang-toggle,footer,.modal-overlay,.section-divider,.nav-right,.contact-form-wrap,.works-section,.pull-quote-section,#margin-line,#cursor-dot,#cursor-ring,.nav-hamburger,.nav-overlay,.avail-strip,.work-modal-overlay,#scroll-progress,.timeline-section,.seeking-section{display:none!important;}
   body{background:white;color:black;font-size:11pt;cursor:auto!important;}
   body::after{display:none;}
   .hero{min-height:auto;grid-template-columns:1fr;padding-top:0;}
@@ -781,7 +760,7 @@ footer{
   .works-strip{grid-template-columns:repeat(2,1fr);}
   nav{padding:0 1rem;}
   .nav-links li:nth-child(n+3){display:none;}
-  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.field-note-section,.works-section,.pull-quote-section{padding:3rem 2.5rem;}
+  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.works-section,.pull-quote-section{padding:3rem 2.5rem;}
   footer{padding:2rem 2.5rem;grid-template-columns:1fr;gap:1.5rem;}
   .footer-col-centre{border:none;padding:0;}
   .footer-col-right{text-align:left;}
@@ -791,7 +770,7 @@ footer{
 }
 @media(max-width:768px){
   .comp-grid,.testimonials-grid,.works-strip{grid-template-columns:1fr;}
-  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.field-note-section,.works-section,.pull-quote-section{padding:3rem 1.5rem;}
+  .about-strip,.experience-section,.competencies-section,.testimonials-section,.profile-section,.contact-section,.works-section,.pull-quote-section{padding:3rem 1.5rem;}
   footer{padding:2rem 1.5rem;}
   .casestudy-section,.diplomacy-strip,.floorplan-section{padding:3rem 1.5rem;}
   .timeline-track{gap:0;padding:0 1rem;}
@@ -1136,6 +1115,8 @@ footer{
 .js-ready .section-divider{transform:scaleX(0);}
 .js-ready .section-divider.sec-visible{transform:scaleX(1);}
 
+.work-modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid #333;}
+.wm-tag{font-family:"Bebas Neue",sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .7rem;border:1.5px solid var(--kodak);color:var(--kodak);display:inline-block;}
 </style>
 </head>
 <body>
@@ -1155,7 +1136,7 @@ footer{
     <li><a href="#experience" onclick="closeOverlayNav()" data-key="nav_exp">Experience</a></li>
     <li><a href="#skills" onclick="closeOverlayNav()" data-key="nav_skills">Skills</a></li>
     <li><a href="#contact" onclick="closeOverlayNav()" data-key="nav_contact">Contact</a></li>
-    <li><a href="#" onclick="event.preventDefault();closeOverlayNav();openPDF();" data-key="nav_cv">&#8595; CV</a></li>
+    <li><a href="Lorenzo_vonNeumannCosel_CV_2026.pdf" target="_blank" onclick="closeOverlayNav();" data-key="nav_cv">&#8595; CV</a></li>
   </ul>
   <div class="nav-overlay-lang">
     <button class="lang-btn active" id="ov-btn-en" onclick="setLang('en');syncLangBtns('en')">EN</button>
@@ -1177,7 +1158,7 @@ footer{
     <li><a href="#contact" data-key="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button onclick="openPDF()" class="nav-cv-btn" data-key="nav_cv">&#8595; CV</button>
+    <a href="Lorenzo_vonNeumannCosel_CV_2026.pdf" target="_blank" class="nav-cv-btn" data-key="nav_cv">&#8595; CV</a>
     <div class="lang-toggle">
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
@@ -1196,17 +1177,17 @@ footer{
     <div class="hero-cta-group">
       <div class="magnetic-wrap"><a href="#experience" class="btn-primary" data-key="hero_cta_work">View Work</a></div>
       <div class="magnetic-wrap"><a href="#contact" class="btn-secondary" data-key="hero_cta_contact">Get in Touch</a></div>
-      <div class="magnetic-wrap"><button onclick="openPDF()" class="btn-cv" data-key="hero_cta_cv">&#8595; Download CV</button></div>
+      <div class="magnetic-wrap"><a href="Lorenzo_vonNeumannCosel_CV_2026.pdf" target="_blank" class="btn-cv" data-key="hero_cta_cv">&#8595; Download CV</a></div>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-right-bg-num">26</div>
     <div class="hero-location" data-key="hero_location">Geisenheim, Germany</div>
     <div class="hero-stats">
-      <div><div class="stat-number">10+</div><div class="stat-label" data-key="stat1">Exclusive events<br>coordinated</div></div>
+      <div><div class="stat-number">40+</div><div class="stat-label" data-key="stat1">Events<br>supported</div></div>
       <div><div class="stat-number">500+</div><div class="stat-label" data-key="stat2">Members<br>served</div></div>
-      <div><div class="stat-number">1.5+</div><div class="stat-label" data-key="stat3">Years of<br>experience</div></div>
-      <div><div class="stat-number">1</div><div class="stat-label" data-key="stat4">Gerhard Richter<br>world premi&egrave;re</div></div>
+      <div><div class="stat-number">30+</div><div class="stat-label" data-key="stat3">Artists<br>supported</div></div>
+      <div><div class="stat-number">2&times;</div><div class="stat-label" data-key="stat4">IMEX<br>delegate</div></div>
     </div>
   </div>
 </section>
@@ -1230,9 +1211,10 @@ footer{
     </div>
   </div>
   <div class="about-body reveal reveal-d2">
-    <p data-key="about_p1">Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere &mdash; the kind of events people remember.</p>
+    <p data-key="about_p1">Event coordination professional delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere &mdash; the kind of events people remember.</p>
     <p data-key="about_p2">From exclusive member galas at Kunsthalle Darmstadt to coordinating Han Zaifen&rsquo;s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt &mdash; 30+ artists, a National Cultural Heritage performance, a German audience &mdash; I bring calm precision to complex, high-pressure, intercultural production environments.</p>
-    <p data-key="about_p3">Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe. Currently developing personal tools for event scenario planning and atmosphere design.</p>
+    <p data-key="about_p3">Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe.</p>
+    <p data-key="about_p4">Alongside my event work, I develop Ash &amp; Vine, a self-directed concept dining project.</p>
   </div>
 </section>
 
@@ -1268,7 +1250,7 @@ footer{
         <li data-key="kd_b3">Primary point of contact for members; elevated guest experience standards across all touchpoints</li>
         <li data-key="kd_b4">Collaborated with curators, artists &amp; external partners on logistics, guest flow &amp; atmosphere design</li>
         <li data-key="kd_b5">Maintained CRM systems, processed inquiries, supported donation &amp; renewal administration</li>
-        <li data-key="kd_b6">Conducted archival research at Deutsche Nationalbibliothek Frankfurt for <em>Eingebrannt</em> &mdash; sourcing lyric texts &amp; primary materials for the DDR art, poetry &amp; music exhibition curated by Dr. L&eacute;on Krempel (Gerhard Richter, Wolf Biermann, Heiner M&uuml;ller, A.R. Penck &amp; others)</li>
+        <li data-key="kd_b6">Conducted archival research at Deutsche Nationalbibliothek Frankfurt for <em>Eingebrannt</em> &mdash; sourcing lyric texts &amp; primary materials for the DDR art, poetry &amp; music exhibition curated by Dr. Le&oacute;n Krempel (Gerhard Richter, Wolf Biermann, Heiner M&uuml;ller, A.R. Penck &amp; others)</li>
       </ul>
     </div>
     <div class="exp-card reveal reveal-d2">
@@ -1286,13 +1268,13 @@ footer{
     <div class="exp-card reveal" style="border-top:4px solid var(--terracotta);grid-column:1/-1;">
       <div class="exp-org" style="color:var(--warm-grey);" data-key="pd_org">Professional Development</div>
       <div class="exp-role" style="color:var(--cream);" data-key="pd_role">Industry Engagement &amp; Highlights</div>
-      <div class="exp-period" data-key="pd_period">Ongoing</div>
+      <div class="exp-period" data-key="pd_period">2024 &ndash; 2026</div>
       <ul class="exp-bullets" style="columns:2;gap:2rem;">
-        <li data-key="pd_b1">Attending IMEX Frankfurt as a delegate in 2025 and 2026 &mdash; consistent professional development and networking at Europe&rsquo;s leading meetings &amp; events fair</li>
+        <li data-key="pd_b1">Delegate at IMEX Frankfurt in 2025 and 2026 &mdash; professional development and networking at Europe&rsquo;s leading meetings &amp; events fair</li>
         <li data-key="pd_b2">Regularly entrusted with VIP guest welcoming &amp; moderated formats in bilingual settings</li>
         <li data-key="pd_b3">Contributed conceptually to Theater Festival guest-facing implementation</li>
         <li data-key="pd_b4">Deep network across Rheingau cultural institutions, wineries &amp; premium hospitality venues</li>
-        <li data-key="pd_b5">Contributed to planning of Konfuzius-Institut Frankfurt&rsquo;s presence at Frankfurter B&uuml;chermesse &mdash; the world&rsquo;s largest book fair &mdash; prior to departure</li>
+        <li data-key="pd_b5">Contributed to planning of Konfuzius-Institut Frankfurt&rsquo;s presence at Frankfurter Buchmesse &mdash; the world&rsquo;s largest book fair &mdash; prior to departure</li>
       </ul>
     </div>
   </div>
@@ -1333,18 +1315,23 @@ footer{
       </div>
       <div class="timeline-node sec-enter">
         <div class="timeline-date" data-key="tl6_date">Oct 2025</div>
-        <div class="timeline-name" data-key="tl6_name">Frankfurter B&uuml;chermesse</div>
+        <div class="timeline-name" data-key="tl6_name">Frankfurter Buchmesse</div>
         <div class="timeline-desc" data-key="tl6_desc">Contributed to Konfuzius-Institut&rsquo;s presence at the world&rsquo;s largest book fair.</div>
       </div>
       <div class="timeline-node sec-enter">
-        <div class="timeline-date" data-key="tl7_date">2025&ndash;26</div>
-        <div class="timeline-name" data-key="tl7_name">Building &amp; Seeking</div>
-        <div class="timeline-desc" data-key="tl7_desc">Developing personal event tools. Active industry engagement. Open to the right opportunity.</div>
+        <div class="timeline-date" data-key="tl7_date">Aug 2025</div>
+        <div class="timeline-name" data-key="tl7_name">Transition</div>
+        <div class="timeline-desc" data-key="tl7_desc">End of both positions. Building independently, active industry engagement.</div>
       </div>
       <div class="timeline-node tl-milestone sec-enter">
         <div class="timeline-date" data-key="tl8_date">May 2026</div>
         <div class="timeline-name" data-key="tl8_name">IMEX Frankfurt</div>
-        <div class="timeline-desc" data-key="tl8_desc">Returning as delegate. Consistent commitment to the industry.</div>
+        <div class="timeline-desc" data-key="tl8_desc">Returned as delegate. Consistent commitment to the industry.</div>
+      </div>
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl9_date">Sept 2025 &ndash; present</div>
+        <div class="timeline-name" data-key="tl9_name">Independent Projects</div>
+        <div class="timeline-desc" data-key="tl9_desc">Ash &amp; Vine concept dining project, design and build of this website, IMEX Frankfurt 2026.</div>
       </div>
     </div>
   </div>
@@ -1371,13 +1358,19 @@ footer{
       <div class="work-num">03</div>
       <div class="work-title" data-key="w3_title">IMEX Frankfurt<br>2025 &amp; 2026</div>
       <div class="work-sub" data-key="w3_sub">Industry Engagement &middot; May 2025 &amp; May 2026</div>
-      <p class="work-outcome" data-key="w3_outcome">Europe&rsquo;s leading meetings &amp; events trade fair. Attended as a delegate in 2025 and returning in May 2026 &mdash; consistent engagement with the industry for professional development, network building, and market exposure.</p>
+      <p class="work-outcome" data-key="w3_outcome">Delegate at IMEX Frankfurt in 2025 and 2026, Europe&rsquo;s leading meetings and events trade fair. Consistent engagement with the industry for professional development, network building, and market exposure.</p>
     </div>
     <div class="work-card reveal reveal-d4" onclick="openWorkModal(4)" role="button" tabindex="0">
       <div class="work-num">04</div>
       <div class="work-title" data-key="w4_title">Arie van Selm<br>Opening Gala</div>
       <div class="work-sub" data-key="w4_sub">Kunsthalle Darmstadt &middot; September 2024</div>
-      <p class="work-outcome" data-key="w4_outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. L&eacute;on Krempel.</p>
+      <p class="work-outcome" data-key="w4_outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. Le&oacute;n Krempel.</p>
+    </div>
+    <div class="work-card reveal" onclick="openWorkModal(5)" role="button" tabindex="0">
+      <div class="work-num">05</div>
+      <div class="work-title" data-key="w5_title">Ash &amp; Vine</div>
+      <div class="work-sub" data-key="w5_sub">Concept Dining &middot; 2025 &ndash; present</div>
+      <p class="work-outcome" data-key="w5_outcome">A self-directed project treating each tasting menu as a staged event: a dramaturgical arc, a visual identity, and printed menus designed to be kept.</p>
     </div>
   </div>
 </div>
@@ -1396,7 +1389,7 @@ footer{
       <p data-key="wm2_p2">My responsibilities covered the full event arc: pre-event logistics planning, atmosphere design and room preparation, VIP guest coordination on the night, and post-event follow-up. Every event was an opportunity to <em>strengthen the relationship</em> between the institution and its community.</p>
       <p data-key="wm2_p3">I served as the primary point of contact for members, managing inquiries, renewals, and personal follow-ups. The role demanded discretion, warmth, and the ability to make every guest feel individually attended to &mdash; even across a large membership base.</p>
     </div>
-    <div class="work-modal-role" data-key="wm2_role">Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. L&eacute;on Krempel</div>
+    <div class="work-modal-role" data-key="wm2_role">Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. Le&oacute;n Krempel</div>
   </div>
 </div>
 
@@ -1408,9 +1401,9 @@ footer{
     <div class="work-modal-sub" data-key="wm3_sub">Industry Engagement &middot; May 2025 &amp; May 2026</div>
     <div class="work-modal-rule"></div>
     <div class="work-modal-body">
-      <p data-key="wm3_p1"><strong>IMEX Frankfurt</strong> is Europe&rsquo;s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and am returning in <strong>May 2026</strong> &mdash; marking a consistent investment in professional development.</p>
+      <p data-key="wm3_p1"><strong>IMEX Frankfurt</strong> is Europe&rsquo;s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and returned in <strong>May 2026</strong> &mdash; a consistent investment in professional development.</p>
       <p data-key="wm3_p2">Attending IMEX offered direct exposure to the global events industry at scale: destination marketing, venue innovation, event technology, and the professional networks that drive major productions. It sharpened my understanding of <em>where the industry is heading</em> and how premium cultural events fit within the broader MICE landscape.</p>
-      <p data-key="wm3_p3">The return visit in 2026 reflects a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.</p>
+      <p data-key="wm3_p3">Both visits reflect a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.</p>
     </div>
     <div class="work-modal-role" data-key="wm3_role">Delegate &middot; Professional development &amp; industry networking</div>
   </div>
@@ -1426,9 +1419,37 @@ footer{
     <div class="work-modal-body">
       <p data-key="wm4_p1">This was one of the most significant events of my time at Kunsthalle Darmstadt: a <strong>fundraising gala dinner</strong> for the opening of the first comprehensive institutional survey of <strong>Arie van Selm</strong>.</p>
       <p data-key="wm4_p2">The exhibition featured works on loan from <strong>17 lenders</strong>, spanning collections from <em>Darmstadt to Dallas</em>. The gala brought together donors, collectors, institutional partners, and cultural figures for an evening that combined art, philanthropy, and the highest hospitality standards.</p>
-      <p data-key="wm4_p3">I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. L&eacute;on Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.</p>
+      <p data-key="wm4_p3">I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. Le&oacute;n Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.</p>
     </div>
-    <div class="work-modal-role" data-key="wm4_role">Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. L&eacute;on Krempel</div>
+    <div class="work-modal-role" data-key="wm4_role">Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. Le&oacute;n Krempel</div>
+  </div>
+</div>
+
+<div class="work-modal-overlay" id="work-modal-5">
+  <div class="work-modal-box">
+    <button class="work-modal-close" onclick="closeWorkModal(5)">&times;</button>
+    <div class="work-modal-num">05</div>
+    <div class="work-modal-title" data-key="wm5_title">The Menu as an Event</div>
+    <div class="work-modal-sub" data-key="wm5_sub">Ash &amp; Vine &middot; Concept Dining &middot; 2025 &ndash; present</div>
+    <div class="work-modal-rule"></div>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="cs-stat-num">5+</div><div class="cs-stat-label" data-key="av_stat1">Concept menus</div></div>
+      <div class="cs-stat"><div class="cs-stat-num">6</div><div class="cs-stat-label" data-key="av_stat2">Courses per menu</div></div>
+      <div class="cs-stat"><div class="cs-stat-num">1</div><div class="cs-stat-label" data-key="av_stat3">Visual identity</div></div>
+    </div>
+    <div class="work-modal-body">
+      <p data-key="wm5_p1">Ash &amp; Vine is my self-directed concept dining and preservation project. It grew out of something my event work taught me: a tasting menu is an event in miniature. It has an arrival, an arc, a climax and a departure, and every detail, from the first course to the printed card a guest takes home, shapes how the evening is remembered.</p>
+      <p data-key="wm5_p2">Each menu is built around a single idea. <em>Blackwater</em> translates a peat bog into six courses, descending from the living surface to the black depths. <em>Theobroma &amp; Coffea</em> follows the cacao and coffee bean through its life cycle, from blossom to ash. <em>Always Afternoon</em> reimagines the English afternoon tea as a six-course menu.</p>
+      <p data-key="wm5_p3">Beyond the food, I design the full identity: menu cards in a typewriter-dossier format, a recipe documentation system with sections on chemistry, sensory development and historical sources, and the visual language that ties the project together.</p>
+    </div>
+    <div class="work-modal-role" data-key="wm5_status">Ongoing &middot; Self-directed &middot; Non-commercial</div>
+    <div class="work-modal-tags">
+      <span class="wm-tag" data-key="av_tag1">Concept Development</span>
+      <span class="wm-tag" data-key="av_tag2">Dramaturgy</span>
+      <span class="wm-tag" data-key="av_tag3">Brand Identity</span>
+      <span class="wm-tag" data-key="av_tag4">Print Design</span>
+      <span class="wm-tag" data-key="av_tag5">Guest Experience</span>
+    </div>
   </div>
 </div>
 
@@ -1791,13 +1812,13 @@ footer{
       <div class="comp-icon">05</div>
       <div class="comp-name" data-key="c5_name">Research &amp; Curatorial Support</div>
       <div class="comp-desc" data-key="c5_desc">Archival research, primary source materials, curatorial collaboration, exhibition documentation</div>
-      <div class="comp-detail">Archival research at Deutsche Nationalbibliothek Frankfurt for <em>Eingebrannt</em> &mdash; sourcing lyric texts and primary materials for an exhibition curated by Dr. L&eacute;on Krempel featuring Gerhard Richter, Wolf Biermann, Heiner M&uuml;ller.</div>
+      <div class="comp-detail">Archival research at Deutsche Nationalbibliothek Frankfurt for <em>Eingebrannt</em> &mdash; sourcing lyric texts and primary materials for an exhibition curated by Dr. Le&oacute;n Krempel featuring Gerhard Richter, Wolf Biermann, Heiner M&uuml;ller.</div>
     </div>
     <div class="comp-card reveal reveal-d2">
       <div class="comp-icon">06</div>
-      <div class="comp-name" data-key="c6_name">Crisis Management</div>
-      <div class="comp-desc" data-key="c6_desc">Calm under pressure, quick decision-making, adaptive thinking in live environments</div>
-      <div class="comp-detail">Held concurrent roles across two institutions simultaneously in 2025. Adapted to live-event variables, last-minute schedule changes, and international working contexts.</div>
+      <div class="comp-name" data-key="c6_name">Vendor &amp; Sponsor Communication</div>
+      <div class="comp-desc" data-key="c6_desc">Briefing, coordinating and following up with caterers, technicians, printers and sponsors, so every external partner knows their cue.</div>
+      <div class="comp-detail">Managed vendor &amp; sponsor communications across Konfuzius-Institut Frankfurt and Kunsthalle Darmstadt. Coordinated catering, AV, print and logistics partners for 40+ events.</div>
     </div>
   </div>
 </section>
@@ -2014,7 +2035,7 @@ footer{
 <div class="seeking-section">
   <div class="seeking-inner reveal">
     <p class="seeking-overline" data-key="seek_label">What I&rsquo;m Looking For</p>
-    <p class="seeking-text" data-key="seek_text">I&rsquo;m drawn to institutions where the programme is ambitious and every detail matters &mdash; where a team builds something the audience remembers long after the evening ends. I want to bring my precision, my calm under pressure, and my instinct for <em>atmosphere</em> to cultural productions that set the standard &mdash; and grow within them.</p>
+    <p class="seeking-text" data-key="seek_text">I&rsquo;m looking for my next role in event production, MICE and premium hospitality: teams where careful planning and atmosphere matter equally, whether that&rsquo;s a conference, a festival or a gala. Based in the Rheingau, available immediately, open to opportunities across Germany and Europe.</p>
     <p class="seeking-coda" data-key="seek_coda">Open to roles across Germany and Europe &middot; Available immediately</p>
   </div>
 </div>
@@ -2028,7 +2049,7 @@ footer{
     <div>
       <h2 class="contact-heading reveal" data-key="con_heading">Let&rsquo;s Build<br>Something <em>Remarkable</em></h2>
       <div class="contact-cta-row reveal">
-        <div class="magnetic-wrap"><button onclick="openPDF()" class="btn-cv" data-key="con_cta_cv">&#8595; Download CV</button></div>
+        <div class="magnetic-wrap"><a href="Lorenzo_vonNeumannCosel_CV_2026.pdf" target="_blank" class="btn-cv" data-key="con_cta_cv">&#8595; Download CV</a></div>
         <a href="https://www.linkedin.com/in/lorenzo-von-neumann-cosel" target="_blank" rel="noopener noreferrer" class="btn-linkedin magnetic-wrap" data-key="con_cta_li">LinkedIn &#8599;</a>
       </div>
     </div>
@@ -2063,13 +2084,7 @@ footer{
   </div>
 </section>
 
-<!-- FIELD NOTE -->
-<div class="field-note-section">
-  <div class="field-note-inner">
-    <span class="field-note-label">From the field</span>
-    <p class="field-note-text" id="field-note-text">Loading&hellip;</p>
-  </div>
-</div>
+
 
 <!-- FOOTER (COLOPHON) -->
 <footer>
@@ -2317,25 +2332,6 @@ if("IntersectionObserver" in window){
   reveals.forEach(function(el){ el.classList.add("visible"); });
 }
 
-// ── FIELD NOTE ─────────────────────────────────────────────────────
-var fieldNotes = [
-  "The Theater Festival schedule required four complete rebuilds in 48 hours. The fifth version held.",
-  "The best briefing is the one that makes the night feel effortless.",
-  "A gala that feels effortless is one where every contingency was resolved before the doors opened.",
-  "Artist liaison is not logistics. It is the management of creative uncertainty under production constraints.",
-  "The best VIP moment is the one the guest doesn’t notice was designed at all.",
-  "Bilingual events don’t require two versions. They require one version that works in both languages simultaneously.",
-  "Festival production taught me that the backstage experience determines the stage experience.",
-  "500 members. Every name, every preference, every follow-up. The relationship is the product.",
-  "Rheingau in July: the harvest calendar and the event calendar are the same calendar.",
-  "IMEX — the meetings industry at full scale. Seeing it from the inside changes how you plan for it.",
-  "An exhibition opening is theatre with no rehearsal and an audience of professionals.",
-  "The question is never whether something will go wrong. The question is how quickly it is resolved.",
-  "Cultural diplomacy and event coordination share the same fundamental discipline: make the other person feel exactly right.",
-];
-var noteIdx = Math.floor(Date.now() / 86400000) % fieldNotes.length;
-var noteEl = document.getElementById("field-note-text");
-if(noteEl) noteEl.textContent = fieldNotes[noteIdx];
 
 // ── CONTACT FORM ───────────────────────────────────────────────────
 var form = document.getElementById("contact-form");
@@ -2365,11 +2361,12 @@ var T = {
     hero_tagline:"Crafting premium cultural experiences where logistics meet atmosphere — from opening galas to international festival stages.",
     hero_cta_work:"View Work",hero_cta_contact:"Get in Touch",hero_cta_cv:"↓ Download CV",
     hero_location:"Geisenheim, Germany",
-    stat1:"Exclusive events<br>coordinated",stat2:"Members<br>served",stat3:"Cultural events<br>coordinated",stat4:"Gerhard Richter<br>world premi\u00e8re",
+    stat1:"Events<br>supported",stat2:"Members<br>served",stat3:"Artists<br>supported",stat4:"IMEX<br>delegate",
     about_label:"001 — Profile",about_heading:"The Art of<br>the Experience",
-    about_p1:"Event coordination professional with 1.5+ years delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere — the kind of events people remember.",
+    about_p1:"Event coordination professional delivering premium cultural experiences for international audiences. My work lives at the intersection of meticulous logistics and genuine atmosphere — the kind of events people remember.",
     about_p2:"From exclusive member galas at Kunsthalle Darmstadt to supporting the production of Han Zaifen\u2019s Huangmei Opera ensemble at the Konfuzius-Institut Frankfurt \u2014 30+ artists, a National Cultural Heritage performance, a German audience \u2014 I bring calm precision to high-pressure, intercultural environments.",
-    about_p3:"Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe. Currently developing personal tools for event scenario planning and atmosphere design.",
+    about_p3:"Bilingual in German and English, with experience across the UK and USA. Born and raised in Darmstadt, now based in Geisenheim. Open to opportunities across Germany and Europe.",
+    about_p4:"Alongside my event work, I develop Ash &amp; Vine, a self-directed concept dining project.",
     
     pullquote_text:"“He demonstrated teamwork, flexibility and resilience to the <em>highest degree</em> — with a high service orientation and professional conduct in every guest interaction.”",
     pullquote_attr:"Dr. León Krempel · Director, Kunsthalle Darmstadt",
@@ -2380,19 +2377,19 @@ var T = {
     kd_b3:"Primary point of contact for members; elevated guest experience standards across all touchpoints",
     kd_b4:"Collaborated with curators, artists & external partners on logistics, guest flow & atmosphere design",
     kd_b5:"Maintained CRM systems, processed inquiries, supported donation & renewal administration",
-    kd_b6:"Conducted archival research at Deutsche Nationalbibliothek Frankfurt for \u2018Eingebrannt\u2019 \u2014 sourcing lyric texts & primary materials for the DDR art, poetry & music exhibition curated by Dr. L\u00e9on Krempel",
+    kd_b6:"Conducted archival research at Deutsche Nationalbibliothek Frankfurt for \u2018Eingebrannt\u2019 \u2014 sourcing lyric texts & primary materials for the DDR art, poetry & music exhibition curated by Dr. Le\u00f3n Krempel",
     ki_role:"Cultural & Event Coordinator · BFD",
     ki_b1:"Supported planning & logistics of 30+ cultural events: festivals, lectures, workshops, public receptions",
     ki_b2:"Key supporting role in Theater Festival (July 2025) — artist logistics, scheduling support, and on-site backstage operations for the Han Zaifen Ensemble (30+ artists, Huangmei Opera, National Cultural Heritage of China)",
     ki_b3:"Technical setup, guest coordination & on-site production at high-profile public events",
     ki_b4:"Managed vendor & sponsor communications; contributed to print & digital event materials",
     ki_b5:"Represented the institute at public receptions & networking events in bilingual contexts",
-    pd_org:"Professional Development",pd_role:"Industry Engagement & Highlights",pd_period:"Ongoing",
-    pd_b1:"Visited IMEX Frankfurt 2025 as a delegate — professional development and networking at Europe’s leading meetings & events fair",
+    pd_org:"Professional Development",pd_role:"Industry Engagement & Highlights",pd_period:"2024 – 2026",
+    pd_b1:"Delegate at IMEX Frankfurt in 2025 and 2026, Europe’s leading meetings and events trade fair",
     pd_b2:"Regularly entrusted with VIP guest welcoming & moderated formats in bilingual settings",
     pd_b3:"Contributed conceptually to Theater Festival guest-facing implementation",
     pd_b4:"Deep network across Rheingau cultural institutions, wineries & premium hospitality venues",
-    pd_b5:"Contributed to planning of Konfuzius-Institut Frankfurt\u2019s presence at Frankfurter B\u00fcchermesse \u2014 the world\u2019s largest book fair \u2014 prior to departure",
+    pd_b5:"Contributed to planning of Konfuzius-Institut Frankfurt\u2019s presence at Frankfurter Buchmesse \u2014 the world\u2019s largest book fair \u2014 prior to departure",
     ref_label:"003 — References",ref_heading:"In Their<br>Own Words",
     ref1_quote:"“He demonstrated teamwork, flexibility and resilience to the highest degree — with a high service orientation and professional conduct in every guest interaction.”",
     ref1_title:"Director",
@@ -2404,7 +2401,7 @@ var T = {
     c3_name:"Stakeholder Relations",c3_desc:"CRM management, donor stewardship, sponsor & partner development",
     c4_name:"Cultural Diplomacy & Programming",c4_desc:"Intercultural programming, international artist liaison, festival coordination across German and Chinese cultural institutions",
     c5_name:"Research & Curatorial Support",c5_desc:"Archival research, primary source materials, curatorial collaboration, exhibition documentation",
-    c6_name:"Crisis Management",c6_desc:"Calm under pressure, quick decision-making, adaptive thinking in live environments",
+    c6_name:"Vendor &amp; Sponsor Communication",c6_desc:"Briefing, coordinating and following up with caterers, technicians, printers and sponsors, so every external partner knows their cue.",
     lang_label:"005 — Languages",lang_heading:"Fluent in<br>Two Worlds",
     lang1_name:"German",lang1_level:"Native",lang2_name:"English",lang2_level:"Fluent",
     lang_note:"Experience living & working in bilingual environments (UK, USA). Comfortable conducting events & guest services in both languages.",
@@ -2428,10 +2425,10 @@ var T = {
     w2_outcome:"10+ exclusive events for 500+ members. VIP coordination, atmosphere design, and logistics support for a programme of exhibition previews, galas, and cultural gatherings.",
     w3_title:"IMEX Frankfurt<br>2025 &amp; 2026",
     w3_sub:"Industry Engagement &middot; May 2025 &amp; May 2026",
-    w3_outcome:"Europe’s leading meetings &amp; events trade fair. Attended as a delegate in 2025 and returning in May 2026 &mdash; consistent engagement with the industry for professional development, network building, and market exposure.",
+    w3_outcome:"Delegate at IMEX Frankfurt in 2025 and 2026, Europe’s leading meetings and events trade fair. Consistent engagement with the industry for professional development, network building, and market exposure.",
     w4_title:"Arie van Selm<br>Opening Gala",
     w4_sub:"Kunsthalle Darmstadt &middot; September 2024",
-    w4_outcome:"Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. Léon Krempel.",
+    w4_outcome:"Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. León Krempel.",
     cs_label:"Case Study &mdash; Theater Festival 2025",
     cs_heading:"A Performance<br>Across Cultures",
     cs_stat1:"Artists coordinated",
@@ -2465,31 +2462,43 @@ var T = {
     wm2_p1:"Over the course of a year at Kunsthalle Darmstadt, I planned and supported the execution of <strong>10+ exclusive member events</strong> &mdash; from exhibition previews and private galas to cultural networking evenings &mdash; for a base of over <strong>500 members</strong>.",
     wm2_p2:"My responsibilities covered the full event arc: pre-event logistics planning, atmosphere design and room preparation, VIP guest coordination on the night, and post-event follow-up. Every event was an opportunity to <em>strengthen the relationship</em> between the institution and its community.",
     wm2_p3:"I served as the primary point of contact for members, managing inquiries, renewals, and personal follow-ups. The role demanded discretion, warmth, and the ability to make every guest feel individually attended to &mdash; even across a large membership base.",
-    wm2_role:"Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. L\u00e9on Krempel",
+    wm2_role:"Role: Membership &amp; Events Coordinator &middot; Under the direction of Dr. Le\u00f3n Krempel",
     wm3_title:"IMEX Frankfurt 2025 &amp; 2026",
     wm3_sub:"Industry Engagement &middot; May 2025 &amp; May 2026",
-    wm3_p1:"<strong>IMEX Frankfurt</strong> is Europe\u2019s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and am returning in <strong>May 2026</strong> &mdash; marking a consistent investment in professional development.",
+    wm3_p1:"<strong>IMEX Frankfurt</strong> is Europe\u2019s leading trade fair for the meetings, events, and incentive travel industry. I attended as a delegate in <strong>May 2025</strong> and returned in <strong>May 2026</strong> &mdash; a consistent investment in professional development.",
     wm3_p2:"Attending IMEX offered direct exposure to the global events industry at scale: destination marketing, venue innovation, event technology, and the professional networks that drive major productions. It sharpened my understanding of <em>where the industry is heading</em> and how premium cultural events fit within the broader MICE landscape.",
-    wm3_p3:"The return visit in 2026 reflects a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.",
+    wm3_p3:"Both visits reflect a deliberate commitment to building long-term industry relationships and staying current with trends in event management, sustainability, and experiential design.",
     wm3_role:"Delegate &middot; Professional development &amp; industry networking",
     wm4_title:"Arie van Selm &mdash; Opening Gala",
     wm4_sub:"Kunsthalle Darmstadt &middot; September 2024",
     wm4_p1:"This was one of the most significant events of my time at Kunsthalle Darmstadt: a <strong>fundraising gala dinner</strong> for the opening of the first comprehensive institutional survey of <strong>Arie van Selm</strong>.",
     wm4_p2:"The exhibition featured works on loan from <strong>17 lenders</strong>, spanning collections from <em>Darmstadt to Dallas</em>. The gala brought together donors, collectors, institutional partners, and cultural figures for an evening that combined art, philanthropy, and the highest hospitality standards.",
-    wm4_p3:"I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. L\u00e9on Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.",
-    wm4_role:"Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. L\u00e9on Krempel",
+    wm4_p3:"I supported event coordination and donor guest logistics under the direct supervision of Director <strong>Dr. Le\u00f3n Krempel</strong>. The role required meticulous attention to guest placement, arrival flow, and the seamless integration of the gala experience with the exhibition itself.",
+    w5_title:"Ash &amp; Vine",
+    w5_sub:"Concept Dining &middot; 2025 \u2013 present",
+    w5_outcome:"A self-directed project treating each tasting menu as a staged event: a dramaturgical arc, a visual identity, and printed menus designed to be kept.",
+    wm5_title:"The Menu as an Event",
+    wm5_sub:"Ash &amp; Vine &middot; Concept Dining &middot; 2025 \u2013 present",
+    wm5_p1:"Ash &amp; Vine is my self-directed concept dining and preservation project. It grew out of something my event work taught me: a tasting menu is an event in miniature. It has an arrival, an arc, a climax and a departure, and every detail, from the first course to the printed card a guest takes home, shapes how the evening is remembered.",
+    wm5_p2:"Each menu is built around a single idea. <em>Blackwater</em> translates a peat bog into six courses, descending from the living surface to the black depths. <em>Theobroma &amp; Coffea</em> follows the cacao and coffee bean through its life cycle, from blossom to ash. <em>Always Afternoon</em> reimagines the English afternoon tea as a six-course menu.",
+    wm5_p3:"Beyond the food, I design the full identity: menu cards in a typewriter-dossier format, a recipe documentation system with sections on chemistry, sensory development and historical sources, and the visual language that ties the project together.",
+    wm5_status:"Ongoing &middot; Self-directed &middot; Non-commercial",
+    av_stat1:"Concept menus",av_stat2:"Courses per menu",av_stat3:"Visual identity",
+    av_tag1:"Concept Development",av_tag2:"Dramaturgy",av_tag3:"Brand Identity",av_tag4:"Print Design",av_tag5:"Guest Experience",
+    wm4_role:"Event coordination &amp; donor guest logistics &middot; Under the direction of Dr. Le\u00f3n Krempel",
     tl_label:"Career Arc",
     tl1_date:"Jul 2024",tl1_name:"Kunsthalle Darmstadt",tl1_desc:"Membership &amp; Events Coordinator. 500+ members, 10+ exclusive events.",
     tl2_date:"Sep 2024",tl2_name:"Arie van Selm Gala",tl2_desc:"Fundraising gala for the first institutional survey. 17 international lenders.",
     tl3_date:"Jan 2025",tl3_name:"Konfuzius-Institut Frankfurt",tl3_desc:"Cultural &amp; Event Coordinator. 30+ events, bilingual production.",
     tl4_date:"May 2025",tl4_name:"IMEX Frankfurt",tl4_desc:"Europe\u2019s leading meetings &amp; events trade fair. First visit as delegate.",
     tl5_date:"Jul 2025",tl5_name:"Theater Festival",tl5_desc:"Han Zaifen Ensemble. 30+ artists. National Cultural Heritage of China.",
-    tl6_date:"Oct 2025",tl6_name:"Frankfurter B\u00fcchermesse",tl6_desc:"Contributed to Konfuzius-Institut\u2019s presence at the world\u2019s largest book fair.",
-    tl7_date:"2025\u201326",tl7_name:"Building &amp; Seeking",tl7_desc:"Developing personal event tools. Active industry engagement. Open to the right opportunity.",
-    tl8_date:"May 2026",tl8_name:"IMEX Frankfurt",tl8_desc:"Returning as delegate. Consistent commitment to the industry.",
+    tl6_date:"Oct 2025",tl6_name:"Frankfurter Buchmesse",tl6_desc:"Contributed to Konfuzius-Institut\u2019s presence at the world\u2019s largest book fair.",
+    tl7_date:"Aug 2025",tl7_name:"Transition",tl7_desc:"End of both positions. Building independently, active industry engagement.",
+    tl8_date:"May 2026",tl8_name:"IMEX Frankfurt",tl8_desc:"Returned as delegate. Consistent commitment to the industry.",
+    tl9_date:"Sept 2025 \u2013 present",tl9_name:"Independent Projects",tl9_desc:"Ash &amp; Vine concept dining project, design and build of this website, IMEX Frankfurt 2026.",
     tl_hint:"Scroll to explore",
     seek_label:"What I\u2019m Looking For",
-    seek_text:"I\u2019m drawn to institutions where the programme is ambitious and every detail matters &mdash; where a team builds something the audience remembers long after the evening ends. I want to bring my precision, my calm under pressure, and my instinct for <em>atmosphere</em> to cultural productions that set the standard &mdash; and grow within them.",
+    seek_text:"I\u2019m looking for my next role in event production, MICE and premium hospitality: teams where careful planning and atmosphere matter equally, whether that\u2019s a conference, a festival or a gala. Based in the Rheingau, available immediately, open to opportunities across Germany and Europe.",
     seek_coda:"Open to roles across Germany and Europe &middot; Available immediately",
     map_intro:"Born and raised in Darmstadt. Trained in Frankfurt. Now based in Geisenheim, Rheingau &mdash; and open to opportunities across Germany and Europe.",
     footer_stmt:"&ldquo;Crafting premium cultural experiences where logistics meet atmosphere.&rdquo;"
@@ -2501,11 +2510,12 @@ var T = {
     hero_tagline:"Premium-Kulturerlebnisse, bei denen präzise Logistik auf echte Atmosphäre trifft — von exklusiven Vernissagen bis zu internationalen Festivalproduktionen.",
     hero_cta_work:"Meine Arbeit",hero_cta_contact:"Kontakt aufnehmen",hero_cta_cv:"↓ Lebenslauf herunterladen",
     hero_location:"Geisenheim, Deutschland",
-    stat1:"Exklusive Veranstaltungen<br>durchgeführt",stat2:"Mitglieder<br>betreut",stat3:"Kulturveranstaltungen<br>koordiniert",stat4:"Gerhard Richter<br>Weltpremiere",
+    stat1:"Veranstaltungen<br>begleitet",stat2:"Mitglieder<br>betreut",stat3:"Künstler:innen<br>betreut",stat4:"IMEX-<br>Delegierter",
     about_label:"001 — Profil",about_heading:"Die Kunst des<br>Erlebnisses",
-    about_p1:"Veranstaltungskoordinator mit über 1,5 Jahren Erfahrung in der Realisierung hochwertiger Kulturerlebnisse für internationale Zielgruppen.",
+    about_p1:"Veranstaltungskoordinator mit Erfahrung in der Realisierung hochwertiger Kulturerlebnisse f\u00fcr internationale Zielgruppen.",
     about_p2:"Von exklusiven Mitgliedergalas der Kunsthalle Darmstadt bis hin zu einem mehrtägigen Theaterfestival mit internationalen Künstlern bringe ich ruhige Präzision in komplexe Produktionsumgebungen.",
-    about_p3:"Zweisprachig auf Deutsch und Englisch, mit Erfahrung in Großbritannien und den USA. Aufgewachsen in Darmstadt, jetzt in Geisenheim. Offen für Positionen in ganz Deutschland und Europa. Aktuell in der Entwicklung persönlicher Tools für Event-Szenarioplanung und Atmosphärengestaltung.",
+    about_p3:"Zweisprachig auf Deutsch und Englisch, mit Erfahrung in Gro\u00dfbritannien und den USA. Aufgewachsen in Darmstadt, jetzt in Geisenheim. Offen f\u00fcr Positionen in ganz Deutschland und Europa.",
+    about_p4:"Neben meiner Arbeit im Veranstaltungsbereich entwickle ich Ash &amp; Vine, ein eigenst\u00e4ndiges Konzept-Dining-Projekt.",
     
     pullquote_text:"„Er bewies Teamfähigkeit, Flexibilität und Belastbarkeit in einem sehr hohen Maße — mit hoher Serviceorientierung und <em>professionellen Umgangsformen</em> im Kontakt mit Gästen.“",
     pullquote_attr:"Dr. León Krempel · Direktor, Kunsthalle Darmstadt",
@@ -2516,19 +2526,19 @@ var T = {
     kd_b3:"Hauptansprechpartner für Mitglieder; höchste Gästebetreuungsstandards",
     kd_b4:"Enge Zusammenarbeit mit Kuratoren, Künstlern & externen Partnern",
     kd_b5:"Pflege von CRM-Systemen, Bearbeitung von Anfragen, Unterstützung der Mitgliederverwaltung",
-    kd_b6:"Archivrecherche an der Deutschen Nationalbibliothek Frankfurt f\u00fcr die Ausstellung \u2018Eingebrannt\u2019 \u2014 Beschaffung von Lyriktexten und Prim\u00e4rmaterialien f\u00fcr die von Dr. L\u00e9on Krempel kuratierte Ausstellung zu Kunst, Lyrik und Musik der DDR",
+    kd_b6:"Archivrecherche an der Deutschen Nationalbibliothek Frankfurt f\u00fcr die Ausstellung \u2018Eingebrannt\u2019 \u2014 Beschaffung von Lyriktexten und Prim\u00e4rmaterialien f\u00fcr die von Dr. Le\u00f3n Krempel kuratierte Ausstellung zu Kunst, Lyrik und Musik der DDR",
     ki_role:"Kultur- & Veranstaltungskoordinator · BFD",
     ki_b1:"Unterstützung bei Planung & Logistik von 30+ Kulturveranstaltungen",
     ki_b2:"Schlüsselrolle beim Theaterfestival (Juli 2025) — Künstlerbetreuung, Terminkoordination, Backstage",
     ki_b3:"Technischer Aufbau, Gästekoordination & Vor-Ort-Produktion",
     ki_b4:"Kommunikation mit Dienstleistern & Sponsoren",
     ki_b5:"Repräsentation des Instituts bei Empfängen & Networking",
-    pd_org:"Berufliche Weiterentwicklung",pd_role:"Branchenengagement & Highlights",pd_period:"Laufend",
-    pd_b1:"Teilnahme als Delegierter an der IMEX Frankfurt 2025 und 2026 — kontinuierliche berufliche Weiterentwicklung und Vernetzung auf Europas führender Meetings- & Eventmesse",
+    pd_org:"Berufliche Weiterentwicklung",pd_role:"Branchenengagement & Highlights",pd_period:"2024 \u2013 2026",
+    pd_b1:"Delegierter der IMEX Frankfurt 2025 und 2026, der f\u00fchrenden Fachmesse f\u00fcr Meetings und Events in Europa",
     pd_b2:"Regelmäßig mit VIP-Gästeempfang & Moderation betraut",
     pd_b3:"Konzeptionelle Mitwirkung an der Besuchererfahrung beim Theaterfestival",
     pd_b4:"Netzwerk in Rheingauer Kulturinstitutionen, Weingütern & Premium-Hospitality",
-    pd_b5:"Mitarbeit an der Planung des Messeauftritts des Konfuzius-Instituts Frankfurt auf der Frankfurter B\u00fcchermesse \u2014 der weltgr\u00f6\u00dften Buchmesse",
+    pd_b5:"Mitarbeit an der Planung des Messeauftritts des Konfuzius-Instituts Frankfurt auf der Frankfurter Buchmesse \u2014 der weltgr\u00f6\u00dften Buchmesse",
     ref_label:"003 — Referenzen",ref_heading:"Stimmen aus<br>der Praxis",
     ref1_quote:"„Er bewies Teamfähigkeit, Flexibilität und Belastbarkeit in einem sehr hohen Maße — mit hoher Serviceorientierung und professionellen Umgangsformen im Kontakt mit Gästen.“",
     ref1_title:"Direktor",
@@ -2540,7 +2550,7 @@ var T = {
     c3_name:"Stakeholder-Management",c3_desc:"CRM, Mitgliederpflege, Spender-Stewardship, Partner- & Sponsorenentwicklung",
     c4_name:"Kulturprogrammierung",c4_desc:"Ausstellungsbegleitung, Künstlerbetreuung, Festivalkoordination, Kunstbetrieb",
     c5_name:"Recherche & Kuratorische Unterstützung",c5_desc:"Archivrecherche, Primärquellen, kuratorische Zusammenarbeit, Ausstellungsdokumentation",
-    c6_name:"Krisenmanagement",c6_desc:"Ruhe unter Druck, schnelle Entscheidungsfindung, adaptives Denken im Live-Betrieb",
+    c6_name:"Dienstleister- &amp; Sponsorenkommunikation",c6_desc:"Briefing, Koordination und Nachbereitung mit Catering, Technik, Druckereien und Sponsoren, damit jeder externe Partner seinen Einsatz kennt.",
     lang_label:"005 — Sprachen",lang_heading:"Zuhause in<br>zwei Welten",
     lang1_name:"Deutsch",lang1_level:"Muttersprache",lang2_name:"Englisch",lang2_level:"Fließend",
     lang_note:"Gelebte Erfahrung in zweisprachigen Umgebungen (UK, USA). Veranstaltungsleitung & Gästebetreuung sicher in beiden Sprachen.",
@@ -2564,10 +2574,10 @@ var T = {
     w2_outcome:"10+ exklusive Veranstaltungen für 500+ Mitglieder. VIP-Koordination, Atmosphärengestaltung und Logistikunterstützung für ein Programm aus Ausstellungspreviews, Galas und kulturellen Begegnungen.",
     w3_title:"IMEX Frankfurt<br>2025 &amp; 2026",
     w3_sub:"Branchenengagement &middot; Mai 2025 &amp; Mai 2026",
-    w3_outcome:"Europas führende Messe für Meetings &amp; Events. Teilnahme als Delegierter 2025 und Rückkehr im Mai 2026 &mdash; kontinuierliches Branchenengagement für berufliche Weiterentwicklung, Netzwerkaufbau und Markteinblick.",
+    w3_outcome:"Delegierter der IMEX Frankfurt 2025 und 2026, der f\u00fchrenden Fachmesse f\u00fcr Meetings und Events in Europa. Kontinuierliches Branchenengagement f\u00fcr berufliche Weiterentwicklung, Netzwerkaufbau und Markteinblick.",
     w4_title:"Arie van Selm<br>Eröffnungsgala",
     w4_sub:"Kunsthalle Darmstadt &middot; September 2024",
-    w4_outcome:"Fundraising-Gala-Dinner zur ersten umfassenden institutionellen Werkschau von van Selm &mdash; Leihgaben von 17 Leihgebern, von Darmstadt bis Dallas. Unterstützung der Veranstaltungskoordination und Gästelogistik unter der Leitung von Direktor Dr. Léon Krempel.",
+    w4_outcome:"Fundraising-Gala-Dinner zur ersten umfassenden institutionellen Werkschau von van Selm &mdash; Leihgaben von 17 Leihgebern, von Darmstadt bis Dallas. Unterstützung der Veranstaltungskoordination und Gästelogistik unter der Leitung von Direktor Dr. León Krempel.",
     cs_label:"Fallstudie &mdash; Theaterfestival 2025",
     cs_heading:"Eine Aufführung<br>zwischen Kulturen",
     cs_stat1:"Koordinierte Künstler",
@@ -2601,31 +2611,43 @@ var T = {
     wm2_p1:"Im Verlauf eines Jahres an der Kunsthalle Darmstadt plante und unterstützte ich die Durchführung von <strong>10+ exklusiven Mitgliederveranstaltungen</strong> &mdash; von Ausstellungspreviews und privaten Galas bis hin zu kulturellen Netzwerkabenden &mdash; für eine Basis von über <strong>500 Mitgliedern</strong>.",
     wm2_p2:"Meine Aufgaben umfassten den gesamten Veranstaltungsbogen: Logistikplanung, Atmosphärengestaltung und Raumvorbereitung, VIP-Gästekoordination am Abend und Nachbereitung. Jede Veranstaltung war eine Gelegenheit, <em>die Beziehung</em> zwischen Institution und Gemeinschaft zu stärken.",
     wm2_p3:"Ich war die primäre Ansprechperson für Mitglieder, verwaltete Anfragen, Verlängerungen und persönliche Nachfassaktionen. Die Rolle erforderte Diskretion, Herzlichkeit und die Fähigkeit, jedem Gast individuelle Aufmerksamkeit zu schenken.",
-    wm2_role:"Rolle: Koordinator Mitgliedschaft &amp; Veranstaltungen &middot; Unter der Leitung von Dr. Léon Krempel",
+    wm2_role:"Rolle: Koordinator Mitgliedschaft &amp; Veranstaltungen &middot; Unter der Leitung von Dr. León Krempel",
     wm3_title:"IMEX Frankfurt 2025 &amp; 2026",
     wm3_sub:"Branchenengagement &middot; Mai 2025 &amp; Mai 2026",
-    wm3_p1:"Die <strong>IMEX Frankfurt</strong> ist Europas führende Fachmesse für die Meetings-, Event- und Incentive-Reise-Branche. Ich nahm als Delegierter im <strong>Mai 2025</strong> teil und kehre im <strong>Mai 2026</strong> zurück &mdash; eine konsequente Investition in berufliche Weiterentwicklung.",
+    wm3_p1:"Die <strong>IMEX Frankfurt</strong> ist Europas f\u00fchrende Fachmesse f\u00fcr die Meetings-, Event- und Incentive-Reise-Branche. Ich nahm als Delegierter im <strong>Mai 2025</strong> teil und kehrte im <strong>Mai 2026</strong> zur\u00fcck &mdash; eine konsequente Investition in berufliche Weiterentwicklung.",
     wm3_p2:"Die IMEX bot direkten Einblick in die globale Eventbranche: Destinationsmarketing, Venue-Innovation, Eventtechnologie und die Netzwerke, die große Produktionen ermöglichen. Sie schärfte mein Verständnis dafür, <em>wohin die Branche sich entwickelt</em>.",
-    wm3_p3:"Der Rückbesuch 2026 unterstreicht ein bewusstes Engagement für langfristige Branchenbeziehungen und die Auseinandersetzung mit Trends im Eventmanagement, Nachhaltigkeit und erlebnisorientierten Design.",
+    wm3_p3:"Beide Besuche unterstreichen ein bewusstes Engagement f\u00fcr langfristige Branchenbeziehungen und die Auseinandersetzung mit Trends im Eventmanagement, Nachhaltigkeit und erlebnisorientierten Design.",
     wm3_role:"Delegierter &middot; Berufliche Weiterentwicklung &amp; Branchenvernetzung",
     wm4_title:"Arie van Selm &mdash; Eröffnungsgala",
     wm4_sub:"Kunsthalle Darmstadt &middot; September 2024",
     wm4_p1:"Dies war eine der bedeutendsten Veranstaltungen meiner Zeit an der Kunsthalle Darmstadt: ein <strong>Fundraising-Gala-Dinner</strong> zur Eröffnung der ersten umfassenden institutionellen Werkschau von <strong>Arie van Selm</strong>.",
     wm4_p2:"Die Ausstellung zeigte Werke von <strong>17 Leihgebern</strong>, von Sammlungen aus <em>Darmstadt bis Dallas</em>. Die Gala brachte Förderer, Sammler, institutionelle Partner und Kulturschaffende für einen Abend zusammen, der Kunst, Philanthropie und höchste Hospitality-Standards vereinte.",
-    wm4_p3:"Ich unterstützte die Veranstaltungskoordination und Spender-Gästelogistik unter der direkten Aufsicht von Direktor <strong>Dr. Léon Krempel</strong>. Die Aufgabe erforderte akribische Aufmerksamkeit für Sitzordnung, Empfangsablauf und die nahtlose Integration des Gala-Erlebnisses mit der Ausstellung.",
-    wm4_role:"Veranstaltungskoordination &amp; Spender-Gästelogistik &middot; Unter der Leitung von Dr. Léon Krempel",
+    wm4_p3:"Ich unterstützte die Veranstaltungskoordination und Spender-Gästelogistik unter der direkten Aufsicht von Direktor <strong>Dr. León Krempel</strong>. Die Aufgabe erforderte akribische Aufmerksamkeit für Sitzordnung, Empfangsablauf und die nahtlose Integration des Gala-Erlebnisses mit der Ausstellung.",
+    w5_title:"Ash &amp; Vine",
+    w5_sub:"Konzept-Dining &middot; seit 2025",
+    w5_outcome:"Ein eigenst\u00e4ndiges Projekt, das jedes Degustationsmen\u00fc als inszenierte Veranstaltung begreift: mit dramaturgischem Bogen, eigener Bildsprache und gedruckten Men\u00fckarten, die man behalten m\u00f6chte.",
+    wm5_title:"Das Men\u00fc als Veranstaltung",
+    wm5_sub:"Ash &amp; Vine &middot; Konzept-Dining &middot; seit 2025",
+    wm5_p1:"Ash &amp; Vine ist mein eigenst\u00e4ndiges Projekt f\u00fcr Konzept-Dining und Konservierung. Es ist aus einer Erfahrung meiner Veranstaltungsarbeit entstanden: Ein Degustationsmen\u00fc ist eine Veranstaltung im Kleinen. Es hat eine Ankunft, einen Bogen, einen H\u00f6hepunkt und einen Abschied, und jedes Detail, vom ersten Gang bis zur gedruckten Karte, die ein Gast mit nach Hause nimmt, pr\u00e4gt, wie der Abend in Erinnerung bleibt.",
+    wm5_p2:"Jedes Men\u00fc folgt einer einzigen Idee. <em>Blackwater</em> \u00fcbersetzt ein Hochmoor in sechs G\u00e4nge, als Abstieg von der lebendigen Oberfl\u00e4che bis in die schwarze Tiefe. <em>Theobroma &amp; Coffea</em> folgt der Kakao- und Kaffeebohne durch ihren Lebenszyklus, von der Bl\u00fcte bis zur Asche. <em>Always Afternoon</em> deutet den englischen Afternoon Tea als Men\u00fc in sechs G\u00e4ngen neu.",
+    wm5_p3:"\u00dcber das Essen hinaus gestalte ich die gesamte Identit\u00e4t: Men\u00fckarten im Stil eines Schreibmaschinen-Dossiers, ein Dokumentationssystem f\u00fcr Rezepte mit Abschnitten zu Chemie, sensorischer Entwicklung und historischen Quellen, und die Bildsprache, die das Projekt zusammenh\u00e4lt.",
+    wm5_status:"Laufend &middot; Eigenst\u00e4ndig &middot; Nicht kommerziell",
+    av_stat1:"Konzeptmen\u00fcs",av_stat2:"G\u00e4nge pro Men\u00fc",av_stat3:"Eigene Bildsprache",
+    av_tag1:"Konzeptentwicklung",av_tag2:"Dramaturgie",av_tag3:"Markenidentit\u00e4t",av_tag4:"Printdesign",av_tag5:"G\u00e4steerlebnis",
+    wm4_role:"Veranstaltungskoordination &amp; Spender-G\u00e4stelogistik &middot; Unter der Leitung von Dr. León Krempel",
     tl_label:"Werdegang",
     tl1_date:"Jul 2024",tl1_name:"Kunsthalle Darmstadt",tl1_desc:"Koordinator Mitgliedschaft &amp; Veranstaltungen. 500+ Mitglieder, 10+ exklusive Events.",
     tl2_date:"Sep 2024",tl2_name:"Arie van Selm Gala",tl2_desc:"Fundraising-Gala zur ersten institutionellen Werkschau. 17 internationale Leihgeber.",
     tl3_date:"Jan 2025",tl3_name:"Konfuzius-Institut Frankfurt",tl3_desc:"Kultur- &amp; Veranstaltungskoordinator. 30+ Events, zweisprachige Produktion.",
     tl4_date:"Mai 2025",tl4_name:"IMEX Frankfurt",tl4_desc:"Europas f\u00fchrende Meetings- &amp; Eventmesse. Erster Besuch als Delegierter.",
     tl5_date:"Jul 2025",tl5_name:"Theaterfestival",tl5_desc:"Han-Zaifen-Ensemble. 30+ K\u00fcnstler. Nationales Kulturerbe Chinas.",
-    tl6_date:"Okt 2025",tl6_name:"Frankfurter B\u00fcchermesse",tl6_desc:"Mitwirkung am Messeauftritt des Konfuzius-Instituts auf der weltgr\u00f6\u00dften Buchmesse.",
-    tl7_date:"2025\u201326",tl7_name:"Aufbau &amp; Suche",tl7_desc:"Entwicklung pers\u00f6nlicher Event-Tools. Aktives Branchenengagement. Offen f\u00fcr die richtige Chance.",
+    tl6_date:"Okt 2025",tl6_name:"Frankfurter Buchmesse",tl6_desc:"Mitwirkung am Messeauftritt des Konfuzius-Instituts auf der weltgr\u00f6\u00dften Buchmesse.",
+    tl7_date:"Aug 2025",tl7_name:"\u00dcbergang",tl7_desc:"Ende beider Positionen. Eigenst\u00e4ndiger Aufbau, aktives Branchenengagement.",
     tl8_date:"Mai 2026",tl8_name:"IMEX Frankfurt",tl8_desc:"R\u00fcckkehr als Delegierter. Konsequentes Branchenengagement.",
+    tl9_date:"Seit Sept. 2025",tl9_name:"Eigene Projekte",tl9_desc:"Konzept-Dining-Projekt Ash &amp; Vine, Gestaltung und Umsetzung dieser Website, IMEX Frankfurt 2026.",
     tl_hint:"Scrollen zum Entdecken",
     seek_label:"Wonach ich suche",
-    seek_text:"Mich ziehen Institutionen an, deren Programm ambitioniert ist und bei denen jedes Detail z\u00e4hlt &mdash; wo ein Team etwas aufbaut, das das Publikum noch lange nach dem Abend in Erinnerung beh\u00e4lt. Ich m\u00f6chte meine Pr\u00e4zision, meine Ruhe unter Druck und mein Gesp\u00fcr f\u00fcr <em>Atmosph\u00e4re</em> in Kulturproduktionen einbringen, die Ma\u00dfst\u00e4be setzen &mdash; und mit ihnen wachsen.",
+    seek_text:"Ich suche meine n\u00e4chste Aufgabe in der Veranstaltungsproduktion, im MICE-Bereich oder in der gehobenen Hotellerie: in Teams, in denen sorgf\u00e4ltige Planung und Atmosph\u00e4re gleich viel z\u00e4hlen, ob bei einer Konferenz, einem Festival oder einer Gala. Ich lebe im Rheingau, bin ab sofort verf\u00fcgbar und offen f\u00fcr Aufgaben in ganz Deutschland und Europa.",
     seek_coda:"Offen f\u00fcr Positionen in ganz Deutschland und Europa &middot; Sofort verf\u00fcgbar",
     map_intro:"Aufgewachsen in Darmstadt. Ausgebildet in Frankfurt. Jetzt in Geisenheim, Rheingau &mdash; und offen für Chancen in ganz Deutschland und Europa.",
     footer_stmt:"&ldquo;Erstklassige Kulturerlebnisse, bei denen Logistik und Atmosphäre zusammenfinden.&rdquo;"
