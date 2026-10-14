@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
-<meta name="description" content="Lorenzo von Neumann-Cosel — event coordination and cultural programming professional based in Geisenheim, Rheingau. event coordination and cultural programming. Kunsthalle Darmstadt, Konfuzius-Institut Frankfurt, IMEX delegate.">
+<meta name="description" content="Lorenzo von Neumann-Cosel — event coordination and cultural programming professional based in Geisenheim, Rheingau. Kunsthalle Darmstadt, Konfuzius-Institut Frankfurt, IMEX delegate.">
 <meta name="keywords" content="Lorenzo von Neumann-Cosel, event coordinator Rheingau, Veranstaltungskoordinator, Kunsthalle Darmstadt, Konfuzius Institut Frankfurt">
 <meta name="author" content="Lorenzo von Neumann-Cosel">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -731,6 +731,7 @@ footer{
 .reveal-d2{transition-delay:.22s;}
 .reveal-d3{transition-delay:.34s;}
 .reveal-d4{transition-delay:.46s;}
+.reveal-d5{transition-delay:.58s;}
 
 /* Word-set animation */
 @keyframes wordUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
@@ -1314,14 +1315,14 @@ footer{
         <div class="timeline-desc" data-key="tl5_desc">Han Zaifen Ensemble. 30+ artists. National Cultural Heritage of China.</div>
       </div>
       <div class="timeline-node sec-enter">
-        <div class="timeline-date" data-key="tl6_date">Oct 2025</div>
-        <div class="timeline-name" data-key="tl6_name">Frankfurter Buchmesse</div>
-        <div class="timeline-desc" data-key="tl6_desc">Contributed to Konfuzius-Institut&rsquo;s presence at the world&rsquo;s largest book fair.</div>
-      </div>
-      <div class="timeline-node sec-enter">
         <div class="timeline-date" data-key="tl7_date">Aug 2025</div>
         <div class="timeline-name" data-key="tl7_name">Transition</div>
         <div class="timeline-desc" data-key="tl7_desc">End of both positions. Building independently, active industry engagement.</div>
+      </div>
+      <div class="timeline-node sec-enter">
+        <div class="timeline-date" data-key="tl6_date">Oct 2025</div>
+        <div class="timeline-name" data-key="tl6_name">Frankfurter Buchmesse</div>
+        <div class="timeline-desc" data-key="tl6_desc">Contributed to Konfuzius-Institut&rsquo;s presence at the world&rsquo;s largest book fair.</div>
       </div>
       <div class="timeline-node tl-milestone sec-enter">
         <div class="timeline-date" data-key="tl8_date">May 2026</div>
@@ -1366,7 +1367,7 @@ footer{
       <div class="work-sub" data-key="w4_sub">Kunsthalle Darmstadt &middot; September 2024</div>
       <p class="work-outcome" data-key="w4_outcome">Fundraising gala dinner for the first comprehensive institutional survey of van Selm &mdash; works on loan from 17 lenders, Darmstadt to Dallas. Supported event coordination and donor guest logistics under the direction of Director Dr. Le&oacute;n Krempel.</p>
     </div>
-    <div class="work-card reveal" onclick="openWorkModal(5)" role="button" tabindex="0">
+    <div class="work-card reveal reveal-d5" onclick="openWorkModal(5)" role="button" tabindex="0">
       <div class="work-num">05</div>
       <div class="work-title" data-key="w5_title">Ash &amp; Vine</div>
       <div class="work-sub" data-key="w5_sub">Concept Dining &middot; 2025 &ndash; present</div>
@@ -2256,7 +2257,7 @@ function checkPin(){
   var val = document.getElementById("pin-input").value;
   if(val === GEN_PIN){
     sessionStorage.setItem("lvnc_unlocked","1");
-    window.location.href = "backend.html";
+    window.location.href = "generator.html";
   } else {
     document.getElementById("pin-error").textContent = "Incorrect PIN. Try again.";
     document.getElementById("pin-input").value = "";
